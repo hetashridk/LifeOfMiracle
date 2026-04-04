@@ -8,7 +8,7 @@ const reviews = [
     name: 'Sarah J.',
     title: 'Startup Founder',
     text: 'Working with her was a complete game-changer! She creates a supportive, judgment-free space for open and honest conversations.',
-    color: 'var(--color-accent-peach)',
+    color: 'var(--color-primary)',
   },
   {
     name: 'Michael T.',

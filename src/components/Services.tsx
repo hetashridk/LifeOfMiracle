@@ -7,7 +7,7 @@ const services = [
   {
     title: '1:1 Leadership Coaching',
     desc: 'Focuses on leading with calm and deep presence, handling conflicts with poise.',
-    color: 'var(--color-accent-peach)',
+    color: 'var(--color-primary)',
     icon: '△'
   },
   {

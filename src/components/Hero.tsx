@@ -15,7 +15,7 @@ export function Hero() {
       gap: '2rem'
     }}>
       {/* Left side: Large vertical image with overlapping circles */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -29,10 +29,10 @@ export function Hero() {
           width: '200px',
           height: '200px',
           borderRadius: '50%',
-          backgroundColor: 'var(--color-accent-peach)',
+          backgroundColor: 'var(--color-accent-mustard)',
           zIndex: 0
         }} />
-        
+
         {/* Decorative circle 2 */}
         <div style={{
           position: 'absolute',
@@ -44,7 +44,7 @@ export function Hero() {
           backgroundColor: 'var(--color-accent-emerald)',
           zIndex: 0
         }} />
-        
+
         <div style={{
           position: 'relative',
           width: '100%',
@@ -59,13 +59,13 @@ export function Hero() {
       </motion.div>
 
       {/* Right side: Colored box containing text and CTA */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        style={{ 
-          flex: '1', 
-          backgroundColor: 'var(--color-accent-mustard)',
+        style={{
+          flex: '1',
+          backgroundColor: 'var(--color-primary)',
           borderRadius: 'var(--radius-lg)',
           padding: '5rem 4rem',
           display: 'flex',
@@ -75,23 +75,25 @@ export function Hero() {
           minHeight: '60vh'
         }}
       >
-        <span style={{ color: 'var(--color-text-secondary)', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '1rem', display: 'block' }}>
+
+        {/* color: 'var(--color-accent-mustard)' */}
+        <span style={{ color: '#fff', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '1rem', display: 'block' }}>
           Life & Leadership Coaching
         </span>
-        <h1 style={{ fontSize: '4.5rem', fontFamily: 'var(--font-heading)', color: 'var(--color-primary)', lineHeight: 1.1, marginBottom: '2rem' }}>
+        <h1 style={{ fontSize: '4.5rem', fontFamily: 'var(--font-heading)', color: '#fcbc51', lineHeight: 1.1, marginBottom: '2rem' }}>
           I help Leaders with Profound Professional & Spiritual Growth.
         </h1>
-        <p style={{ fontSize: '1.125rem', color: 'var(--color-text-primary)', marginBottom: '4rem', opacity: 0.9 }}>
+        <p style={{ fontSize: '1.125rem', color: '#fff', marginBottom: '4rem', opacity: 0.9 }}>
           I facilitate them to grow profoundly in business & personal life with a shift at the core of their being.
         </p>
-        
+
         {/* Large circular CTA button */}
         <a href="#services" style={{
           width: '120px',
           height: '120px',
           borderRadius: '50%',
-          backgroundColor: 'var(--color-primary)',
-          color: '#fff',
+          backgroundColor: 'var(--color-accent-mustard)',
+          color: 'var(--color-primary)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -100,7 +102,7 @@ export function Hero() {
           cursor: 'pointer',
           boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
         }}>
-          <motion.div 
+          <motion.div
             animate={{ y: [0, 5, 0] }}
             transition={{ repeat: Infinity, duration: 2 }}
             style={{ fontSize: '2rem' }}

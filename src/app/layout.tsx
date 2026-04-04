@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
-import { Montserrat, Playfair_Display } from "next/font/google";
+import { Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 
-const montserrat = Montserrat({
+const interBody = Inter({
   variable: "--font-body",
   subsets: ["latin"],
 });
 
-const playfair = Playfair_Display({
+const cormorantHeading = Cormorant_Garamond({
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
   variable: "--font-heading",
   subsets: ["latin"],
 });
@@ -25,7 +27,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} ${playfair.variable}`}
+      className={`${interBody.variable} ${cormorantHeading.variable}`}
     >
       <body>{children}</body>
     </html>

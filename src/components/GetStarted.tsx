@@ -75,7 +75,7 @@ export function GetStarted() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           style={{
-            backgroundColor: 'var(--color-accent-peach)',
+            backgroundColor: 'var(--color-surface)',
             borderRadius: 'var(--radius-lg)',
             padding: '5rem 4rem',
             textAlign: 'center',
