@@ -72,7 +72,8 @@ export function Hero() {
           flexDirection: 'column',
           justifyContent: 'center',
           position: 'relative',
-          minHeight: '60vh'
+          height: '80vh',
+          minHeight: '600px'
         }}
       >
 
