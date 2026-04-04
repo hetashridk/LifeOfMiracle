@@ -5,20 +5,20 @@ import { motion } from 'framer-motion';
 
 const services = [
   {
-    title: '1:1 Leadership Coaching',
-    desc: 'Focuses on leading with calm and deep presence, handling conflicts with poise.',
+    title: 'Corporate Professionals',
+    desc: 'Navigate burnout, decision fatigue, and find clarity and direction in high-stress environments.',
     color: 'var(--color-primary)',
     icon: '△'
   },
   {
-    title: 'Corporate Training',
-    desc: 'Tailored training for teams to tap into full potential and achieve great results.',
+    title: 'Student Mental Fitness',
+    desc: 'Overcome anxiety, constant comparison, and emotional turbulence to stay focused and resilient.',
     color: 'var(--color-accent-emerald)',
     icon: '◧'
   },
   {
-    title: 'Coaches Community',
-    desc: 'A supportive, abundant space for coaches to build thriving practices.',
+    title: 'Personal Chaos',
+    desc: 'Build the ability to stay calm, focused, emotionally balanced, and self-led in the middle of it all.',
     color: 'var(--color-accent-mustard)',
     icon: '〰'
   },
@@ -51,6 +51,7 @@ export function Services() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               whileHover={{ y: -5 }}
+              className="responsive-padding"
               style={{
                 backgroundColor: '#fff',
                 color: 'var(--color-primary)',

@@ -43,6 +43,7 @@ export function Reviews() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
+              className="responsive-padding"
               style={{
                 backgroundColor: '#fff',
                 color: 'var(--color-primary)',

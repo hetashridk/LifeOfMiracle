@@ -70,10 +70,11 @@ export function GetStarted() {
         </div>
 
         {/* Newsletter & Get Started Area */}
-        <motion.div
+        <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          className="responsive-padding"
           style={{
             // backgroundColor: 'var(--color-primary)',
             backgroundColor: '#165b74',
@@ -85,11 +86,10 @@ export function GetStarted() {
           }}
         >
           <h2 style={{ fontSize: '3rem', fontFamily: 'var(--font-heading)', marginBottom: '1.5rem' }}>
-            Ready To Grow and Amplify Your Impact?
+            Get Daily Miracles
           </h2>
           <p style={{ fontSize: '1.125rem', marginBottom: '3rem', maxWidth: '700px', margin: '0 auto 3rem', opacity: 0.9 }}>
-            Handle any conflict or situation with calm and poise. Express yourself effectively & assertively. Exude magnetic leadership presence. <br /><br />
-            Join the newsletter to download my Free eBook: <strong>How to stop overthinking in 3 minutes</strong>.
+            Mental Fitness is the missing layer. Join the Miracle Newsletter to build clarity, courage, and calm in the middle of it all.
           </p>
           <form style={{ display: 'flex', gap: '1rem', justifyContent: 'center', maxWidth: '600px', margin: '0 auto' }} onSubmit={e => e.preventDefault()}>
             <input

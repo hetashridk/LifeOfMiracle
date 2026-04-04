@@ -41,6 +41,60 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
+/* --- Responsive Utilities --- */
+
+@media (max-width: 1024px) {
+  :root {
+    --spacing-section: 5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --spacing-section: 3rem;
+    --spacing-container: 100%;
+  }
+  
+  /* Override inline heading sizes */
+  h1, h2 { font-size: 2.5rem !important; }
+  h3 { font-size: 1.5rem !important; }
+
+  /* Utilities */
+  .flex-responsive {
+    flex-direction: column !important;
+  }
+  
+  .hide-mobile {
+    display: none !important;
+  }
+  
+  .show-mobile {
+    display: block !important;
+  }
+  
+  .responsive-padding {
+    padding: 2.5rem 1.5rem !important;
+  }
+
+  .responsive-hero-height {
+    height: auto !important;
+    min-height: auto !important;
+  }
+  
+  .responsive-hero-container {
+    height: auto !important;
+    padding-top: 100px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .show-mobile {
+    display: none !important;
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;

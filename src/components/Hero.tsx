@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export function Hero() {
   return (
-    <section style={{
+    <section className="flex-responsive responsive-hero-container" style={{
       minHeight: '100vh',
       display: 'flex',
       alignItems: 'center',
@@ -19,7 +19,8 @@ export function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        style={{ flex: '1.2', position: 'relative', height: '80vh', minHeight: '600px' }}
+        className="responsive-hero-height"
+        style={{ flex: '1.2', position: 'relative', height: '80vh', minHeight: '600px', width: '100%' }}
       >
         {/* Decorative circle 1 */}
         <div style={{
@@ -59,15 +60,17 @@ export function Hero() {
       </motion.div>
 
       {/* Right side: Colored box containing text and CTA */}
-      <motion.div
+      <motion.div 
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
+        className="responsive-padding responsive-hero-height"
         style={{
-          flex: '1',
+          flex: '1', 
           backgroundColor: 'var(--color-primary)',
           borderRadius: 'var(--radius-lg)',
           padding: '5rem 4rem',
+          width: '100%',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -78,14 +81,14 @@ export function Hero() {
       >
 
         {/* color: 'var(--color-accent-mustard)' */}
-        <span style={{ color: '#fff', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '1rem', display: 'block' }}>
-          Life & Leadership Coaching
+        <span style={{ color: 'var(--color-accent-mustard)', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '1rem', display: 'block' }}>
+          Life of a Miracle
         </span>
-        <h1 style={{ fontSize: '4.5rem', fontFamily: 'var(--font-heading)', color: '#fcbc51', lineHeight: 1.1, marginBottom: '2rem' }}>
-          I help Leaders with Profound Professional & Spiritual Growth.
+        <h1 style={{ fontSize: '4.5rem', fontFamily: 'var(--font-heading)', color: '#fff', lineHeight: 1.1, marginBottom: '2rem' }}>
+          Mental Fitness for Modern Minds.
         </h1>
         <p style={{ fontSize: '1.125rem', color: '#fff', marginBottom: '4rem', opacity: 0.9 }}>
-          I facilitate them to grow profoundly in business & personal life with a shift at the core of their being.
+          I help you build clarity, courage, and calm through mental fitness, from corporate burnout to student anxiety to personal chaos.
         </p>
 
         {/* Large circular CTA button */}

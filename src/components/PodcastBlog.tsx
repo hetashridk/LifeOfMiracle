@@ -21,10 +21,10 @@ export function PodcastBlog() {
           >
             <span style={{ color: 'var(--color-accent-coral)', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 600 }}>Listen & Learn</span>
             <h2 style={{ fontSize: '3.5rem', margin: '1rem 0', fontFamily: 'var(--font-heading)', color: 'var(--color-primary)', lineHeight: 1.1 }}>
-              Quantum Shift with Saloni Singh
+              What It Really Takes
             </h2>
             <p style={{ color: 'var(--color-text-primary)', marginBottom: '2rem', fontSize: '1.125rem', opacity: 0.9 }}>
-              Conversations about shifting at the core of your being to excel in every area of life.
+              Conversations exploring the human stories and clarity-building frameworks behind success.
             </p>
             <div style={{
               display: 'flex', alignItems: 'center', gap: '1.5rem', backgroundColor: 'var(--color-bg)', padding: '1.5rem', borderRadius: 'var(--radius-md)', border: '1px solid rgba(0,0,0,0.05)'
@@ -35,8 +35,8 @@ export function PodcastBlog() {
                  ▶
                </div>
                <div>
-                 <div style={{ fontWeight: 600, color: 'var(--color-primary)' }}>Latest Episode</div>
-                 <div style={{ color: 'var(--color-text-secondary)', fontSize: '0.875rem' }}>Surrender: Meeting Life as It Is</div>
+                 <div style={{ fontWeight: 600, color: 'var(--color-primary)' }}>Watch the Podcast</div>
+                 <div style={{ color: 'var(--color-text-secondary)', fontSize: '0.875rem' }}>Available Now</div>
                </div>
             </div>
           </motion.div>
@@ -50,12 +50,12 @@ export function PodcastBlog() {
           >
             <span style={{ color: 'var(--color-accent-emerald)', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 600 }}>Read & Reflect</span>
             <h2 style={{ fontSize: '3.5rem', margin: '1rem 0', fontFamily: 'var(--font-heading)', color: 'var(--color-primary)', lineHeight: 1.1 }}>
-              Recent Articles
+              Blogs & Updates
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '2rem' }}>
               {[
-                { title: "The Dilemma Of Being Present", date: "Oct 12" },
-                { title: "Surrender: Meeting Life as It Is", date: "Sep 28" }
+                { title: "Building Clarity in Chaos", date: "Oct 12" },
+                { title: "The Missing Layer: Mental Fitness", date: "Sep 28" }
               ].map(post => (
                 <div key={post.title} style={{ borderBottom: '1px solid rgba(0,0,0,0.05)', paddingBottom: '1.5rem' }}>
                    <div style={{ fontSize: '0.8rem', color: 'var(--color-accent-emerald)', fontWeight: 600, marginBottom: '0.5rem' }}>{post.date}</div>
