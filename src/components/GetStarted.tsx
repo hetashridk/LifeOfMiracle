@@ -20,7 +20,7 @@ export function GetStarted() {
       color: 'var(--color-primary)'
     }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-        
+
         {/* FAQ Area (Left / Right Layout) */}
         <div style={{ display: 'flex', gap: '4rem', marginBottom: '8rem', flexWrap: 'wrap' }}>
           <div style={{ flex: '1', minWidth: '300px' }}>
@@ -30,14 +30,14 @@ export function GetStarted() {
           </div>
           <div style={{ flex: '2', minWidth: '300px', display: 'flex', flexDirection: 'column' }}>
             {faqs.map((faq, index) => (
-              <div 
+              <div
                 key={index}
                 style={{
                   borderBottom: '1px solid var(--color-primary)',
                   overflow: 'hidden'
                 }}
               >
-                <div 
+                <div
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
                   style={{
                     padding: '2rem 0',
@@ -70,16 +70,17 @@ export function GetStarted() {
         </div>
 
         {/* Newsletter & Get Started Area */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           style={{
-            backgroundColor: 'var(--color-surface)',
+            // backgroundColor: 'var(--color-primary)',
+            backgroundColor: '#165b74',
             borderRadius: 'var(--radius-lg)',
             padding: '5rem 4rem',
             textAlign: 'center',
-            color: 'var(--color-primary)',
+            color: '#fff',
             boxShadow: '0 10px 40px rgba(0,0,0,0.05)'
           }}
         >
@@ -87,13 +88,13 @@ export function GetStarted() {
             Ready To Grow and Amplify Your Impact?
           </h2>
           <p style={{ fontSize: '1.125rem', marginBottom: '3rem', maxWidth: '700px', margin: '0 auto 3rem', opacity: 0.9 }}>
-            Handle any conflict or situation with calm and poise. Express yourself effectively & assertively. Exude magnetic leadership presence. <br/><br/>
+            Handle any conflict or situation with calm and poise. Express yourself effectively & assertively. Exude magnetic leadership presence. <br /><br />
             Join the newsletter to download my Free eBook: <strong>How to stop overthinking in 3 minutes</strong>.
           </p>
           <form style={{ display: 'flex', gap: '1rem', justifyContent: 'center', maxWidth: '600px', margin: '0 auto' }} onSubmit={e => e.preventDefault()}>
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
+            <input
+              type="email"
+              placeholder="Enter your email"
               style={{
                 padding: '1.2rem 2rem',
                 borderRadius: 'var(--radius-pill)',
