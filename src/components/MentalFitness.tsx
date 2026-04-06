@@ -99,62 +99,97 @@ export function MentalFitness() {
             }}>
               It's the difference between
             </p>
-            {contrasts.map(({ from, to }, i) => (
-              <motion.div
-                key={from}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr auto 1fr',
-                  alignItems: 'center',
-                  gap: '1rem',
-                  backgroundColor: 'var(--color-bg)',
-                  borderRadius: 'var(--radius-lg)',
-                  padding: '1.75rem 2rem',
-                  border: '1px solid rgba(0,0,0,0.05)'
-                }}
-              >
-                <div>
-                  <span style={{
-                    fontSize: '1.35rem',
-                    color: 'var(--color-text-secondary)',
-                    opacity: 0.5,
-                    textDecoration: 'line-through',
-                    textDecorationColor: 'var(--color-accent-coral)',
-                    textDecorationThickness: '2px'
-                  }}>
-                    {from}
-                  </span>
-                </div>
-                <div style={{
-                  width: '36px',
-                  height: '36px',
-                  borderRadius: '50%',
-                  backgroundColor: 'var(--color-primary)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#fff',
-                  fontSize: '1rem',
-                  flexShrink: 0
-                }}>
-                  →
-                </div>
-                <div>
-                  <span style={{
-                    fontSize: '1.35rem',
-                    fontWeight: 700,
-                    color: 'var(--color-primary)',
-                    fontFamily: 'var(--font-heading)'
-                  }}>
-                    {to}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', rowGap: '1rem' }}>
+              {contrasts.map(({ from, to }, i) => (
+                <React.Fragment key={from}>
+                  <motion.div
+                    initial={{ opacity: 0, x: -15 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
+                    style={{
+                      backgroundColor: 'var(--color-bg)',
+                      borderRadius: 'var(--radius-lg) 0 0 var(--radius-lg)',
+                      padding: '1.5rem 0.75rem 1.5rem 2rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'flex-end',
+                      border: '1px solid rgba(0,0,0,0.05)',
+                      borderRight: 'none'
+                    }}
+                  >
+                    <span style={{
+                      fontSize: '1.25rem',
+                      color: 'var(--color-text-secondary)',
+                      opacity: 0.5,
+                      textDecoration: 'line-through',
+                      textDecorationColor: 'var(--color-accent-coral)',
+                      textDecorationThickness: '2px'
+                    }}>
+                      {from}
+                    </span>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.25 + i * 0.1 }}
+                    style={{
+                      backgroundColor: 'var(--color-bg)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      padding: '1.5rem 0.5rem',
+                      border: '1px solid rgba(0,0,0,0.05)',
+                      borderLeft: 'none',
+                      borderRight: 'none'
+                    }}
+                  >
+                    <div style={{
+                      width: '36px',
+                      height: '36px',
+                      borderRadius: '50%',
+                      backgroundColor: 'var(--color-primary)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#fff',
+                      fontSize: '1rem',
+                      flexShrink: 0
+                    }}>
+                      →
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, x: 15 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
+                    style={{
+                      backgroundColor: 'var(--color-bg)',
+                      borderRadius: '0 var(--radius-lg) var(--radius-lg) 0',
+                      padding: '1.5rem 2rem 1.5rem 0.75rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'flex-start',
+                      border: '1px solid rgba(0,0,0,0.05)',
+                      borderLeft: 'none'
+                    }}
+                  >
+                    <span style={{
+                      fontSize: '1.25rem',
+                      fontWeight: 700,
+                      color: 'var(--color-primary)',
+                      fontFamily: 'var(--font-heading)'
+                    }}>
+                      {to}
+                    </span>
+                  </motion.div>
+                </React.Fragment>
+              ))}
+            </div>
           </motion.div>
         </div>
 
