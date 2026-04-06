@@ -47,6 +47,35 @@ h1, h2, h3, h4, h5, h6 {
   :root {
     --spacing-section: 5rem;
   }
+
+  .hero-section {
+    align-items: stretch !important;
+  }
+
+  .hero-image-panel {
+    height: auto !important;
+    min-height: 500px !important;
+  }
+
+  .hero-panel {
+    padding: 2.5rem 2rem !important;
+    height: auto !important;
+    min-height: unset !important;
+  }
+
+  .hero-tagline {
+    font-size: 0.7rem !important;
+    letter-spacing: 1px !important;
+  }
+
+  .hero-heading {
+    font-size: 2.6rem !important;
+  }
+
+  .hero-body {
+    font-size: 0.95rem !important;
+    margin-bottom: 2rem !important;
+  }
 }
 
 @media (max-width: 768px) {

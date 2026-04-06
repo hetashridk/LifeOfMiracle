@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export function Hero() {
   return (
-    <section className="flex-responsive responsive-hero-container" style={{
+    <section className="flex-responsive responsive-hero-container hero-section" style={{
       minHeight: '100vh',
       display: 'flex',
       alignItems: 'center',
@@ -19,7 +19,7 @@ export function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="responsive-hero-height"
+        className="responsive-hero-height hero-image-panel"
         style={{ flex: '1.2', position: 'relative', height: '80vh', minHeight: '600px', width: '100%' }}
       >
         {/* Decorative circle 1 */}
@@ -64,9 +64,9 @@ export function Hero() {
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="responsive-padding responsive-hero-height"
+        className="responsive-padding responsive-hero-height hero-panel"
         style={{
-          flex: '1', 
+          flex: '1',
           backgroundColor: 'var(--color-primary)',
           borderRadius: 'var(--radius-lg)',
           padding: '5rem 4rem',
@@ -80,13 +80,13 @@ export function Hero() {
         }}
       >
 
-        <span style={{ color: 'var(--color-accent-mustard)', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '1rem', display: 'block' }}>
+        <span className="hero-tagline" style={{ color: 'var(--color-accent-mustard)', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '1rem', display: 'block', fontSize: '0.8rem' }}>
           Mental Fitness Is The Skill No One Taught You — Until Now
         </span>
-        <h1 style={{ fontSize: '4rem', fontFamily: 'var(--font-heading)', color: '#fff', lineHeight: 1.1, marginBottom: '2rem' }}>
+        <h1 className="hero-heading" style={{ fontSize: '4rem', fontFamily: 'var(--font-heading)', color: '#fff', lineHeight: 1.1, marginBottom: '2rem' }}>
           Build A Mind That Works For You, Not Against You
         </h1>
-        <p style={{ fontSize: '1.125rem', color: '#fff', marginBottom: '3rem', opacity: 0.9 }}>
+        <p className="hero-body" style={{ fontSize: '1.125rem', color: '#fff', marginBottom: '3rem', opacity: 0.9 }}>
           I'm Karishma Khubchandani, Mental Fitness Coach and Founder of Life Of A Miracle. I help founders, creators, and individuals build emotional clarity, resilience, and inner strength so they can perform, lead, and live better.
         </p>
 
