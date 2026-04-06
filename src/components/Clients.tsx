@@ -30,7 +30,7 @@ export function Clients() {
             {['Founders', 'Creators', 'Leaders', 'Organizations', 'Individuals'].map((label) => (
               <div key={label} style={{
                 fontSize: '1.25rem',
-                fontFamily: 'var(--font-heading)',
+                fontFamily: 'var(--font-karla)',
                 color: 'var(--color-primary)',
                 fontWeight: 700,
                 letterSpacing: '1px'

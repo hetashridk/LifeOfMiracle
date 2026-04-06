@@ -46,7 +46,7 @@ export function MentalFitness() {
             </span>
             <h2 style={{
               fontSize: '3.5rem',
-              fontFamily: 'var(--font-heading)',
+              fontFamily: 'var(--font-karla)',
               color: 'var(--color-primary)',
               lineHeight: 1.1,
               marginBottom: '1.5rem'
@@ -76,7 +76,7 @@ export function MentalFitness() {
                 </span>
               ))}
             </div>
-            <p style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--color-primary)', fontFamily: 'var(--font-heading)' }}>
+            <p style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--color-primary)', fontFamily: 'var(--font-karla)' }}>
               This is training your mind to work for you.
             </p>
           </motion.div>
@@ -182,7 +182,7 @@ export function MentalFitness() {
                       fontSize: '1.25rem',
                       fontWeight: 700,
                       color: 'var(--color-primary)',
-                      fontFamily: 'var(--font-heading)'
+                      fontFamily: 'var(--font-karla)'
                     }}>
                       {to}
                     </span>

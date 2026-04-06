@@ -23,7 +23,7 @@ export function GetStarted() {
         {/* FAQ Area (Left / Right Layout) */}
         <div style={{ display: 'flex', gap: '4rem', marginBottom: '8rem', flexWrap: 'wrap' }}>
           <div style={{ flex: '1', minWidth: '300px' }}>
-            <h2 style={{ fontSize: '3.5rem', fontFamily: 'var(--font-heading)', lineHeight: 1.1 }}>
+            <h2 style={{ fontSize: '3.5rem', fontFamily: 'var(--font-karla)', lineHeight: 1.1 }}>
               Frequently<br />Asked
             </h2>
           </div>
@@ -84,7 +84,7 @@ export function GetStarted() {
             boxShadow: '0 10px 40px rgba(0,0,0,0.05)'
           }}
         >
-          <h2 style={{ fontSize: '3.5rem', fontFamily: 'var(--font-heading)', marginBottom: '2rem', lineHeight: 1.1 }}>
+          <h2 style={{ fontSize: '3.5rem', fontFamily: 'var(--font-karla)', marginBottom: '2rem', lineHeight: 1.1 }}>
             Your Mind Is Either Your Strength Or Your Limitation
           </h2>
           <a

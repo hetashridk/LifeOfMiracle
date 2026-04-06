@@ -42,7 +42,7 @@ export function Services() {
     }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <h2 style={{ fontSize: '3.5rem', margin: '1rem 0', fontFamily: 'var(--font-heading)' }}>Work With Me</h2>
+          <h2 style={{ fontSize: '3.5rem', margin: '1rem 0', fontFamily: 'var(--font-karla)' }}>Work With Me</h2>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
@@ -68,7 +68,7 @@ export function Services() {
               }}
             >
               <div style={{ fontSize: '3rem', opacity: 0.8, fontWeight: 'lighter', color: svc.color }}>{svc.icon}</div>
-              <h3 style={{ fontSize: '1.75rem', fontWeight: 600, fontFamily: 'var(--font-heading)', lineHeight: 1.2 }}>
+              <h3 style={{ fontSize: '1.75rem', fontWeight: 600, fontFamily: 'var(--font-karla)', lineHeight: 1.2 }}>
                 {svc.title}
               </h3>
               <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.95rem', fontStyle: 'italic' }}>{svc.subtitle}</p>

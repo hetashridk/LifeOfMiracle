@@ -30,13 +30,13 @@
 body {
   background-color: var(--color-bg);
   color: var(--color-text-primary);
-  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+  font-family: var(--font-karla), sans-serif;
   overflow-x: hidden;
   line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading), serif;
+  font-family: var(--font-karla), sans-serif;
   font-weight: 600;
   line-height: 1.2;
 }
@@ -47,35 +47,6 @@ h1, h2, h3, h4, h5, h6 {
   :root {
     --spacing-section: 5rem;
   }
-
-  .hero-section {
-    align-items: stretch !important;
-  }
-
-  .hero-image-panel {
-    height: auto !important;
-    min-height: 500px !important;
-  }
-
-  .hero-panel {
-    padding: 2.5rem 2rem !important;
-    height: auto !important;
-    min-height: unset !important;
-  }
-
-  .hero-tagline {
-    font-size: 0.7rem !important;
-    letter-spacing: 1px !important;
-  }
-
-  .hero-heading {
-    font-size: 2.6rem !important;
-  }
-
-  .hero-body {
-    font-size: 0.95rem !important;
-    margin-bottom: 2rem !important;
-  }
 }
 
 @media (max-width: 768px) {
@@ -83,7 +54,7 @@ h1, h2, h3, h4, h5, h6 {
     --spacing-section: 3rem;
     --spacing-container: 100%;
   }
-  
+
   /* Override inline heading sizes */
   h1, h2 { font-size: 2.5rem !important; }
   h3 { font-size: 1.5rem !important; }
@@ -134,4 +105,12 @@ button {
   border: none;
   background: none;
   font-family: inherit;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }

@@ -20,14 +20,14 @@ export function PodcastBlog() {
             style={{ flex: 1, minWidth: '300px' }}
           >
             <span style={{ color: 'var(--color-accent-coral)', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 600 }}>Podcast</span>
-            <h2 style={{ fontSize: '3.5rem', margin: '1rem 0', fontFamily: 'var(--font-heading)', color: 'var(--color-primary)', lineHeight: 1.1 }}>
+            <h2 style={{ fontSize: '3.5rem', margin: '1rem 0', fontFamily: 'var(--font-karla)', color: 'var(--color-primary)', lineHeight: 1.1 }}>
               What It Really Takes
             </h2>
             <p style={{ color: 'var(--color-text-primary)', marginBottom: '0.75rem', fontSize: '1.125rem', opacity: 0.9 }}>
               A podcast where founders, creators, and leaders share the truth behind growth. The breakdowns, the pressure, the identity shifts, and the mindset it takes to build something meaningful.
             </p>
             <p style={{ color: 'var(--color-text-secondary)', marginBottom: '2rem', fontSize: '1rem', fontStyle: 'italic' }}>
-              This is not surface-level success talk — This is what it really takes.
+              This is not surface-level success talk This is what it really takes.
             </p>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <a href="#podcast" style={{
@@ -58,7 +58,7 @@ export function PodcastBlog() {
             style={{ flex: 1, minWidth: '300px' }}
           >
             <span style={{ color: 'var(--color-accent-emerald)', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 600 }}>Read & Reflect</span>
-            <h2 style={{ fontSize: '3.5rem', margin: '1rem 0', fontFamily: 'var(--font-heading)', color: 'var(--color-primary)', lineHeight: 1.1 }}>
+            <h2 style={{ fontSize: '3.5rem', margin: '1rem 0', fontFamily: 'var(--font-karla)', color: 'var(--color-primary)', lineHeight: 1.1 }}>
               Blogs & Updates
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '2rem' }}>
@@ -68,7 +68,7 @@ export function PodcastBlog() {
               ].map(post => (
                 <div key={post.title} style={{ borderBottom: '1px solid rgba(0,0,0,0.05)', paddingBottom: '1.5rem' }}>
                    <div style={{ fontSize: '0.8rem', color: 'var(--color-accent-emerald)', fontWeight: 600, marginBottom: '0.5rem' }}>{post.date}</div>
-                   <h3 style={{ fontSize: '1.25rem', color: 'var(--color-primary)', fontFamily: 'var(--font-heading)', cursor: 'pointer' }}>
+                   <h3 style={{ fontSize: '1.25rem', color: 'var(--color-primary)', fontFamily: 'var(--font-karla)', cursor: 'pointer' }}>
                      {post.title}
                    </h3>
                 </div>

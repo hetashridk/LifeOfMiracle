@@ -29,15 +29,15 @@ export function About() {
         <div style={{ flex: 1 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
             <span style={{ fontSize: '2rem', color: 'var(--color-accent-magenta)' }}>❈</span>
-            <h2 style={{ fontSize: '3.5rem', fontFamily: 'var(--font-heading)', color: 'var(--color-primary)', lineHeight: 1.1 }}>
+            <h2 style={{ fontSize: '3.5rem', fontFamily: 'var(--font-karla)', color: 'var(--color-primary)', lineHeight: 1.1 }}>
               The Work Behind The Work
             </h2>
           </div>
           <p style={{ color: 'var(--color-text-primary)', fontSize: '1.125rem', marginBottom: '1.5rem', opacity: 0.9 }}>
-            I've worked with individuals navigating pressure, uncertainty, burnout, and identity shifts. From founders building businesses to individuals rebuilding themselves, the work has always been the same — Strengthening the mind behind every decision, emotion, and action.
+            I've worked with individuals navigating pressure, uncertainty, burnout, and identity shifts. From founders building businesses to individuals rebuilding themselves, the work has always been the same Strengthening the mind behind every decision, emotion, and action.
           </p>
           <p style={{ color: 'var(--color-text-primary)', fontSize: '1.125rem', opacity: 0.9 }}>
-            Through coaching, workshops, and conversations, I focus on what actually creates change — Not surface motivation, but deep mental rewiring.
+            Through coaching, workshops, and conversations, I focus on what actually creates change Not surface motivation, but deep mental rewiring.
           </p>
         </div>
 
