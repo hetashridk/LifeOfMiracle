@@ -80,39 +80,32 @@ export function Hero() {
         }}
       >
 
-        {/* color: 'var(--color-accent-mustard)' */}
         <span style={{ color: 'var(--color-accent-mustard)', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '1rem', display: 'block' }}>
-          Life of a Miracle
+          Mental Fitness Is The Skill No One Taught You — Until Now
         </span>
-        <h1 style={{ fontSize: '4.5rem', fontFamily: 'var(--font-heading)', color: '#fff', lineHeight: 1.1, marginBottom: '2rem' }}>
-          Mental Fitness for Modern Minds.
+        <h1 style={{ fontSize: '4rem', fontFamily: 'var(--font-heading)', color: '#fff', lineHeight: 1.1, marginBottom: '2rem' }}>
+          Build A Mind That Works For You, Not Against You
         </h1>
-        <p style={{ fontSize: '1.125rem', color: '#fff', marginBottom: '4rem', opacity: 0.9 }}>
-          I help you build clarity, courage, and calm through mental fitness, from corporate burnout to student anxiety to personal chaos.
+        <p style={{ fontSize: '1.125rem', color: '#fff', marginBottom: '3rem', opacity: 0.9 }}>
+          I'm Karishma Khubchandani, Mental Fitness Coach and Founder of Life Of A Miracle. I help founders, creators, and individuals build emotional clarity, resilience, and inner strength so they can perform, lead, and live better.
         </p>
 
-        {/* Large circular CTA button */}
-        <a href="#services" style={{
-          width: '120px',
-          height: '120px',
-          borderRadius: '50%',
+        {/* CTA Button */}
+        <a href="#contact" style={{
+          display: 'inline-block',
+          padding: '1.2rem 2.5rem',
+          borderRadius: 'var(--radius-pill)',
           backgroundColor: 'var(--color-accent-mustard)',
           color: 'var(--color-primary)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          alignSelf: 'flex-start',
           textDecoration: 'none',
-          cursor: 'pointer',
-          boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
+          fontWeight: 700,
+          fontSize: '1.1rem',
+          letterSpacing: '0.5px',
+          alignSelf: 'flex-start',
+          boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
+          transition: 'transform 0.2s ease'
         }}>
-          <motion.div
-            animate={{ y: [0, 5, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-            style={{ fontSize: '2rem' }}
-          >
-            ↓
-          </motion.div>
+          Book A Discovery Call
         </a>
       </motion.div>
     </section>

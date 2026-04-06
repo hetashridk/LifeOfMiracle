@@ -30,14 +30,14 @@ export function About() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
             <span style={{ fontSize: '2rem', color: 'var(--color-accent-magenta)' }}>❈</span>
             <h2 style={{ fontSize: '3.5rem', fontFamily: 'var(--font-heading)', color: 'var(--color-primary)', lineHeight: 1.1 }}>
-              Why Mental Fitness
+              The Work Behind The Work
             </h2>
           </div>
           <p style={{ color: 'var(--color-text-primary)', fontSize: '1.125rem', marginBottom: '1.5rem', opacity: 0.9 }}>
-            The world is louder and more overwhelming than ever. Students, professionals, and leaders all face stress, overstimulation, and constant comparison. Mental Fitness is the missing layer, the ability to stay calm, focused, and emotionally balanced in the middle of it all.
+            I've worked with individuals navigating pressure, uncertainty, burnout, and identity shifts. From founders building businesses to individuals rebuilding themselves, the work has always been the same — Strengthening the mind behind every decision, emotion, and action.
           </p>
           <p style={{ color: 'var(--color-text-primary)', fontSize: '1.125rem', opacity: 0.9 }}>
-            I'm Karishma Khubchandani, Founder of "Life of a Miracle" and "What It Really Takes" Podcast. With 10+ years of experience in the tech industry (Ex-Microsoft), I help you ensure that when your mind is strong, everything else becomes possible.
+            Through coaching, workshops, and conversations, I focus on what actually creates change — Not surface motivation, but deep mental rewiring.
           </p>
         </div>
 

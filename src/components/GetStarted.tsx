@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Button } from './ui/Button';
 
 const faqs = [
   { q: "How do I lead with calm in stressful situations?", a: "By building mental fitness. We focus on noticing your internal state before reacting, allowing you to choose a poised response." },
@@ -85,30 +84,26 @@ export function GetStarted() {
             boxShadow: '0 10px 40px rgba(0,0,0,0.05)'
           }}
         >
-          <h2 style={{ fontSize: '3rem', fontFamily: 'var(--font-heading)', marginBottom: '1.5rem' }}>
-            Get Daily Miracles
+          <h2 style={{ fontSize: '3.5rem', fontFamily: 'var(--font-heading)', marginBottom: '2rem', lineHeight: 1.1 }}>
+            Your Mind Is Either Your Strength Or Your Limitation
           </h2>
-          <p style={{ fontSize: '1.125rem', marginBottom: '3rem', maxWidth: '700px', margin: '0 auto 3rem', opacity: 0.9 }}>
-            Mental Fitness is the missing layer. Join the Miracle Newsletter to build clarity, courage, and calm in the middle of it all.
-          </p>
-          <form style={{ display: 'flex', gap: '1rem', justifyContent: 'center', maxWidth: '600px', margin: '0 auto' }} onSubmit={e => e.preventDefault()}>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              style={{
-                padding: '1.2rem 2rem',
-                borderRadius: 'var(--radius-pill)',
-                border: 'none',
-                outline: 'none',
-                flex: 1,
-                fontSize: '1.1rem',
-                boxShadow: '0 4px 10px rgba(0,0,0,0.05)'
-              }}
-            />
-            <Button variant="primary" size="lg" style={{ backgroundColor: 'var(--color-accent-mustard)', color: 'var(--color-primary)', fontSize: '1.1rem' }}>
-              Subscribe & Download
-            </Button>
-          </form>
+          <a
+            href="#contact"
+            style={{
+              display: 'inline-block',
+              padding: '1.2rem 3rem',
+              borderRadius: 'var(--radius-pill)',
+              backgroundColor: 'var(--color-accent-mustard)',
+              color: 'var(--color-primary)',
+              textDecoration: 'none',
+              fontWeight: 700,
+              fontSize: '1.2rem',
+              letterSpacing: '0.5px',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
+            }}
+          >
+            Let's Train Your Mind
+          </a>
         </motion.div>
 
       </div>

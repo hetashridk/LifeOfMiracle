@@ -13,31 +13,40 @@ export function PodcastBlog() {
         <div style={{ display: 'flex', gap: '4rem', flexWrap: 'wrap' }}>
           
           {/* Podcast Area */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             style={{ flex: 1, minWidth: '300px' }}
           >
-            <span style={{ color: 'var(--color-accent-coral)', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 600 }}>Listen & Learn</span>
+            <span style={{ color: 'var(--color-accent-coral)', letterSpacing: '2px', textTransform: 'uppercase', fontWeight: 600 }}>Podcast</span>
             <h2 style={{ fontSize: '3.5rem', margin: '1rem 0', fontFamily: 'var(--font-heading)', color: 'var(--color-primary)', lineHeight: 1.1 }}>
               What It Really Takes
             </h2>
-            <p style={{ color: 'var(--color-text-primary)', marginBottom: '2rem', fontSize: '1.125rem', opacity: 0.9 }}>
-              Conversations exploring the human stories and clarity-building frameworks behind success.
+            <p style={{ color: 'var(--color-text-primary)', marginBottom: '0.75rem', fontSize: '1.125rem', opacity: 0.9 }}>
+              A podcast where founders, creators, and leaders share the truth behind growth. The breakdowns, the pressure, the identity shifts, and the mindset it takes to build something meaningful.
             </p>
-            <div style={{
-              display: 'flex', alignItems: 'center', gap: '1.5rem', backgroundColor: 'var(--color-bg)', padding: '1.5rem', borderRadius: 'var(--radius-md)', border: '1px solid rgba(0,0,0,0.05)'
-            }}>
-               <div style={{
-                 width: '60px', height: '60px', borderRadius: '50%', backgroundColor: 'var(--color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', cursor: 'pointer', fontSize: '1.5rem'
-               }}>
-                 ▶
-               </div>
-               <div>
-                 <div style={{ fontWeight: 600, color: 'var(--color-primary)' }}>Watch the Podcast</div>
-                 <div style={{ color: 'var(--color-text-secondary)', fontSize: '0.875rem' }}>Available Now</div>
-               </div>
+            <p style={{ color: 'var(--color-text-secondary)', marginBottom: '2rem', fontSize: '1rem', fontStyle: 'italic' }}>
+              This is not surface-level success talk — This is what it really takes.
+            </p>
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+              <a href="#podcast" style={{
+                display: 'inline-flex', alignItems: 'center', gap: '0.75rem',
+                backgroundColor: 'var(--color-primary)', color: '#fff',
+                padding: '1rem 1.75rem', borderRadius: 'var(--radius-pill)',
+                textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem'
+              }}>
+                <span>▶</span> Watch The Podcast
+              </a>
+              <a href="#contact" style={{
+                display: 'inline-flex', alignItems: 'center', gap: '0.75rem',
+                border: '2px solid var(--color-primary)', color: 'var(--color-primary)',
+                padding: '1rem 1.75rem', borderRadius: 'var(--radius-pill)',
+                textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem',
+                backgroundColor: 'transparent'
+              }}>
+                Be The Guest
+              </a>
             </div>
           </motion.div>
 
