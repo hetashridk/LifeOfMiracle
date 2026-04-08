@@ -96,12 +96,9 @@ export function Reviews() {
         {/* Video Reviews Carousel */}
         {videoReviews.length > 0 && (
           <div style={{ marginBottom: '6rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '2rem' }}>
-              <h3 style={{ fontSize: '1.5rem', color: 'var(--color-primary)', opacity: 0.8, textTransform: 'uppercase', letterSpacing: '2px', margin: 0 }}>
-                Watch Their Journeys
-              </h3>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '2rem' }}>
               <div style={{ display: 'flex', gap: '1rem' }}>
-                <button 
+                <button
                   onClick={() => scroll(videoScrollRef, 'left')}
                   style={{ width: '45px', height: '45px', borderRadius: '50%', backgroundColor: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 15px rgba(0,0,0,0.05)', color: 'var(--color-primary)', transition: 'transform 0.2s' }}
                   onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
@@ -109,7 +106,7 @@ export function Reviews() {
                 >
                   <ChevronLeft />
                 </button>
-                <button 
+                <button
                   onClick={() => scroll(videoScrollRef, 'right')}
                   style={{ width: '45px', height: '45px', borderRadius: '50%', backgroundColor: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 15px rgba(0,0,0,0.05)', color: 'var(--color-primary)', transition: 'transform 0.2s' }}
                   onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
@@ -119,8 +116,8 @@ export function Reviews() {
                 </button>
               </div>
             </div>
-            
-            <div 
+
+            <div
               ref={videoScrollRef}
               className="hide-scrollbar"
               style={{ display: 'flex', gap: '2.5rem', overflowX: 'auto', scrollSnapType: 'x mandatory', paddingBottom: '2rem' }}
@@ -135,157 +132,53 @@ export function Reviews() {
                   style={{
                     flex: '0 0 auto',
                     width: 'calc(100vw - 10%)',
-                    maxWidth: '450px',
+                    maxWidth: '360px',
                     scrollSnapAlign: 'start',
-                    backgroundColor: '#fff',
                     borderRadius: 'var(--radius-lg)',
                     overflow: 'hidden',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    boxShadow: '0 15px 40px rgba(0,0,0,0.04)',
-                    border: '1px solid rgba(0,0,0,0.03)'
-                  }}
-                >
-                  <div 
-                    style={{
-                      aspectRatio: '16/9',
-                      position: 'relative',
-                      backgroundImage: `url(${rev.thumbnailUrl})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      cursor: 'pointer'
-                    }}
-                    onClick={() => rev.videoUrl && setActiveVideo(rev.videoUrl)}
-                  >
-                    <div style={{
-                      position: 'absolute',
-                      top: 0, left: 0, right: 0, bottom: 0,
-                      backgroundColor: 'rgba(0,0,0,0.2)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      transition: 'background-color 0.3s ease'
-                    }}>
-                      <motion.div 
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                        style={{
-                          width: '80px', height: '80px', 
-                          backgroundColor: 'rgba(255,255,255,0.95)',
-                          borderRadius: '50%',
-                          display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
-                        }}
-                      >
-                        <Play size={36} color={rev.color} fill={rev.color} style={{ marginLeft: '6px' }} />
-                      </motion.div>
-                    </div>
-                  </div>
-                  
-                  <div style={{ padding: '2.5rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
-                    <div style={{ fontSize: '2rem', color: rev.color, lineHeight: 0.5, marginBottom: '1rem' }}>"</div>
-                    <p style={{ fontStyle: 'italic', fontSize: '1.25rem', color: 'var(--color-primary)', flex: 1, lineHeight: 1.5 }}>
-                      {rev.text}
-                    </p>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginTop: '2rem' }}>
-                      <div style={{
-                        width: '50px', height: '50px', borderRadius: '50%', backgroundColor: rev.color,
-                        display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold', fontSize: '1.2rem'
-                      }}>
-                        {rev.name[0]}
-                      </div>
-                      <div>
-                        <div style={{ fontWeight: 600, fontSize: '1.1rem', color: 'var(--color-primary)' }}>{rev.name}</div>
-                        <div style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)' }}>{rev.title}</div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Text Reviews Carousel */}
-        {textReviews.length > 0 && (
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '2rem' }}>
-              <h3 style={{ fontSize: '1.5rem', color: 'var(--color-primary)', opacity: 0.8, textTransform: 'uppercase', letterSpacing: '2px', margin: 0 }}>
-                Read More Experiences
-              </h3>
-              <div style={{ display: 'flex', gap: '1rem' }}>
-                <button 
-                  onClick={() => scroll(textScrollRef, 'left')}
-                  style={{ width: '45px', height: '45px', borderRadius: '50%', backgroundColor: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 15px rgba(0,0,0,0.05)', color: 'var(--color-primary)', transition: 'transform 0.2s' }}
-                  onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
-                  onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
-                >
-                  <ChevronLeft />
-                </button>
-                <button 
-                  onClick={() => scroll(textScrollRef, 'right')}
-                  style={{ width: '45px', height: '45px', borderRadius: '50%', backgroundColor: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 15px rgba(0,0,0,0.05)', color: 'var(--color-primary)', transition: 'transform 0.2s' }}
-                  onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
-                  onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
-                >
-                  <ChevronRight />
-                </button>
-              </div>
-            </div>
-
-            <div 
-              ref={textScrollRef}
-              className="hide-scrollbar"
-              style={{ display: 'flex', gap: '2rem', overflowX: 'auto', scrollSnapType: 'x mandatory', paddingBottom: '2rem' }}
-            >
-              {textReviews.map((rev, i) => (
-                <motion.div
-                  key={rev.name}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.15 }}
-                  className="responsive-padding"
-                  style={{
-                    flex: '0 0 auto',
-                    width: 'calc(100vw - 10%)',
-                    maxWidth: '380px',
-                    scrollSnapAlign: 'start',
-                    backgroundColor: '#fff',
-                    color: 'var(--color-primary)',
-                    padding: '3rem 2.5rem',
-                    borderRadius: 'var(--radius-lg)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    border: '1px solid rgba(0,0,0,0.05)',
-                    boxShadow: '0 10px 40px rgba(0,0,0,0.02)',
+                    aspectRatio: '4/5',
                     position: 'relative',
-                    overflow: 'hidden'
+                    cursor: 'pointer',
                   }}
+                  onClick={() => rev.videoUrl && setActiveVideo(rev.videoUrl)}
                 >
-                  <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-                    <div style={{ fontSize: '3rem', color: rev.color, lineHeight: 0.5, marginTop: '1rem' }}>"</div>
-                    <p style={{ fontStyle: 'italic', fontSize: '1.25rem', flex: 1, lineHeight: 1.6, display: 'flex', flexDirection: 'column' }}>
-                      {rev.text}
-                    </p>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginTop: 'auto', paddingTop: '2rem' }}>
-                      <div style={{
-                        width: '60px', height: '60px', borderRadius: '50%', backgroundColor: rev.color,
-                        display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold', fontSize: '1.5rem'
-                      }}>
-                        {rev.name[0]}
-                      </div>
-                      <div>
-                        <div style={{ fontWeight: 600, fontSize: '1.1rem' }}>{rev.name}</div>
-                        <div style={{ fontSize: '0.875rem', opacity: 0.8 }}>{rev.title}</div>
-                      </div>
-                    </div>
+                  <div style={{
+                    position: 'absolute',
+                    top: 0, left: 0, right: 0, bottom: 0,
+                    backgroundImage: `url(${rev.thumbnailUrl})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }} />
+                  <div style={{
+                    position: 'absolute',
+                    top: 0, left: 0, right: 0, bottom: 0,
+                    backgroundColor: 'rgba(0,0,0,0.2)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}>
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      style={{
+                        width: '80px', height: '80px',
+                        backgroundColor: 'rgba(255,255,255,0.95)',
+                        borderRadius: '50%',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
+                      }}
+                    >
+                      <Play size={36} color={rev.color} fill={rev.color} style={{ marginLeft: '6px' }} />
+                    </motion.div>
                   </div>
                 </motion.div>
               ))}
             </div>
           </div>
         )}
+
+     
+        
       </div>
 
       <AnimatePresence>

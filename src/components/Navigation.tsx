@@ -29,10 +29,6 @@ export function Navigation() {
         left: 0,
         right: 0,
         height: '80px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '0 5%',
         background: scrolled ? 'rgba(249, 246, 242, 0.9)' : 'transparent',
         backdropFilter: scrolled ? 'blur(10px)' : 'none',
         zIndex: 50,
@@ -40,58 +36,68 @@ export function Navigation() {
         transition: 'all 0.3s ease',
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-        <Image 
-          src="/LOM logo.png" 
-          alt="Life of a Miracle Logo" 
-          width={250} 
-          height={60} 
-          style={{ objectFit: 'contain', height: '50px', width: 'auto' }} 
-          priority
-        />
-      </div>
-      
-      {/* Desktop Nav */}
-      <div className="hide-mobile" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-        <nav style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-          {['About', 'Services', 'Podcast', 'Blog'].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              style={{
-                fontWeight: 500,
-                fontSize: '0.9rem',
-                color: 'var(--color-primary)',
-                textTransform: 'uppercase',
-                letterSpacing: '1px'
-              }}
-            >
-              {item}
-            </a>
-          ))}
-        </nav>
-        <Button variant="accent">Get Started</Button>
-      </div>
+      <div style={{ 
+        maxWidth: '1200px', 
+        margin: '0 auto', 
+        height: '100%', 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'space-between',
+        padding: '0 2rem'
+      }}>
+        <a href="/" style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+          <Image
+            src="/LOM logo.png"
+            alt="Life of a Miracle Logo"
+            width={250}
+            height={60}
+            style={{ objectFit: 'contain', height: '50px', width: 'auto' }}
+            priority
+          />
+        </a>
+        
+        {/* Desktop Nav */}
+        <div className="hide-mobile" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+          <nav style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+            {['About', 'Services', 'Podcast', 'Blog', 'Coaching'].map((item) => (
+              <a
+                key={item}
+                href={item === 'Coaching' ? '/coaching' : `#${item.toLowerCase()}`}
+                style={{
+                  fontWeight: 500,
+                  fontSize: '0.9rem',
+                  color: 'var(--color-primary)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px'
+                }}
+              >
+                {item}
+              </a>
+            ))}
+          </nav>
+          <Button variant="accent">Get Started</Button>
+        </div>
 
-      {/* Mobile Toggle */}
-      <button 
-        className="show-mobile" 
-        style={{ 
-          background: 'none',
-          border: 'none',
-          color: 'var(--color-primary)', 
-          cursor: 'pointer', 
-          zIndex: 60,
-          padding: '0.5rem',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }} 
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        aria-label="Toggle menu"
-      >
-        {isMobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
-      </button>
+        {/* Mobile Toggle */}
+        <button 
+          className="show-mobile" 
+          style={{ 
+            background: 'none',
+            border: 'none',
+            color: 'var(--color-primary)', 
+            cursor: 'pointer', 
+            zIndex: 60,
+            padding: '0.5rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }} 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
+        </button>
+      </div>
 
       {/* Mobile Dropdown */}
       <AnimatePresence>
@@ -114,10 +120,10 @@ export function Navigation() {
               borderTop: '1px solid rgba(0,0,0,0.05)'
             }}
           >
-            {['About', 'Services', 'Podcast', 'Blog'].map((item) => (
+            {['About', 'Services', 'Podcast', 'Blog', 'Coaching'].map((item) => (
               <a
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={item === 'Coaching' ? '/coaching' : `#${item.toLowerCase()}`}
                 onClick={() => setIsMobileMenuOpen(false)}
                 style={{
                   fontWeight: 600,

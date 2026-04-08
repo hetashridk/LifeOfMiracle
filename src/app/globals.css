@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   /* Colors */
   --color-bg: #F9F6F2;
@@ -17,7 +19,7 @@
   --radius-pill: 9999px;
 
   /* Spacing */
-  --spacing-section: 100px;
+  --spacing-section: 60px;
   --spacing-container: 1200px;
 }
 
@@ -113,4 +115,48 @@ button {
 }
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Global button hover classes ── */
+a, button { transition: all 0.25s ease; }
+
+.btn-dark:hover {
+  background-color: #0e3f52 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(22, 91, 116, 0.32) !important;
+}
+
+.btn-coral:hover {
+  background-color: #e06040 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(242, 117, 82, 0.38) !important;
+}
+
+.btn-mustard:hover {
+  background-color: #e8a830 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(252, 188, 81, 0.38) !important;
+}
+
+.btn-outline:hover {
+  background-color: #165b74 !important;
+  color: #fff !important;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(22, 91, 116, 0.2) !important;
+}
+
+.btn-service:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14) !important;
+  filter: brightness(0.92);
+}
+
+.footer-link:hover {
+  color: var(--color-accent-mustard) !important;
+  padding-left: 6px !important;
 }

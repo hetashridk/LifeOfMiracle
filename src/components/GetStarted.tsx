@@ -89,6 +89,7 @@ export function GetStarted() {
           </h2>
           <a
             href="#contact"
+            className="btn-mustard"
             style={{
               display: 'inline-block',
               padding: '1.2rem 3rem',
@@ -99,7 +100,7 @@ export function GetStarted() {
               fontWeight: 700,
               fontSize: '1.2rem',
               letterSpacing: '0.5px',
-              boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
+              boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
             }}
           >
             Let's Train Your Mind

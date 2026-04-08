@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 export function About() {
   return (
     <section id="about" style={{
-      padding: 'var(--spacing-section) 5%',
+      padding: '0 5% var(--spacing-section)',
       maxWidth: '1400px',
       margin: '0 auto',
       position: 'relative'
@@ -22,7 +22,7 @@ export function About() {
           gap: '4rem',
           backgroundColor: 'var(--color-bg)',
           borderRadius: 'var(--radius-lg)',
-          padding: '6rem 4rem',
+          padding: '3.5rem 4rem',
           alignItems: 'center'
         }}
       >

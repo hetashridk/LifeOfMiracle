@@ -76,6 +76,7 @@ export function Services() {
 
               <a
                 href={svc.href}
+                className="btn-service"
                 style={{
                   marginTop: '1rem',
                   display: 'inline-block',
@@ -87,7 +88,7 @@ export function Services() {
                   fontWeight: 700,
                   fontSize: '0.95rem',
                   letterSpacing: '0.5px',
-                  alignSelf: 'flex-start'
+                  alignSelf: 'flex-start',
                 }}
               >
                 {svc.cta}

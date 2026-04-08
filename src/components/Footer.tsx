@@ -24,10 +24,10 @@ export function Footer() {
           <div style={{ flex: '1', minWidth: '150px' }}>
             <h4 style={{ fontSize: '1.1rem', marginBottom: '1.5rem', color: 'var(--color-accent-mustard)', fontFamily: 'var(--font-karla)' }}>Explore</h4>
             <ul style={{ listStyle: 'none', padding: 0, opacity: 0.9, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-              <li><a href="#about" style={{ color: '#fff', textDecoration: 'none' }}>About</a></li>
-              <li><a href="#services" style={{ color: '#fff', textDecoration: 'none' }}>Services</a></li>
-              <li><a href="#podcast" style={{ color: '#fff', textDecoration: 'none' }}>Podcast</a></li>
-              <li><a href="#contact" style={{ color: '#fff', textDecoration: 'none' }}>Contact</a></li>
+              <li><a href="#about" className="footer-link" style={{ color: '#fff', textDecoration: 'none' }}>About</a></li>
+              <li><a href="#services" className="footer-link" style={{ color: '#fff', textDecoration: 'none' }}>Services</a></li>
+              <li><a href="#podcast" className="footer-link" style={{ color: '#fff', textDecoration: 'none' }}>Podcast</a></li>
+              <li><a href="#contact" className="footer-link" style={{ color: '#fff', textDecoration: 'none' }}>Contact</a></li>
             </ul>
           </div>
 
@@ -35,9 +35,9 @@ export function Footer() {
           <div style={{ flex: '1', minWidth: '150px' }}>
             <h4 style={{ fontSize: '1.1rem', marginBottom: '1.5rem', color: 'var(--color-accent-mustard)', fontFamily: 'var(--font-karla)' }}>Connect</h4>
             <ul style={{ listStyle: 'none', padding: 0, opacity: 0.9, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-              <li><a href="#" style={{ color: '#fff', textDecoration: 'none' }}>LinkedIn</a></li>
-              <li><a href="#" style={{ color: '#fff', textDecoration: 'none' }}>Instagram</a></li>
-              <li><a href="#" style={{ color: '#fff', textDecoration: 'none' }}>Spotify</a></li>
+              <li><a href="#" className="footer-link" style={{ color: '#fff', textDecoration: 'none' }}>LinkedIn</a></li>
+              <li><a href="#" className="footer-link" style={{ color: '#fff', textDecoration: 'none' }}>Instagram</a></li>
+              <li><a href="#" className="footer-link" style={{ color: '#fff', textDecoration: 'none' }}>Spotify</a></li>
             </ul>
           </div>
 

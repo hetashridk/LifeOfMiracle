@@ -6,10 +6,10 @@ import { motion } from 'framer-motion';
 export function Hero() {
   return (
     <section style={{
-      minHeight: '100vh',
+      minHeight: 'auto',
       display: 'flex',
       alignItems: 'center',
-      padding: '100px 6% 60px',
+      padding: '100px 5% 0',
       backgroundColor: 'var(--color-bg)',
     }}>
       <div style={{
@@ -63,13 +63,11 @@ export function Hero() {
             marginBottom: '2.5rem',
             maxWidth: '500px',
           }}>
-            I'm Karishma Khubchandani, Mental Fitness Coach and Founder of Life Of A Miracle.
-            I help founders, creators, and individuals build emotional clarity, resilience, and
-            inner strength so they can perform, lead, and live better.
+            Mental Fitness Is The Skill No One Taught You, Until Now.
           </p>
 
           <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
-            <a href="#contact" style={{
+            {/* <a href="#contact" style={{
               display: 'inline-block',
               padding: '1rem 2.25rem',
               borderRadius: 'var(--radius-pill)',
@@ -80,8 +78,8 @@ export function Hero() {
               fontSize: '0.95rem',
             }}>
               Book A Discovery Call
-            </a>
-            <a href="#about" style={{
+            </a> */}
+            <a href="#about" className="btn-outline" style={{
               display: 'inline-block',
               padding: '1rem 2.25rem',
               borderRadius: 'var(--radius-pill)',
