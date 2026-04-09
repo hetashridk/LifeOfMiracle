@@ -59,10 +59,15 @@ export function Navigation() {
         {/* Desktop Nav */}
         <div className="hide-mobile" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
           <nav style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-            {['About', 'Services', 'Podcast', 'Blog', 'Coaching'].map((item) => (
+            {['About', 'Services', 'Podcast', 'Blog', 'Coaching', 'Workshop', 'Keynote'].map((item) => (
               <a
                 key={item}
-                href={item === 'Coaching' ? '/coaching' : `#${item.toLowerCase()}`}
+                href={
+                  item === 'Coaching'  ? '/coaching'  :
+                  item === 'Workshop'  ? '/workshop'  :
+                  item === 'Keynote'   ? '/keynote'   :
+                  `#${item.toLowerCase()}`
+                }
                 style={{
                   fontWeight: 500,
                   fontSize: '0.9rem',
@@ -120,10 +125,15 @@ export function Navigation() {
               borderTop: '1px solid rgba(0,0,0,0.05)'
             }}
           >
-            {['About', 'Services', 'Podcast', 'Blog', 'Coaching'].map((item) => (
+            {['About', 'Services', 'Podcast', 'Blog', 'Coaching', 'Workshop', 'Keynote'].map((item) => (
               <a
                 key={item}
-                href={item === 'Coaching' ? '/coaching' : `#${item.toLowerCase()}`}
+                href={
+                  item === 'Coaching' ? '/coaching' :
+                  item === 'Workshop' ? '/workshop' :
+                  item === 'Keynote'  ? '/keynote'  :
+                  `#${item.toLowerCase()}`
+                }
                 onClick={() => setIsMobileMenuOpen(false)}
                 style={{
                   fontWeight: 600,
