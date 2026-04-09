@@ -63,7 +63,7 @@ export default function CoachingPage() {
                   borderRadius: 9999, background: 'rgba(242,117,82,0.06)',
                 }}>
                   <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#f27552', animation: 'pulse 2s infinite' }} />
-                  1:1 Coaching Application
+                  Apply for 1:1 Coaching
                 </span>
               </motion.div>
 
@@ -73,9 +73,9 @@ export default function CoachingPage() {
                 transition={{ duration: 0.7, delay: 0.1 }}
                 style={{ fontSize: 'clamp(3rem, 6vw, 5.5rem)', fontWeight: 900, lineHeight: 0.92, letterSpacing: '-0.035em', marginBottom: '2rem' }}
               >
-                You Don't<br />Need More<br />
+                You're Not<br />Stuck. You're<br />
                 <span style={{ color: '#f27552', position: 'relative', display: 'inline-block' }}>
-                  Willpower.
+                  Patterned.
                   <svg style={{ position: 'absolute', bottom: -4, left: 0, width: '100%', overflow: 'visible' }} height="10" viewBox="0 0 300 10" fill="none">
                     <path d="M0 7 Q75 1 150 7 Q225 13 300 7" stroke="#f27552" strokeWidth="3" strokeLinecap="round" opacity="0.4" />
                   </svg>
@@ -88,7 +88,7 @@ export default function CoachingPage() {
                 transition={{ duration: 0.6, delay: 0.25 }}
                 style={{ fontSize: '1.15rem', color: '#a67358', lineHeight: 1.8, maxWidth: 440, marginBottom: '2.5rem', fontWeight: 500 }}
               >
-                You need to understand the patterns running your mind. That's where real, lasting change begins.
+                Your life looks different on the outside. But internally, something feels off.
               </motion.p>
 
               <motion.div
@@ -153,9 +153,9 @@ export default function CoachingPage() {
                 </div>
                 {/* Tags */}
                 {[
-                  { label: 'Mindset', color: '#f27552', style: { top: '2%', left: '-16%' } },
+                  { label: 'Personal', color: '#f27552', style: { top: '2%', left: '-16%' } },
                   { label: 'Clarity', color: '#3b9b6d', style: { top: '12%', right: '-10%' } },
-                  { label: 'Habits', color: '#ca71a6', style: { bottom: '18%', right: '-12%' } },
+                  { label: 'Patterns', color: '#ca71a6', style: { bottom: '18%', right: '-12%' } },
                   { label: 'Purpose', color: '#fcbc51', style: { bottom: '2%', left: '-8%' } },
                 ].map((tag, i) => (
                   <motion.div
@@ -217,12 +217,12 @@ export default function CoachingPage() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
             {[
-              { icon: '🔄', title: 'Repeating Conflicts', body: 'Same argument, different person. You wonder why it keeps happening.', color: '#f27552' },
-              { icon: '🌫️', title: 'Inner Fog', body: "Life looks fine from the outside — but something inside feels off.", color: '#ca71a6' },
-              { icon: '🛑', title: 'Self-Sabotage', body: "You know what to do. You just don't do it. And you can't explain why.", color: '#165b74' },
-              { icon: '⚡', title: 'Emotional Reactivity', body: 'Small triggers spiral into big reactions you regret later.', color: '#fcbc51' },
-              { icon: '🗺️', title: 'Lost Direction', body: "You're moving, but it doesn't feel right. Career, relationships, life.", color: '#3b9b6d' },
-              { icon: '🔒', title: 'Stuck Loops', body: "You've tried everything — books, podcasts, therapy. Still the same cycles.", color: '#f27552' },
+              { icon: '🔄', title: 'Repeating Conflicts', body: 'In relationships, you keep repeating the same conflicts. Different person, same pattern.', color: '#f27552' },
+              { icon: '🌫️', title: 'Disconnected & Restless', body: 'In your personal life, you feel disconnected or restless — even when things look fine from the outside.', color: '#ca71a6' },
+              { icon: '🗺️', title: 'Pressure & No Direction', body: 'In your career or studies, you feel pressure, confusion, or a lack of direction you can\'t shake.', color: '#165b74' },
+              { icon: '🔒', title: 'Stuck in Cycles', body: 'In certain habits, you feel stuck in cycles you can\'t seem to break — no matter what you try.', color: '#fcbc51' },
+              { icon: '🛑', title: 'You Know But Don\'t Do', body: 'You know what to do… but you don\'t do it. Not because you lack discipline.', color: '#3b9b6d' },
+              { icon: '⚡', title: 'Running Patterns', body: 'Your mind is running patterns you don\'t yet see — and that\'s what\'s keeping you stuck.', color: '#f27552' },
             ].map((card, i) => (
               <motion.div
                 key={i}
@@ -266,21 +266,21 @@ export default function CoachingPage() {
         <div style={{ ...container, position: 'relative', zIndex: 1 }}>
           <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <span style={{ fontSize: '0.65rem', fontWeight: 900, letterSpacing: '5px', textTransform: 'uppercase', color: 'rgba(242,117,82,0.8)' }}>The Hard Truth</span>
+              <span style={{ fontSize: '0.65rem', fontWeight: 900, letterSpacing: '5px', textTransform: 'uppercase', color: 'rgba(242,117,82,0.8)' }}>The Real Fix</span>
               <h2 style={{ fontSize: 'clamp(2.4rem, 5.5vw, 4.5rem)', fontWeight: 900, lineHeight: 0.95, letterSpacing: '-0.03em', marginTop: '1.5rem', marginBottom: '2rem' }}>
-                You're not broken.<br />
-                <span style={{ color: '#fcbc51' }}>You're patterned.</span>
+                That's<br />
+                <span style={{ color: '#fcbc51' }}>mental fitness.</span>
               </h2>
               <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.8, marginBottom: '4rem', maxWidth: 600, margin: '0 auto 4rem' }}>
-                Your mind learned these patterns to protect you. The problem? Those patterns are now running the show — keeping you stuck in loops you didn't consciously choose.
+                When you train your mind, you gain clarity, emotional control, stronger relationships, and the ability to move forward without being pulled back by old patterns.
               </p>
             </motion.div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem', marginTop: '3rem' }}>
               {[
-                { num: '01', label: 'Your patterns were built', desc: 'Experiences, relationships, and environments shaped your mental wiring — most of it before age 12.' },
-                { num: '02', label: 'They run automatically', desc: 'Without awareness, you react — not respond — to everything around you. Every single day.' },
-                { num: '03', label: 'They can be rewired', desc: "With the right structured work, you can build new neural pathways. That's the entire point." },
+                { num: '01', label: 'Most people try to fix this', desc: 'By changing situations, people, or routines. It never works because the pattern is inside, not outside.' },
+                { num: '02', label: 'Real change happens differently', desc: 'When you understand how your thoughts, emotions, and behaviors are wired — that\'s where it shifts.' },
+                { num: '03', label: 'That\'s mental fitness', desc: 'Structured work that trains your mind to run new patterns — intentionally, not by accident.' },
               ].map((step, i) => (
                 <motion.div
                   key={i}
@@ -306,15 +306,15 @@ export default function CoachingPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ marginBottom: '4rem', textAlign: 'center' }}>
             <span style={{ fontSize: '0.65rem', fontWeight: 900, letterSpacing: '5px', textTransform: 'uppercase', color: '#f27552' }}>The Work</span>
             <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', fontWeight: 900, letterSpacing: '-0.03em', marginTop: '1rem' }}>
-              What the coaching <em style={{ color: '#f27552', fontStyle: 'italic' }}>actually</em> does
+              What this coaching <em style={{ color: '#f27552', fontStyle: 'italic' }}>actually</em> focuses on
             </h2>
           </motion.div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.75rem' }}>
             {[
-              { phase: 'Phase 01', title: 'See It', subtitle: 'Awareness', desc: "We map your patterns — the mental models, emotional triggers, and behavior loops quietly running your life. You can't change what you can't see.", accent: '#f27552' },
-              { phase: 'Phase 02', title: 'Shift It', subtitle: 'Rewiring', desc: 'Using targeted methods from psychology and neuroscience, we interrupt old patterns and begin building new ones — intentionally, not by accident.', accent: '#165b74' },
-              { phase: 'Phase 03', title: 'Live It', subtitle: 'Integration', desc: 'Real life is the practice. We embed the shifts into your daily reality — relationships, work, habits — so they become your new automatic default.', accent: '#3b9b6d' },
+              { phase: 'Focus 01', title: 'Personal', subtitle: 'Growth', desc: 'Deep work on your personal growth — understanding and rewiring the beliefs, emotional patterns, and mental models running your inner world.', accent: '#f27552' },
+              { phase: 'Focus 02', title: 'Relationships', subtitle: 'Connection', desc: 'Breaking the repeating conflicts and disconnection cycles that show up in every relationship. So you stop reacting and start responding.', accent: '#165b74' },
+              { phase: 'Focus 03', title: 'Direction', subtitle: 'Career & Purpose', desc: 'Cutting through the pressure, confusion, and lack of direction in your career or studies — so you move forward with clarity, not just effort.', accent: '#3b9b6d' },
             ].map((phase, i) => (
               <motion.div
                 key={i}
@@ -350,7 +350,7 @@ export default function CoachingPage() {
             viewport={{ once: true }}
             style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.8rem)', fontWeight: 900, lineHeight: 1.3, maxWidth: 900, margin: '0 auto' }}
           >
-            "No generic advice. No surface-level fixes. Just deep, focused work on what's actually holding you back."
+            "No generic advice. No surface-level fixes."
           </motion.blockquote>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -371,16 +371,16 @@ export default function CoachingPage() {
             <div style={{ position: 'sticky', top: '7rem' }}>
               <span style={{ fontSize: '0.65rem', fontWeight: 900, letterSpacing: '5px', textTransform: 'uppercase', color: '#f27552' }}>The Application</span>
               <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 0.95, marginTop: '1rem', marginBottom: '1.5rem' }}>
-                Ready to stop running the same program?
+                Apply For 1:1<br />Coaching Below
               </h2>
               <p style={{ fontSize: '1.05rem', color: '#a67358', lineHeight: 1.8, fontWeight: 500, marginBottom: '2.5rem' }}>
-                Fill out the form. I read every application personally. If it's a fit, you'll hear from me within 48 hours.
+                This is deep, structured 1:1 work focused on your personal growth, your relationships, your career direction, and breaking patterns that hold you back.
               </p>
 
               <div style={{ display: 'grid', gap: '1rem' }}>
                 {[
-                  { icon: '✦', color: '#3b9b6d', bg: 'rgba(59,155,109,0.06)', title: 'This is for you if:', body: "You're ready to take full responsibility and do the real work — no excuses." },
-                  { icon: '✕', color: '#ca71a6', bg: 'rgba(202,113,166,0.06)', title: 'Not for you if:', body: "You're looking for quick fixes or someone to fix things for you." },
+                  { icon: '✦', color: '#3b9b6d', bg: 'rgba(59,155,109,0.06)', title: 'No generic advice.', body: 'No surface-level fixes. Everything is tailored specifically to you and the patterns running your life.' },
+                  { icon: '✕', color: '#ca71a6', bg: 'rgba(202,113,166,0.06)', title: 'Not for you if:', body: "You're looking for quick fixes or someone to fix things for you. This requires real commitment." },
                   { icon: '◎', color: '#fcbc51', bg: 'rgba(252,188,81,0.06)', title: 'Spots are limited:', body: 'I only take a small number of clients at a time to ensure focused, deep work.' },
                 ].map((item, i) => (
                   <motion.div
