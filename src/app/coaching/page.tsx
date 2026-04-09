@@ -28,8 +28,8 @@ export default function CoachingPage() {
           <div style={{ position: 'absolute', bottom: '-4rem', left: '-4rem', width: 420, height: 420, borderRadius: '50%', background: 'rgba(22,91,116,0.04)', filter: 'blur(90px)' }} />
         </motion.div>
 
-        <div style={{ ...W, position: 'relative', zIndex: 1, paddingTop: '7rem', paddingBottom: '7rem' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'start' }}>
+        <div style={{ ...W, position: 'relative', zIndex: 1, paddingTop: '7rem', paddingBottom: '7rem' }} className="hero-section-inner">
+          <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', gap: '5rem', alignItems: 'start' }}>
 
             {/* ── LEFT: all text ── */}
             <div>
@@ -44,7 +44,7 @@ export default function CoachingPage() {
               {/* H1 */}
               <motion.h1
                 initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.08 }}
-                style={{ fontSize: 'clamp(2rem, 3.5vw, 3.5rem)', fontWeight: 900, lineHeight: 1, letterSpacing: '-0.04em', color: '#165b74', marginBottom: '1.5rem', whiteSpace: 'nowrap' }}
+                style={{ fontSize: 'clamp(1.2rem, 2vw, 2.2rem)', fontWeight: 900, lineHeight: 1.05, letterSpacing: '-0.04em', color: '#165b74', marginBottom: '1.5rem' }}
               >
                 Apply for <span style={{ color: '#f27552' }}>1:1 Coaching</span>
               </motion.h1>
@@ -138,6 +138,7 @@ export default function CoachingPage() {
             {/* ── RIGHT: form ── */}
             <motion.div
               initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
+              className="form-sticky"
               style={{ position: 'sticky', top: '22rem' }}
             >
               {/* Small heading above form */}

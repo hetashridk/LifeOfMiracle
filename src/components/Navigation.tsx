@@ -59,7 +59,7 @@ export function Navigation() {
         {/* Desktop Nav */}
         <div className="hide-mobile" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
           <nav style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-            {['About', 'Services', 'Podcast', 'Blog', 'Coaching', 'Workshop', 'Keynote'].map((item) => (
+            {['Blog', 'Coaching', 'Workshop', 'Keynote'].map((item) => (
               <a
                 key={item}
                 href={
@@ -125,7 +125,7 @@ export function Navigation() {
               borderTop: '1px solid rgba(0,0,0,0.05)'
             }}
           >
-            {['About', 'Services', 'Podcast', 'Blog', 'Coaching', 'Workshop', 'Keynote'].map((item) => (
+            {['Blog', 'Coaching', 'Workshop', 'Keynote'].map((item) => (
               <a
                 key={item}
                 href={

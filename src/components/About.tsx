@@ -41,7 +41,7 @@ export function About() {
           </p>
         </div>
 
-        <div style={{ flex: 1, position: 'relative', height: '500px' }}>
+        <div className="about-image-col" style={{ flex: 1, position: 'relative', height: '500px' }}>
           {/* Overlapping Image 1 */}
           <div style={{
             position: 'absolute',

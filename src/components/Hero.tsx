@@ -18,7 +18,8 @@ export function Hero() {
         width: '100%',
         display: 'flex',
         alignItems: 'center',
-        gap: '5rem',
+        flexWrap: 'wrap',
+        gap: '3rem',
       }}>
 
         {/* Left: text */}

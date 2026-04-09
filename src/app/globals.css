@@ -53,6 +53,22 @@ h1, h2, h3, h4, h5, h6 {
   :root {
     --spacing-section: 5rem;
   }
+
+  /* Two-column hero grids on inner pages stack at tablet */
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+
+  .form-sticky {
+    position: static !important;
+    top: auto !important;
+  }
+
+  .hero-section-inner {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -64,6 +80,35 @@ h1, h2, h3, h4, h5, h6 {
   /* Override inline heading sizes */
   h1, h2 { font-size: 2rem !important; }
   h3 { font-size: 1.25rem !important; }
+
+  /* Prevent nowrap headings from overflowing */
+  h1 { white-space: normal !important; }
+
+  /* Past work grid: single col on mobile */
+  .past-work-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* About image col */
+  .about-image-col {
+    display: none !important;
+  }
+
+  /* Hero flex: stack on mobile */
+  .hero-flex {
+    flex-direction: column !important;
+    gap: 2.5rem !important;
+  }
+
+  /* Inner page container padding */
+  .inner-page-container {
+    padding: 0 1.25rem !important;
+  }
+
+  /* Testimonial cards: stack on small mobile */
+  .testimonials-grid {
+    grid-template-columns: 1fr !important;
+  }
 
   /* Utilities */
   .flex-responsive {
