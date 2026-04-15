@@ -66,7 +66,7 @@ export function Services() {
             }}
           >
             <img
-              src="/service.jpg"
+              src="/service.JPG"
               alt="Work With Me"
               style={{
                 position: 'absolute',
