@@ -11,7 +11,7 @@ const services = [
     cta: 'Apply For Coaching',
     color: 'var(--color-primary)',
     icon: '△',
-    href: '#contact'
+    href: '/coaching'
   },
   {
     title: 'Keynote Speaking',
@@ -20,7 +20,7 @@ const services = [
     cta: 'Book A Keynote',
     color: 'var(--color-accent-emerald)',
     icon: '◧',
-    href: '#contact'
+    href: '/keynote'
   },
   {
     title: 'Workshops',
@@ -29,7 +29,7 @@ const services = [
     cta: 'Enquire About Workshops',
     color: 'var(--color-accent-mustard)',
     icon: '✧',
-    href: '#contact'
+    href: '/workshop'
   }
 ];
 

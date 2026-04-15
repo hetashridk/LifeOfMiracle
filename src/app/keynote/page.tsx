@@ -51,7 +51,7 @@ export default function KeynotePage() {
         </motion.div>
 
         <div style={{ ...W, position: 'relative', zIndex: 1, paddingTop: '7rem', paddingBottom: '7rem' }} className="hero-section-inner">
-          <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', gap: '5rem', alignItems: 'start' }}>
+          <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr)', gap: '5rem', alignItems: 'start', alignContent: 'start' }}>
 
             {/* ── LEFT: all text ── */}
             <div>
@@ -134,7 +134,7 @@ export default function KeynotePage() {
             <motion.div
               initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
               className="form-sticky"
-              style={{ position: 'sticky', top: '22rem', marginTop: '8rem' }}
+              style={{ position: 'sticky', top: '6rem', marginTop: '0' }}
             >
               <KeynoteForm />
             </motion.div>
