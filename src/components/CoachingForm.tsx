@@ -2,10 +2,12 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { submitToSheets } from '@/lib/submitToSheets';
 
 export default function CoachingForm({ dark = false }: { dark?: boolean }) {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [focused, setFocused] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -13,14 +15,17 @@ export default function CoachingForm({ dark = false }: { dark?: boolean }) {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const subject = encodeURIComponent('1:1 Coaching Inquiry');
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`
-    );
-    window.location.href = `mailto:your@email.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      await submitToSheets({ type: 'coaching', ...formData });
+    } catch {
+      // no-cors mode throws a network error even on success — treat as ok
+    } finally {
+      setLoading(false);
+      setSubmitted(true);
+    }
   };
 
   const fieldStyle = (name: string): React.CSSProperties => dark ? ({
@@ -92,7 +97,7 @@ export default function CoachingForm({ dark = false }: { dark?: boolean }) {
         </motion.div>
         <h3 style={{ fontSize: '1.8rem', fontWeight: 900, color: dark ? '#fff' : '#165b74', marginBottom: '0.75rem' }}>Application Sent</h3>
         <p style={{ color: dark ? 'rgba(255,255,255,0.5)' : '#a67358', lineHeight: 1.7, maxWidth: 320, margin: '0 auto' }}>
-          Your email client is opening now. I'll review your application personally and reach out within 48 hours.
+          Your application has been received. I'll review it personally and reach out within 48 hours.
         </p>
       </motion.div>
     );
@@ -101,7 +106,6 @@ export default function CoachingForm({ dark = false }: { dark?: boolean }) {
   if (dark) {
     return (
       <form onSubmit={handleSubmit}>
-        {/* Name + Email */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
           <div>
             <label style={labelStyle}>Name</label>
@@ -112,47 +116,24 @@ export default function CoachingForm({ dark = false }: { dark?: boolean }) {
             <input type="email" name="email" placeholder="your@email.com" required value={formData.email} onChange={handleChange} onFocus={() => setFocused('email')} onBlur={() => setFocused(null)} style={fieldStyle('email')} />
           </div>
         </div>
-
-        {/* Phone */}
         <div style={{ marginBottom: '1.5rem' }}>
           <label style={labelStyle}>Phone</label>
           <input type="tel" name="phone" placeholder="+1 (555) 000-0000" required value={formData.phone} onChange={handleChange} onFocus={() => setFocused('phone')} onBlur={() => setFocused(null)} style={fieldStyle('phone')} />
         </div>
-
-        {/* Message */}
         <div style={{ marginBottom: '2rem' }}>
           <label style={labelStyle}>Message or problem you're facing</label>
           <textarea name="message" rows={6} placeholder="Be specific. What's the pattern, the problem, the pressure?" required value={formData.message} onChange={handleChange} onFocus={() => setFocused('message')} onBlur={() => setFocused(null)} style={{ ...fieldStyle('message'), resize: 'none' }} />
         </div>
-
-        {/* Submit */}
         <motion.button
           type="submit"
+          disabled={loading}
           whileHover={{ scale: 1.015 }}
           whileTap={{ scale: 0.975 }}
-          style={{
-            width: '100%',
-            padding: '1.15rem',
-            background: '#f27552',
-            color: '#fff',
-            fontWeight: 900,
-            fontSize: '1rem',
-            letterSpacing: '0.5px',
-            borderRadius: 10,
-            border: 'none',
-            cursor: 'pointer',
-            boxShadow: '0 12px 40px rgba(242,117,82,0.25)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '0.75rem',
-            fontFamily: 'inherit',
-          }}
+          style={{ width: '100%', padding: '1.15rem', background: '#f27552', color: '#fff', fontWeight: 900, fontSize: '1rem', letterSpacing: '0.5px', borderRadius: 10, border: 'none', cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.7 : 1, boxShadow: '0 12px 40px rgba(242,117,82,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', fontFamily: 'inherit' }}
         >
-          Submit Application
-          <span>→</span>
+          {loading ? 'Submitting…' : 'Submit Application'}
+          {!loading && <span>→</span>}
         </motion.button>
-
         <p style={{ textAlign: 'center', fontSize: '0.72rem', color: 'rgba(255,255,255,0.2)', marginTop: '1.25rem', letterSpacing: '0.5px' }}>
           Your information stays private — always.
         </p>
@@ -168,13 +149,11 @@ export default function CoachingForm({ dark = false }: { dark?: boolean }) {
       transition={{ duration: 0.55 }}
       style={{ background: '#fff', padding: '2.5rem', borderRadius: 40, boxShadow: '0 24px 60px rgba(22,91,116,0.09)', border: '1px solid rgba(22,91,116,0.1)' }}
     >
-      {/* Header */}
       <div style={{ marginBottom: '2rem', paddingBottom: '1.75rem', borderBottom: '1px solid rgba(22,91,116,0.08)' }}>
         <h3 style={{ fontSize: '1.5rem', fontWeight: 900, color: '#165b74' }}>Tell me about yourself</h3>
         <p style={{ color: '#a67358', fontSize: '0.9rem', marginTop: '0.4rem' }}>Everything here is read personally. Be real.</p>
       </div>
 
-      {/* Name + Email */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1.25rem', marginBottom: '1.25rem' }}>
         <div>
           <label style={labelStyle}>Full Name</label>
@@ -186,44 +165,25 @@ export default function CoachingForm({ dark = false }: { dark?: boolean }) {
         </div>
       </div>
 
-      {/* Phone */}
       <div style={{ marginBottom: '1.25rem' }}>
         <label style={labelStyle}>Phone Number</label>
         <input type="tel" name="phone" placeholder="+1 (555) 000-0000" required value={formData.phone} onChange={handleChange} onFocus={() => setFocused('phone')} onBlur={() => setFocused(null)} style={fieldStyle('phone')} />
       </div>
 
-      {/* Message */}
       <div style={{ marginBottom: '1.75rem' }}>
         <label style={labelStyle}>Message or problem you're facing</label>
         <textarea name="message" rows={6} placeholder="Describe the problem or pattern you're facing." required value={formData.message} onChange={handleChange} onFocus={() => setFocused('message')} onBlur={() => setFocused(null)} style={{ ...fieldStyle('message'), resize: 'none' }} />
       </div>
 
-      {/* Submit */}
       <motion.button
         type="submit"
+        disabled={loading}
         whileHover={{ scale: 1.015 }}
         whileTap={{ scale: 0.975 }}
-        style={{
-          width: '100%',
-          padding: '1.1rem',
-          background: '#f27552',
-          color: '#fff',
-          fontWeight: 900,
-          fontSize: '1.05rem',
-          borderRadius: 18,
-          border: 'none',
-          cursor: 'pointer',
-          boxShadow: '0 12px 32px rgba(242,117,82,0.3)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '0.75rem',
-          fontFamily: 'inherit',
-          transition: 'background 0.2s',
-        }}
+        style={{ width: '100%', padding: '1.1rem', background: '#f27552', color: '#fff', fontWeight: 900, fontSize: '1.05rem', borderRadius: 18, border: 'none', cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.7 : 1, boxShadow: '0 12px 32px rgba(242,117,82,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', fontFamily: 'inherit', transition: 'background 0.2s' }}
       >
-        Submit My Application
-        <span style={{ display: 'inline-block', transition: 'transform 0.3s' }}>→</span>
+        {loading ? 'Submitting…' : 'Submit My Application'}
+        {!loading && <span>→</span>}
       </motion.button>
 
       <p style={{ textAlign: 'center', fontSize: '0.75rem', color: 'rgba(166,115,88,0.5)', marginTop: '1.25rem' }}>

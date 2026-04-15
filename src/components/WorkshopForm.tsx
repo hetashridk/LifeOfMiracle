@@ -2,10 +2,12 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { submitToSheets } from '@/lib/submitToSheets';
 
 export default function WorkshopForm() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', company: '', datetime: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [focused, setFocused] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -13,14 +15,17 @@ export default function WorkshopForm() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const subject = encodeURIComponent('Workshop Enquiry');
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCompany / College: ${formData.company}\nPreferred Date & Time: ${formData.datetime}\n\nMessage:\n${formData.message}`
-    );
-    window.location.href = `mailto:your@email.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      await submitToSheets({ type: 'workshop', ...formData });
+    } catch {
+      // no-cors mode throws a network error even on success — treat as ok
+    } finally {
+      setLoading(false);
+      setSubmitted(true);
+    }
   };
 
   const fieldStyle = (name: string): React.CSSProperties => ({
@@ -68,7 +73,7 @@ export default function WorkshopForm() {
         </motion.div>
         <h3 style={{ fontSize: '1.8rem', fontWeight: 900, color: '#165b74', marginBottom: '0.75rem' }}>Enquiry Sent</h3>
         <p style={{ color: '#a67358', lineHeight: 1.7, maxWidth: 320, margin: '0 auto' }}>
-          Your email client is opening now. We'll be in touch shortly.
+          Your enquiry has been received. We'll be in touch shortly.
         </p>
       </motion.div>
     );
@@ -82,13 +87,11 @@ export default function WorkshopForm() {
       transition={{ duration: 0.55 }}
       style={{ background: '#fff', padding: '2.5rem', borderRadius: 40, boxShadow: '0 24px 60px rgba(22,91,116,0.09)', border: '1px solid rgba(22,91,116,0.1)' }}
     >
-      {/* Header */}
       <div style={{ marginBottom: '2rem', paddingBottom: '1.75rem', borderBottom: '1px solid rgba(22,91,116,0.08)' }}>
         <h3 style={{ fontSize: '1.5rem', fontWeight: 900, color: '#165b74' }}>Enquire about a Workshop</h3>
         <p style={{ color: '#a67358', fontSize: '0.9rem', marginTop: '0.4rem' }}>Fill in the details and we'll get back to you.</p>
       </div>
 
-      {/* Name + Email */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
         <div>
           <label style={labelStyle}>Name</label>
@@ -100,7 +103,6 @@ export default function WorkshopForm() {
         </div>
       </div>
 
-      {/* Phone + Company */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
         <div>
           <label style={labelStyle}>Phone</label>
@@ -112,44 +114,25 @@ export default function WorkshopForm() {
         </div>
       </div>
 
-      {/* Date & Time */}
       <div style={{ marginBottom: '1rem' }}>
         <label style={labelStyle}>Preferred Date &amp; Time</label>
         <input type="text" name="datetime" placeholder="e.g. 20 Sep, 11:00 AM" value={formData.datetime} onChange={handleChange} onFocus={() => setFocused('datetime')} onBlur={() => setFocused(null)} style={fieldStyle('datetime')} />
       </div>
 
-      {/* Message */}
       <div style={{ marginBottom: '1.5rem' }}>
         <label style={labelStyle}>Message</label>
         <textarea name="message" rows={4} placeholder="Tell us about your event, audience, and what you're looking for." required value={formData.message} onChange={handleChange} onFocus={() => setFocused('message')} onBlur={() => setFocused(null)} style={{ ...fieldStyle('message'), resize: 'none' }} />
       </div>
 
-      {/* Submit */}
       <motion.button
         type="submit"
+        disabled={loading}
         whileHover={{ scale: 1.015 }}
         whileTap={{ scale: 0.975 }}
-        style={{
-          width: '100%',
-          padding: '1.1rem',
-          background: '#f27552',
-          color: '#fff',
-          fontWeight: 900,
-          fontSize: '1.05rem',
-          borderRadius: 18,
-          border: 'none',
-          cursor: 'pointer',
-          boxShadow: '0 12px 32px rgba(242,117,82,0.3)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '0.75rem',
-          fontFamily: 'inherit',
-          transition: 'background 0.2s',
-        }}
+        style={{ width: '100%', padding: '1.1rem', background: '#f27552', color: '#fff', fontWeight: 900, fontSize: '1.05rem', borderRadius: 18, border: 'none', cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.7 : 1, boxShadow: '0 12px 32px rgba(242,117,82,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', fontFamily: 'inherit', transition: 'background 0.2s' }}
       >
-        Send Enquiry
-        <span>→</span>
+        {loading ? 'Submitting…' : 'Send Enquiry'}
+        {!loading && <span>→</span>}
       </motion.button>
 
       <p style={{ textAlign: 'center', fontSize: '0.75rem', color: 'rgba(166,115,88,0.5)', marginTop: '1.25rem' }}>

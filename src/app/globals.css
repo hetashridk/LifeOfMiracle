@@ -24,7 +24,7 @@
 }
 
 html {
-  font-size: 87.5%; /* 14px base — scales all rem values site-wide */
+  font-size: 106.25%; /* 17px base — scales all rem values site-wide */
 }
 
 * {
@@ -78,8 +78,8 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   /* Override inline heading sizes */
-  h1, h2 { font-size: 2rem !important; }
-  h3 { font-size: 1.25rem !important; }
+  h1, h2 { font-size: 1.9rem !important; }
+  h3 { font-size: 1.2rem !important; }
 
   /* Prevent nowrap headings from overflowing */
   h1 { white-space: normal !important; }

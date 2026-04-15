@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import CoachingForm from '@/components/CoachingForm';
+import { Testimonials } from '@/components/Testimonials';
 
 const W = { maxWidth: '1200px', margin: '0 auto', padding: '0 2.5rem', width: '100%' };
 
@@ -139,7 +140,7 @@ export default function CoachingPage() {
             <motion.div
               initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
               className="form-sticky"
-              style={{ position: 'sticky', top: '22rem' }}
+              style={{ position: 'sticky', top: '16rem' }}
             >
               {/* Small heading above form */}
               {/* <p style={{ fontSize: '0.6rem', fontWeight: 900, letterSpacing: '5px', textTransform: 'uppercase', color: '#f27552', marginBottom: '1.25rem' }}>
@@ -155,6 +156,7 @@ export default function CoachingPage() {
         </div>
       </section>
 
+      <Testimonials />
       <Footer />
     </main>
   );

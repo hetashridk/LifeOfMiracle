@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import WorkshopForm from '@/components/WorkshopForm';
+import { Testimonials } from '@/components/Testimonials';
 
 const W = { maxWidth: '1200px', margin: '0 auto', padding: '0 2.5rem', width: '100%' };
 
@@ -133,7 +134,7 @@ export default function WorkshopPage() {
             <motion.div
               initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
               className="form-sticky"
-              style={{ position: 'sticky', top: '22rem', marginTop: '8rem' }}
+              style={{ position: 'sticky', top: '16rem' }}
             >
               <WorkshopForm />
             </motion.div>
@@ -173,6 +174,7 @@ export default function WorkshopPage() {
         </div>
       </section>
 
+      <Testimonials />
       <Footer />
     </main>
   );
