@@ -41,62 +41,168 @@ export function Services() {
       color: 'var(--color-primary)'
     }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <h2 style={{ fontSize: '3.5rem', margin: '1rem 0', fontFamily: 'var(--font-karla)' }}>Work With Me</h2>
+        <div style={{ marginBottom: '3rem' }}>
+          <h2 style={{ fontSize: '3.5rem', margin: '0 0 1rem 0', fontFamily: 'var(--font-karla)' }}>Services</h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
-          {services.map((svc, i) => (
-            <motion.div
-              key={svc.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="responsive-padding"
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: '4rem',
+          alignItems: 'stretch'
+        }}>
+          {/* Left: Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            style={{
+              borderRadius: 'var(--radius-lg)',
+              overflow: 'hidden',
+              backgroundColor: '#f5f5f5',
+              position: 'relative',
+              minHeight: '300px',
+            }}
+          >
+            <img
+              src="/service.jpg"
+              alt="Work With Me"
               style={{
-                backgroundColor: '#fff',
-                color: 'var(--color-primary)',
-                padding: '3rem 2rem',
-                borderRadius: 'var(--radius-lg)',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1rem',
-                border: '1px solid rgba(0,0,0,0.05)',
-                borderTop: `6px solid ${svc.color}`
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                display: 'block',
               }}
-            >
-              <div style={{ fontSize: '3rem', opacity: 0.8, fontWeight: 'lighter', color: svc.color }}>{svc.icon}</div>
-              <h3 style={{ fontSize: '1.75rem', fontWeight: 600, fontFamily: 'var(--font-karla)', lineHeight: 1.2 }}>
-                {svc.title}
-              </h3>
-              <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.95rem', fontStyle: 'italic' }}>{svc.subtitle}</p>
-              <p style={{ color: 'var(--color-text-primary)', flex: 1, opacity: 0.8, lineHeight: 1.6 }}>{svc.desc}</p>
+            />
+          </motion.div>
 
-              <a
-                href={svc.href}
-                className="btn-service"
+          {/* Right: 3 Service Cards - Stacked Vertically */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1rem'
+          }}>
+            {services.map((svc, i) => (
+              <motion.div
+                key={svc.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
                 style={{
-                  marginTop: '1rem',
-                  display: 'inline-block',
-                  padding: '0.9rem 1.75rem',
-                  borderRadius: 'var(--radius-pill)',
-                  backgroundColor: svc.color,
-                  color: svc.color === 'var(--color-accent-mustard)' ? 'var(--color-primary)' : '#fff',
-                  textDecoration: 'none',
-                  fontWeight: 700,
-                  fontSize: '0.95rem',
-                  letterSpacing: '0.5px',
-                  alignSelf: 'flex-start',
+                  backgroundColor: `color-mix(in srgb, ${svc.color} 8%, transparent)`,
+                  borderRadius: 'var(--radius-md)',
+                  padding: '1.25rem 1.5rem',
+                  borderLeft: `4px solid ${svc.color}`,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  gap: '0.6rem',
                 }}
               >
-                {svc.cta}
-              </a>
-            </motion.div>
-          ))}
+                {/* Title row: title left, button right */}
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  gap: '1rem',
+                  width: '100%',
+                }}>
+                  <span style={{
+                    fontSize: '1rem',
+                    fontWeight: 700,
+                    color: 'var(--color-primary)',
+                    fontFamily: 'var(--font-karla)',
+                  }}>
+                    {svc.title}
+                  </span>
+
+                  <a
+                    href={svc.href}
+                    style={{
+                      flexShrink: 0,
+                      display: 'inline-block',
+                      padding: '0.6rem 1.25rem',
+                      borderRadius: 'var(--radius-pill)',
+                      backgroundColor: svc.color,
+                      color: svc.color === 'var(--color-accent-mustard)' ? 'var(--color-primary)' : '#fff',
+                      textDecoration: 'none',
+                      fontWeight: 700,
+                      fontSize: '0.85rem',
+                      letterSpacing: '0.3px',
+                      transition: 'all 0.25s ease',
+                      whiteSpace: 'nowrap',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                      e.currentTarget.style.boxShadow = '0 6px 14px rgba(0,0,0,0.14)';
+                      e.currentTarget.style.filter = 'brightness(0.92)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'none';
+                      e.currentTarget.style.filter = 'none';
+                    }}
+                  >
+                    {svc.cta}
+                  </a>
+                </div>
+
+                <p style={{
+                  fontSize: '0.88rem',
+                  color: 'var(--color-text-secondary)',
+                  fontStyle: 'italic',
+                  lineHeight: 1.5,
+                  margin: 0,
+                }}>
+                  {svc.subtitle}
+                </p>
+
+                <p style={{
+                  fontSize: '0.92rem',
+                  color: 'var(--color-text-primary)',
+                  opacity: 0.78,
+                  lineHeight: 1.65,
+                  margin: 0,
+                }}>
+                  {svc.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
+
+      {/* Responsive adjustments */}
+      <style>{`
+        @media (max-width: 1024px) {
+          section#services {
+            padding: var(--spacing-section) 3%;
+          }
+        }
+
+        @media (max-width: 768px) {
+          section#services h2 {
+            font-size: 2.5rem !important;
+          }
+
+          section#services > div > div {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+          }
+
+          section#services > div > div:first-child {
+            min-height: 350px !important;
+          }
+        }
+
+        a:hover {
+          opacity: 0.95;
+        }
+      `}</style>
     </section>
   );
 }

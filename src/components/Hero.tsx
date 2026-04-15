@@ -6,30 +6,28 @@ import { motion } from 'framer-motion';
 export function Hero() {
   return (
     <section style={{
-      minHeight: 'auto',
+      minHeight: '100vh',
       display: 'flex',
       alignItems: 'center',
-      padding: '100px 5% 0',
+      justifyContent: 'center',
+      padding: '100px 5% 100px',
       backgroundColor: 'var(--color-bg)',
     }}>
       <div style={{
-        maxWidth: '1300px',
-        margin: '0 auto',
+        maxWidth: '900px',
         width: '100%',
         display: 'flex',
+        flexDirection: 'column',
         alignItems: 'center',
-        flexWrap: 'wrap',
-        gap: '3rem',
+        textAlign: 'center',
       }}>
 
-        {/* Left: text */}
-        <motion.div
+        {/* Tag */}
+        {/* <motion.span
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          style={{ flex: 1 }}
-        >
-          <span style={{
+          transition={{ duration: 0.6 }}
+          style={{
             display: 'inline-block',
             fontSize: '0.75rem',
             fontWeight: 700,
@@ -39,86 +37,76 @@ export function Hero() {
             backgroundColor: 'var(--color-primary)',
             padding: '0.4rem 1rem',
             borderRadius: 'var(--radius-pill)',
-            marginBottom: '2rem',
-          }}>
-            Mental Fitness Coach
-          </span>
+            marginBottom: '2.5rem',
+          }}
+        >
+          Mental Fitness Coach
+        </motion.span> */}
 
-          <h1 style={{
-            fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
+        {/* Heading */}
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          style={{
+            fontSize: 'clamp(2.5rem, 6vw, 5rem)',
             fontFamily: 'var(--font-karla)',
             fontWeight: 700,
             color: 'var(--color-primary)',
-            lineHeight: 1.1,
+            lineHeight: 1.2,
             marginBottom: '1.5rem',
             letterSpacing: '-0.02em',
-          }}>
-            Build A Mind That Works For You, Not Against You
-          </h1>
+          }}
+        >
+          Build A Mind That Works For You, Not Against You
+        </motion.h1>
 
-          <p style={{
-            fontSize: '1.05rem',
-            color: 'var(--color-text-primary)',
-            opacity: 0.7,
-            lineHeight: 1.8,
-            marginBottom: '2.5rem',
-            maxWidth: '500px',
-          }}>
-            Mental Fitness Is The Skill No One Taught You, Until Now.
-          </p>
-
-          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
-            {/* <a href="#contact" style={{
-              display: 'inline-block',
-              padding: '1rem 2.25rem',
-              borderRadius: 'var(--radius-pill)',
-              backgroundColor: 'var(--color-primary)',
-              color: '#fff',
-              textDecoration: 'none',
-              fontWeight: 600,
-              fontSize: '0.95rem',
-            }}>
-              Book A Discovery Call
-            </a> */}
-            <a href="#about" className="btn-outline" style={{
-              display: 'inline-block',
-              padding: '1rem 2.25rem',
-              borderRadius: 'var(--radius-pill)',
-              border: '1.5px solid var(--color-primary)',
-              color: 'var(--color-primary)',
-              textDecoration: 'none',
-              fontWeight: 600,
-              fontSize: '0.95rem',
-            }}>
-              Learn More
-            </a>
-          </div>
-        </motion.div>
-
-        {/* Right: image */}
-        <motion.div
+        {/* Subheading */}
+        <motion.p
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="hide-mobile"
-          style={{ flex: '0 0 420px' }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          style={{
+            fontSize: '1.1rem',
+            color: 'var(--color-text-primary)',
+            opacity: 0.8,
+            lineHeight: 1.8,
+            marginBottom: '3rem',
+            maxWidth: '700px',
+          }}
         >
-          <div style={{
-            width: '100%',
-            aspectRatio: '4 / 5',
-            borderRadius: '220px 220px 220px 220px',
-            overflow: 'hidden',
-            backgroundColor: 'var(--color-primary)',
-          }}>
-            <div style={{
-              width: '100%',
-              height: '100%',
-              backgroundImage: 'url("https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200&auto=format&fit=crop")',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center top',
-            }} />
-          </div>
-        </motion.div>
+          Mental Fitness Is The Skill No One Taught You, Until Now.
+        </motion.p>
+
+        {/* CTA Button */}
+        <motion.a
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          href="#about"
+          style={{
+            display: 'inline-block',
+            padding: '1rem 2.5rem',
+            borderRadius: 'var(--radius-pill)',
+            border: '1.5px solid var(--color-primary)',
+            color: 'var(--color-primary)',
+            textDecoration: 'none',
+            fontWeight: 600,
+            fontSize: '0.95rem',
+            transition: 'all 0.3s ease',
+            cursor: 'pointer',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = 'var(--color-primary)';
+            e.currentTarget.style.color = '#fff';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'transparent';
+            e.currentTarget.style.color = 'var(--color-primary)';
+          }}
+        >
+          Learn More
+        </motion.a>
 
       </div>
     </section>
