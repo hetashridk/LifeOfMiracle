@@ -12,18 +12,18 @@ type Review = {
 };
 
 const reviews: Review[] = [
-  { id: '1', type: 'video', videoUrl: '/Testimonal_1.mp4', color: 'var(--color-accent-mustard)' },
-  { id: '2', type: 'video', videoUrl: '/Testimonal_2.mp4', color: 'var(--color-accent-mustard)' },
-  { id: '3', type: 'video', videoUrl: '/Testimonal_3.mp4', color: 'var(--color-accent-mustard)' },
-  { id: '4', type: 'video', videoUrl: '/Testimonal_4.mp4', color: 'var(--color-accent-mustard)' },
-  { id: '5', type: 'video', videoUrl: '/Testimonal_5.mp4', color: 'var(--color-accent-mustard)' },
-  { id: '6', type: 'video', videoUrl: '/Testimonal_6.mp4', color: 'var(--color-accent-mustard)' },
-  { id: '7', type: 'video', videoUrl: '/Testimonal_7.mp4', color: 'var(--color-accent-mustard)' },
-  { id: '8', type: 'video', videoUrl: '/Testimonal_8.mp4', color: 'var(--color-accent-mustard)' },
-  { id: '9', type: 'video', videoUrl: '/Testimonal_9.mp4', color: 'var(--color-accent-mustard)' },
-  { id: '10', type: 'video', videoUrl: '/Testimonal_10.mp4', color: 'var(--color-accent-mustard)' },
-  { id: '11', type: 'video', videoUrl: '/Testimonal_11.mp4', color: 'var(--color-accent-mustard)' },
-  { id: '12', type: 'video', videoUrl: '/Testimonal_12.mp4', color: 'var(--color-accent-mustard)' },
+  { id: '1', type: 'video', videoUrl: 'https://res.cloudinary.com/dldt2f2nq/video/upload/v1776254557/4_3_jlbrc4.mp4', color: 'var(--color-accent-mustard)' },
+  // { id: '2', type: 'video', videoUrl: 'https://res.cloudinary.com/dldt2f2nq/video/upload/v1776254563/3_1_w810rb.mp4', color: 'var(--color-accent-mustard)' },
+  { id: '3', type: 'video', videoUrl: 'https://res.cloudinary.com/dldt2f2nq/video/upload/v1776254567/2_2_yxuuin.mp4', color: 'var(--color-accent-mustard)' },
+  { id: '4', type: 'video', videoUrl: 'https://res.cloudinary.com/dldt2f2nq/video/upload/v1776254567/1_hfwnki.mp4', color: 'var(--color-accent-mustard)' },
+  { id: '5', type: 'video', videoUrl: 'https://res.cloudinary.com/dldt2f2nq/video/upload/v1776254568/4_2_prmhjx.mp4', color: 'var(--color-accent-mustard)' },
+  { id: '6', type: 'video', videoUrl: 'https://res.cloudinary.com/dldt2f2nq/video/upload/v1776254569/2_3_h5hxoa.mp4', color: 'var(--color-accent-mustard)' },
+  { id: '7', type: 'video', videoUrl: 'https://res.cloudinary.com/dldt2f2nq/video/upload/v1776254570/2_5_xc2etm.mp4', color: 'var(--color-accent-mustard)' },
+  { id: '8', type: 'video', videoUrl: 'https://res.cloudinary.com/dldt2f2nq/video/upload/v1776254570/3_2_fvfjkl.mp4', color: 'var(--color-accent-mustard)' },
+  { id: '9', type: 'video', videoUrl: 'https://res.cloudinary.com/dldt2f2nq/video/upload/v1776254574/4_1_amfv5h.mp4', color: 'var(--color-accent-mustard)' },
+  { id: '10', type: 'video', videoUrl: 'https://res.cloudinary.com/dldt2f2nq/video/upload/v1776254574/2_1_oahp5w.mp4', color: 'var(--color-accent-mustard)' },
+  { id: '11', type: 'video', videoUrl: 'https://res.cloudinary.com/dldt2f2nq/video/upload/v1776254578/3_4_gatkvx.mp4', color: 'var(--color-accent-mustard)' },
+  { id: '12', type: 'video', videoUrl: 'https://res.cloudinary.com/dldt2f2nq/video/upload/v1776254582/2_4_zazwd9.mp4', color: 'var(--color-accent-mustard)' },
 ];
 
 export function Reviews() {
