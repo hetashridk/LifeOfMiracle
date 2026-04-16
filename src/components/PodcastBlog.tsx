@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import GuestForm from './GuestForm.tsx';
+import GuestForm from './GuestForm';
 import Newsletter from './Newsletter';
 import { motion } from 'framer-motion';
 
@@ -184,9 +184,9 @@ export function PodcastBlog() {
             }}>
               Blogs & Updates
             </h2>
-            <div 
-              ref={carouselRef} 
-              className="hide-scrollbar" 
+            <div
+              ref={carouselRef}
+              className="hide-scrollbar"
               style={{ overflowX: 'auto', display: 'flex', gap: '1rem', paddingBottom: '1rem', scrollBehavior: 'smooth' }}
             >
               {posts.map((post, i) => (
