@@ -59,9 +59,9 @@ export function Reviews() {
               color: 'var(--color-primary)',
             }}
           >
-            Client Stories
+            Testimonals
           </h2>
-          <p
+          {/* <p
             style={{
               fontSize: '1.25rem',
               color: 'var(--color-text-secondary)',
@@ -70,7 +70,7 @@ export function Reviews() {
             }}
           >
             Hear directly from the leaders and entrepreneurs who have transformed their lives and businesses.
-          </p>
+          </p> */}
         </div>
 
         {/* Carousel */}

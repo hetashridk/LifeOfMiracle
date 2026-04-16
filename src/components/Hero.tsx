@@ -14,7 +14,7 @@ export function Hero() {
       backgroundColor: 'var(--color-bg)',
     }}>
       <div style={{
-        maxWidth: '900px',
+        maxWidth: '1200px',
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
@@ -49,16 +49,17 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
           style={{
-            fontSize: 'clamp(2.5rem, 6vw, 5rem)',
+            fontSize: 'clamp(2rem, 5vw, 4.5rem)',
             fontFamily: 'var(--font-karla)',
             fontWeight: 700,
             color: 'var(--color-primary)',
             lineHeight: 1.2,
             marginBottom: '1.5rem',
             letterSpacing: '-0.02em',
+            width: '100%',
           }}
         >
-          Build A Mind That Works For You, Not Against You
+          Build A Mind That Works For You,{' '}<br />Not Against You
         </motion.h1>
 
         {/* Subheading */}
@@ -67,7 +68,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
           style={{
-            fontSize: '1.1rem',
+            fontSize: '1.5rem',
             color: 'var(--color-text-primary)',
             opacity: 0.8,
             lineHeight: 1.8,
