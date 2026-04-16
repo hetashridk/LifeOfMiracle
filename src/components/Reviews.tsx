@@ -45,7 +45,7 @@ export function Reviews() {
       id="reviews"
       style={{
         padding: 'var(--spacing-section) 5%',
-        backgroundColor: 'var(--color-bg)',
+        backgroundColor: 'transparent',
         position: 'relative',
       }}
     >

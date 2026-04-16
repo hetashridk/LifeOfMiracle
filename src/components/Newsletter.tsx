@@ -31,7 +31,7 @@ export default function Newsletter() {
   return (
     <section style={{
       padding: '1.5rem 0 0', // ✅ FIXED (was too large)
-      backgroundColor: 'var(--color-bg)',
+      backgroundColor: 'transparent',
       textAlign: 'center',
     }}>
       <h2 style={{

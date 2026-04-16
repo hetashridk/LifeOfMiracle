@@ -83,7 +83,7 @@ export function Services() {
   return (
     <section id="services" style={{
       padding: 'var(--spacing-section) 5%',
-      backgroundColor: 'var(--color-bg)',
+      backgroundColor: 'transparent',
       color: 'var(--color-primary)'
     }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond, Instrument_Sans, Karla } from "next/font/google";
 import "./globals.css";
+import LotusBackground from "@/components/LotusBackground";
 
 const interBody = Inter({
   variable: "--font-body",
@@ -41,7 +42,10 @@ export default function RootLayout({
       lang="en"
       className={`${interBody.variable} ${cormorantHeading.variable} ${instrumentSans.variable} ${karla.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <LotusBackground />
+        {children}
+      </body>
     </html>
   );
 }

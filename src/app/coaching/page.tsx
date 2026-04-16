@@ -15,7 +15,7 @@ export default function CoachingPage() {
   const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
 
   return (
-    <main style={{ backgroundColor: '#F9F6F2', minHeight: '100vh', color: '#165b74', overflowX: 'hidden' }}>
+    <main style={{ backgroundColor: 'transparent', minHeight: '100vh', color: '#165b74', overflowX: 'hidden' }}>
       <Navigation />
       <div style={{ height: '80px' }} />
 

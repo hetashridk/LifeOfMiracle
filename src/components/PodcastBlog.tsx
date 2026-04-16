@@ -53,7 +53,7 @@ export function PodcastBlog() {
             viewport={{ once: true }}
             style={{
               flex: 1, minWidth: '300px',
-              backgroundColor: 'var(--color-bg)',
+              backgroundColor: 'transparent',
               borderRadius: 'var(--radius-lg)',
               padding: '2.5rem',
               border: '1px solid rgba(0,0,0,0.05)',
@@ -164,7 +164,7 @@ export function PodcastBlog() {
             viewport={{ once: true }}
             style={{
               flex: 1, minWidth: '300px',
-              backgroundColor: 'var(--color-bg)',
+              backgroundColor: 'transparent',
               borderRadius: 'var(--radius-lg)',
               padding: '2.5rem',
               border: '1px solid rgba(0,0,0,0.05)',

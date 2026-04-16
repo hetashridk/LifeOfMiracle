@@ -17,7 +17,7 @@ export function GetStarted() {
   return (
     <section id="contact" style={{
       padding: 'var(--spacing-section) 5%',
-      backgroundColor: 'var(--color-bg)',
+      backgroundColor: 'transparent',
       color: 'var(--color-primary)'
     }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>

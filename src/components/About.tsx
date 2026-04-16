@@ -20,7 +20,7 @@ export function About() {
         style={{
           display: 'flex',
           gap: '4rem',
-          backgroundColor: 'var(--color-bg)',
+          backgroundColor: 'transparent',
           borderRadius: 'var(--radius-lg)',
           padding: '3.5rem 4rem',
           alignItems: 'center'

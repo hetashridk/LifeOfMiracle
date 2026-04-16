@@ -13,7 +13,7 @@ export function Hero() {
       alignItems: 'center',
       justifyContent: 'center',
       padding: '100px 5% 100px',
-      backgroundColor: 'var(--color-bg)',
+      backgroundColor: 'transparent',
     }}>
       <div style={{
         maxWidth: '1200px',
