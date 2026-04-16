@@ -26,28 +26,60 @@ export default function LotusBackground() {
         background: 'var(--color-bg)',
       }}
     >
+      {/* Left Lotus */}
       <motion.div
         animate={{
-          scale: [1.05, 1.08, 1.05],
-          rotate: [0, 1, 0, -1, 0],
+          scale: [1, 1.03, 1],
+          y: [0, -10, 0],
         }}
         transition={{
-          duration: 30,
+          duration: 20,
           repeat: Infinity,
           ease: 'easeInOut',
         }}
         style={{
           position: 'absolute',
-          top: '-10%',
-          left: '-10%',
-          width: '120%',
-          height: '120%',
-          backgroundImage: 'url("/lotus.png")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          top: '15%',
+          left: '-5%',
+          width: '35vw',
+          height: '60vh',
+          minWidth: '300px',
+          backgroundImage: 'url("/lotus_right.png")',
+          backgroundSize: 'contain',
+          backgroundPosition: 'left center',
           backgroundRepeat: 'no-repeat',
-          opacity: 0.12, /* Soft opacity to keep text legible */
+          opacity: 0.18,
           mixBlendMode: 'multiply',
+          filter: 'contrast(1.1) brightness(1.05)',
+        }}
+      />
+
+      {/* Right Lotus */}
+      <motion.div
+        animate={{
+          scale: [1, 1.04, 1],
+          y: [0, 15, 0],
+        }}
+        transition={{
+          duration: 25,
+          repeat: Infinity,
+          ease: 'easeInOut',
+          delay: 2,
+        }}
+        style={{
+          position: 'absolute',
+          bottom: '10%',
+          right: '-5%',
+          width: '35vw',
+          height: '60vh',
+          minWidth: '300px',
+          backgroundImage: 'url("/lotus.png")',
+          backgroundSize: 'contain',
+          backgroundPosition: 'right center',
+          backgroundRepeat: 'no-repeat',
+          opacity: 0.18,
+          mixBlendMode: 'multiply',
+          transform: 'scaleX(-1)', // Mirror the image for the right side
           filter: 'contrast(1.1) brightness(1.05)',
         }}
       />
