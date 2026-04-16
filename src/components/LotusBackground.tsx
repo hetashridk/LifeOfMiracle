@@ -14,7 +14,7 @@ export default function LotusBackground() {
 
   // We design delicate, stylized lotus petals using SVG paths with a soft SVG linear gradient.
   // The animation makes them gently breathe (scale) and gently sway (rotate).
-  
+
   return (
     <div
       style={{
@@ -40,7 +40,7 @@ export default function LotusBackground() {
         style={{
           position: 'absolute',
           top: '15%',
-          left: '-5%',
+          left: '-10%',
           width: '35vw',
           height: '60vh',
           minWidth: '300px',
@@ -50,6 +50,8 @@ export default function LotusBackground() {
           backgroundRepeat: 'no-repeat',
           opacity: 0.18,
           mixBlendMode: 'multiply',
+          WebkitMaskImage: 'linear-gradient(to top, transparent 0%, black 15%, black 100%)',
+          maskImage: 'linear-gradient(to top, transparent 0%, black 15%, black 100%)',
           filter: 'contrast(1.1) brightness(1.05)',
         }}
       />
