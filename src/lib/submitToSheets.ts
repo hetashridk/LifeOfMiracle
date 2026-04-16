@@ -32,7 +32,32 @@ type KeynotePayload = {
   message: string;
 };
 
-type Payload = CoachingPayload | WorkshopPayload | KeynotePayload;
+type GuestPayload = {
+  type: 'guest';
+  name: string;
+  email: string;
+  industry: string;
+  reason: string;
+  phone: string;
+  company: string;
+  weburl: string;
+};
+
+type DiscoveryPayload = {
+  type: 'discovery';
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+};
+
+type NewsletterPayload = {
+  type: 'newsletter';
+  email: string;
+};
+
+type Payload = CoachingPayload | WorkshopPayload | KeynotePayload | GuestPayload | DiscoveryPayload | NewsletterPayload;
+
 
 export async function submitToSheets(payload: Payload): Promise<void> {
   // mode: 'no-cors' is required because Google Apps Script doesn't return

@@ -61,7 +61,7 @@ const services = [
 
 export function Services() {
   const [[page, direction], setPage] = useState([0, 0]);
-  const images = ['/service_1.jpg', '/service_2.jpg', '/service_3.png', '/service_4.jpg'];
+  const images = ['/service_1.jpg', '/service_2.JPG', '/service_3.png', '/service_4.jpg'];
 
   const wrap = (min: number, max: number, v: number) => {
     const rangeSize = max - min;
@@ -91,7 +91,7 @@ export function Services() {
           <h2 style={{ fontSize: '3.5rem', margin: '0 0 1rem 0', fontFamily: 'var(--font-karla)' }}>Services</h2>
         </div>
 
-        <div style={{
+        <div className="services-grid" style={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
           gap: '4rem',
@@ -99,6 +99,7 @@ export function Services() {
         }}>
           {/* Left: Image */}
           <motion.div
+            className="services-image-col"
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -175,7 +176,7 @@ export function Services() {
                 }}
               >
                 {/* Title row: title left, button right */}
-                <div style={{
+                <div className="services-card-header" style={{
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
@@ -251,22 +252,41 @@ export function Services() {
       <style>{`
         @media (max-width: 1024px) {
           section#services {
-            padding: var(--spacing-section) 3%;
+            padding: var(--spacing-section) 4%;
+          }
+          .services-grid {
+            gap: 2rem !important;
           }
         }
 
         @media (max-width: 768px) {
           section#services h2 {
-            font-size: 2.5rem !important;
+            font-size: 2.8rem !important;
           }
 
-          section#services > div > div {
+          .services-grid {
             grid-template-columns: 1fr !important;
-            gap: 2rem !important;
+            gap: 2.5rem !important;
           }
 
-          section#services > div > div:first-child {
-            min-height: 350px !important;
+          .services-image-col {
+            min-height: 400px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          section#services h2 {
+            font-size: 2.2rem !important;
+          }
+
+          .services-image-col {
+            min-height: 250px !important;
+          }
+
+          .services-card-header {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 0.8rem !important;
           }
         }
 

@@ -9,14 +9,33 @@ export default function WorkshopForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [focused, setFocused] = useState<string | null>(null);
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
+  const isValidEmail = (email: string) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+
+  const validate = () => {
+    const newErrors: { [key: string]: string } = {};
+    if (!formData.name.trim() || formData.name.trim().length < 2) newErrors.name = 'Valid name (at least 2 chars) is required';
+    if (!formData.email.trim()) newErrors.email = 'Email is required';
+    else if (!isValidEmail(formData.email)) newErrors.email = 'Invalid email address';
+    if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
+    else if (!/^[\d\s\-\+\(\)]{7,15}$/.test(formData.phone)) newErrors.phone = 'Please enter a valid phone number';
+    if (!formData.company.trim()) newErrors.company = 'Company is required';
+    if (!formData.message.trim() || formData.message.trim().length < 5) newErrors.message = 'Message must be at least 5 characters';
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!validate()) return;
     setLoading(true);
     try {
       await submitToSheets({ type: 'workshop', ...formData });
@@ -95,22 +114,26 @@ export default function WorkshopForm() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
         <div>
           <label style={labelStyle}>Name</label>
-          <input type="text" name="name" placeholder="Your name" required value={formData.name} onChange={handleChange} onFocus={() => setFocused('name')} onBlur={() => setFocused(null)} style={fieldStyle('name')} />
+          <input type="text" name="name" placeholder="Your name" required value={formData.name} onChange={handleChange} onFocus={() => setFocused('name')} onBlur={() => setFocused(null)} style={{...fieldStyle('name'), borderColor: errors.name ? 'var(--color-accent-coral)' : undefined}} />
+          {errors.name && <p style={{ color: 'var(--color-accent-coral)', fontSize: '0.75rem', marginTop: '0.25rem' }}>{errors.name}</p>}
         </div>
         <div>
           <label style={labelStyle}>Email</label>
-          <input type="email" name="email" placeholder="hello@you.com" required value={formData.email} onChange={handleChange} onFocus={() => setFocused('email')} onBlur={() => setFocused(null)} style={fieldStyle('email')} />
+          <input type="email" name="email" placeholder="hello@you.com" required value={formData.email} onChange={handleChange} onFocus={() => setFocused('email')} onBlur={() => setFocused(null)} style={{...fieldStyle('email'), borderColor: errors.email ? 'var(--color-accent-coral)' : undefined}} />
+          {errors.email && <p style={{ color: 'var(--color-accent-coral)', fontSize: '0.75rem', marginTop: '0.25rem' }}>{errors.email}</p>}
         </div>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
         <div>
           <label style={labelStyle}>Phone</label>
-          <input type="tel" name="phone" placeholder="+91 00000 00000" required value={formData.phone} onChange={handleChange} onFocus={() => setFocused('phone')} onBlur={() => setFocused(null)} style={fieldStyle('phone')} />
+          <input type="tel" name="phone" placeholder="+91 00000 00000" required value={formData.phone} onChange={handleChange} onFocus={() => setFocused('phone')} onBlur={() => setFocused(null)} style={{...fieldStyle('phone'), borderColor: errors.phone ? 'var(--color-accent-coral)' : undefined}} />
+          {errors.phone && <p style={{ color: 'var(--color-accent-coral)', fontSize: '0.75rem', marginTop: '0.25rem' }}>{errors.phone}</p>}
         </div>
         <div>
           <label style={labelStyle}>Company / College Name</label>
-          <input type="text" name="company" placeholder="Your organisation" required value={formData.company} onChange={handleChange} onFocus={() => setFocused('company')} onBlur={() => setFocused(null)} style={fieldStyle('company')} />
+          <input type="text" name="company" placeholder="Your organisation" required value={formData.company} onChange={handleChange} onFocus={() => setFocused('company')} onBlur={() => setFocused(null)} style={{...fieldStyle('company'), borderColor: errors.company ? 'var(--color-accent-coral)' : undefined}} />
+          {errors.company && <p style={{ color: 'var(--color-accent-coral)', fontSize: '0.75rem', marginTop: '0.25rem' }}>{errors.company}</p>}
         </div>
       </div>
 
@@ -121,7 +144,8 @@ export default function WorkshopForm() {
 
       <div style={{ marginBottom: '1.5rem' }}>
         <label style={labelStyle}>Message</label>
-        <textarea name="message" rows={4} placeholder="Tell us about your event, audience, and what you're looking for." required value={formData.message} onChange={handleChange} onFocus={() => setFocused('message')} onBlur={() => setFocused(null)} style={{ ...fieldStyle('message'), resize: 'none' }} />
+        <textarea name="message" rows={4} placeholder="Tell us about your event, audience, and what you're looking for." required value={formData.message} onChange={handleChange} onFocus={() => setFocused('message')} onBlur={() => setFocused(null)} style={{ ...fieldStyle('message'), resize: 'none', borderColor: errors.message ? 'var(--color-accent-coral)' : undefined }} />
+        {errors.message && <p style={{ color: 'var(--color-accent-coral)', fontSize: '0.75rem', marginTop: '0.25rem' }}>{errors.message}</p>}
       </div>
 
       <motion.button

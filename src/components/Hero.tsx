@@ -1,9 +1,11 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import DiscoveryForm from './DiscoveryForm';
 
 export function Hero() {
+  const [showForm, setShowForm] = useState(false);
   return (
     <section style={{
       minHeight: '100vh',
@@ -105,11 +107,16 @@ export function Hero() {
             e.currentTarget.style.backgroundColor = 'transparent';
             e.currentTarget.style.color = 'var(--color-primary)';
           }}
+          onClick={(e) => {
+            e.preventDefault();
+            setShowForm(true);
+          }}
         >
-          Learn More
+          Book a discovery call
         </motion.a>
 
       </div>
+      {showForm && <DiscoveryForm onClose={() => setShowForm(false)} />}
     </section>
   );
 }

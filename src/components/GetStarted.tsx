@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import DiscoveryForm from './DiscoveryForm';
 
 const faqs = [
   { q: "How do I lead with calm in stressful situations?", a: "By building mental fitness. We focus on noticing your internal state before reacting, allowing you to choose a poised response." },
@@ -11,6 +12,7 @@ const faqs = [
 
 export function GetStarted() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [showForm, setShowForm] = useState(false);
 
   return (
     <section id="contact" style={{
@@ -102,12 +104,17 @@ export function GetStarted() {
               letterSpacing: '0.5px',
               boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
             }}
+            onClick={(e) => {
+              e.preventDefault();
+              setShowForm(true);
+            }}
           >
             Let's Train Your Mind
           </a>
         </motion.div>
 
       </div>
+      {showForm && <DiscoveryForm onClose={() => setShowForm(false)} />}
     </section>
   );
 }

@@ -1,6 +1,8 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import GuestForm from './GuestForm.tsx';
+import Newsletter from './Newsletter';
 import { motion } from 'framer-motion';
 
 const posts = [
@@ -19,6 +21,23 @@ const posts = [
 ];
 
 export function PodcastBlog() {
+  const [showGuestForm, setShowGuestForm] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (carouselRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+        if (scrollLeft + clientWidth >= scrollWidth - 1) {
+          carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          carouselRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+      }
+    }, 4000); // auto scroll every 4s
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="podcast" style={{
       padding: 'var(--spacing-section) 5%',
@@ -105,23 +124,36 @@ export function PodcastBlog() {
             </div>
 
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <a href="#podcast" className="btn-dark" style={{
+              <a href="https://www.youtube.com/@karishmakhubchandani" className="btn-dark" style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.75rem',
                 backgroundColor: 'var(--color-primary)', color: '#fff',
                 padding: '1rem 1.75rem', borderRadius: 'var(--radius-pill)',
                 textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem',
-              }}>
+              }} target="_blank" rel="noopener noreferrer">
                 <span>▶</span> Watch The Podcast
               </a>
-              <a href="#contact" className="btn-outline" style={{
-                display: 'inline-flex', alignItems: 'center', gap: '0.75rem',
-                border: '2px solid var(--color-primary)', color: 'var(--color-primary)',
-                padding: '1rem 1.75rem', borderRadius: 'var(--radius-pill)',
-                textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem',
-                backgroundColor: 'transparent',
-              }}>
+              {showGuestForm && <GuestForm onClose={() => setShowGuestForm(false)} />}
+              <button
+                type="button"
+                className="btn-outline"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.75rem',
+                  border: '2px solid var(--color-primary)',
+                  color: 'var(--color-primary)',
+                  padding: '1rem 1.75rem',
+                  borderRadius: 'var(--radius-pill)',
+                  textDecoration: 'none',
+                  fontWeight: 700,
+                  fontSize: '0.95rem',
+                  backgroundColor: 'transparent',
+                  cursor: 'pointer',
+                }}
+                onClick={() => setShowGuestForm(true)}
+              >
                 Be The Guest
-              </a>
+              </button>
             </div>
           </motion.div>
 
@@ -152,8 +184,11 @@ export function PodcastBlog() {
             }}>
               Blogs & Updates
             </h2>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            <div 
+              ref={carouselRef} 
+              className="hide-scrollbar" 
+              style={{ overflowX: 'auto', display: 'flex', gap: '1rem', paddingBottom: '1rem', scrollBehavior: 'smooth' }}
+            >
               {posts.map((post, i) => (
                 <motion.div
                   key={post.title}
@@ -169,52 +204,22 @@ export function PodcastBlog() {
                     borderLeft: '4px solid var(--color-accent-emerald)',
                     cursor: 'pointer',
                     transition: 'box-shadow 0.2s, transform 0.2s',
+                    minWidth: '260px',
+                    flex: '0 0 auto',
                   }}
                   whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}
                 >
-                  <div style={{
-                    display: 'flex', justifyContent: 'space-between',
-                    alignItems: 'center', marginBottom: '0.75rem',
-                  }}>
-                    <span style={{
-                      fontSize: '0.72rem', fontWeight: 700,
-                      color: 'var(--color-accent-emerald)',
-                      letterSpacing: '1px',
-                    }}>
-                      {post.date}
-                    </span>
-                    <span style={{
-                      fontSize: '0.7rem', fontWeight: 700,
-                      padding: '0.25rem 0.75rem',
-                      borderRadius: 9999,
-                      backgroundColor: 'rgba(59,155,109,0.1)',
-                      color: 'var(--color-accent-emerald)',
-                    }}>
-                      {post.tag}
-                    </span>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
+                    <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--color-accent-emerald)', letterSpacing: '1px' }}>{post.date}</span>
+                    <span style={{ fontSize: '0.7rem', fontWeight: 700, padding: '0.25rem 0.75rem', borderRadius: 9999, backgroundColor: 'rgba(59,155,109,0.1)', color: 'var(--color-accent-emerald)' }}>{post.tag}</span>
                   </div>
-                  <h3 style={{
-                    fontSize: '1.15rem', fontWeight: 700,
-                    color: 'var(--color-primary)',
-                    marginBottom: '0.5rem', lineHeight: 1.3,
-                  }}>
-                    {post.title}
-                  </h3>
-                  <p style={{
-                    fontSize: '0.9rem', color: 'var(--color-text-secondary)',
-                    lineHeight: 1.6,
-                  }}>
-                    {post.desc}
-                  </p>
-                  <div style={{
-                    marginTop: '1rem', fontSize: '0.85rem',
-                    fontWeight: 700, color: 'var(--color-accent-emerald)',
-                  }}>
-                    Read more →
-                  </div>
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--color-primary)', marginBottom: '0.5rem', lineHeight: 1.3 }}>{post.title}</h3>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>{post.desc}</p>
+                  <div style={{ marginTop: '1rem', fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-accent-emerald)' }}>Read more →</div>
                 </motion.div>
               ))}
             </div>
+            <Newsletter />
           </motion.div>
 
         </div>

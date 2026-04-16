@@ -5,10 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from './ui/Button';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
+import DiscoveryForm from './DiscoveryForm';
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +21,7 @@ export function Navigation() {
   }, []);
 
   return (
+    <>
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -80,7 +83,7 @@ export function Navigation() {
               </a>
             ))}
           </nav>
-          <Button variant="accent">Get Started</Button>
+          <Button variant="accent" onClick={() => setShowForm(true)}>Get Started</Button>
         </div>
 
         {/* Mobile Toggle */}
@@ -147,10 +150,12 @@ export function Navigation() {
                 {item}
               </a>
             ))}
-            <Button variant="accent" style={{ marginTop: '1rem' }} onClick={() => setIsMobileMenuOpen(false)}>Get Started</Button>
+            <Button variant="accent" style={{ marginTop: '1rem' }} onClick={() => { setIsMobileMenuOpen(false); setShowForm(true); }}>Get Started</Button>
           </motion.div>
         )}
       </AnimatePresence>
     </motion.header>
+    {showForm && <DiscoveryForm onClose={() => setShowForm(false)} />}
+    </>
   );
 }
