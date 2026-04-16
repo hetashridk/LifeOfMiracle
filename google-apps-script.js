@@ -141,14 +141,15 @@ function doPost(e) {
     } else if (data.type === 'discovery') {
       const discoverySheet = ss.getSheetByName('Discovery') || ss.insertSheet('Discovery');
       if (discoverySheet.getLastRow() === 0) {
-        discoverySheet.appendRow(['Timestamp', 'Name', 'Email', 'Phone', 'Message']);
-        discoverySheet.getRange(1, 1, 1, 5).setFontWeight('bold');
+        discoverySheet.appendRow(['Timestamp', 'Name', 'Email', 'Phone', 'Service', 'Message']);
+        discoverySheet.getRange(1, 1, 1, 6).setFontWeight('bold');
       }
       discoverySheet.appendRow([
         niceDate(new Date()),
         data.name,
         data.email,
         data.phone,
+        data.service,
         data.message,
       ]);
 

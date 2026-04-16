@@ -28,9 +28,9 @@ export function About() {
       >
         <div style={{ flex: 1 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '2rem', color: 'var(--color-accent-magenta)' }}>❈</span>
+            {/* <span style={{ fontSize: '2rem', color: 'var(--color-accent-magenta)' }}>❈</span> */}
             <h2 style={{ fontSize: '3.5rem', fontFamily: 'var(--font-karla)', color: 'var(--color-primary)', lineHeight: 1.1 }}>
-              The Work Behind The Work
+              The Work <br /> Behind The Work
             </h2>
           </div>
           <p style={{ color: 'var(--color-text-primary)', fontSize: '1.125rem', marginBottom: '1.5rem', opacity: 0.9 }}>
@@ -50,7 +50,7 @@ export function About() {
             width: '70%',
             height: '80%',
             borderRadius: 'var(--radius-lg)',
-            backgroundImage: 'url("/About_3_crop_1.JPG")',
+            backgroundImage: 'url("/Karishma_One.jpg")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             zIndex: 1,
