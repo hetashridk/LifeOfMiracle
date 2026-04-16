@@ -50,7 +50,7 @@ export function About() {
             width: '70%',
             height: '80%',
             borderRadius: 'var(--radius-lg)',
-            backgroundImage: 'url("/About_3_crop_1.jpg")',
+            backgroundImage: 'url("/About_3_crop_1.JPG")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             zIndex: 1,
