@@ -20,9 +20,32 @@ const posts = [
   },
 ];
 
+/** Returns window.innerWidth after mount; undefined during SSR/first render (avoids hydration mismatch). */
+function useWindowWidth(): number | undefined {
+  const [width, setWidth] = useState<number | undefined>(undefined);
+  useEffect(() => {
+    setWidth(window.innerWidth);
+    const onResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+  return width;
+}
+
 export function PodcastBlog() {
   const [showGuestForm, setShowGuestForm] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const windowWidth = useWindowWidth();
+
+  const isMobile = windowWidth !== undefined && windowWidth < 640;
+  const isTablet = windowWidth !== undefined && windowWidth >= 640 && windowWidth < 1024;
+  const isSmall = isMobile || isTablet; // mobile + tablet
+
+  // Responsive tokens
+  const sectionPadding  = isMobile ? '3rem 1.25rem' : 'var(--spacing-section) 5%';
+  const cardPadding     = isMobile ? '1.25rem'       : '2.5rem';
+  const episodePadding  = isMobile ? '1.25rem'       : '2rem';
+  const episodeGap      = isMobile ? '1rem'          : '1.5rem';
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,17 +57,18 @@ export function PodcastBlog() {
           carouselRef.current.scrollBy({ left: 300, behavior: 'smooth' });
         }
       }
-    }, 4000); // auto scroll every 4s
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section id="podcast" style={{
-      padding: 'var(--spacing-section) 5%',
+      padding: sectionPadding,
       backgroundColor: '#fff',
     }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-        <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap' }}>
+        {/* flex-responsive collapses to column at ≤1024px via globals.css */}
+        <div className="flex-responsive" style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap' }}>
 
           {/* ── Podcast Card ── */}
           <motion.div
@@ -52,10 +76,11 @@ export function PodcastBlog() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             style={{
-              flex: 1, minWidth: '300px',
+              flex: 1,
+              minWidth: 'min(300px, 100%)',
               backgroundColor: 'transparent',
               borderRadius: 'var(--radius-lg)',
-              padding: '2.5rem',
+              padding: cardPadding,
               border: '1px solid rgba(0,0,0,0.05)',
               boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
             }}
@@ -66,13 +91,15 @@ export function PodcastBlog() {
             }}>
               Podcast
             </span>
+
             <h2 style={{
-              fontSize: '3.5rem', margin: '1rem 0',
+              fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', margin: '1rem 0',
               fontFamily: 'var(--font-karla)',
               color: 'var(--color-primary)', lineHeight: 1.1,
             }}>
               What It Really Takes
             </h2>
+
             <p style={{
               color: 'var(--color-text-primary)', marginBottom: '0.75rem',
               fontSize: '1.125rem', opacity: 0.9,
@@ -92,11 +119,11 @@ export function PodcastBlog() {
             <div style={{
               backgroundColor: 'var(--color-primary)',
               borderRadius: 'var(--radius-lg)',
-              padding: '2rem',
+              padding: episodePadding,
               marginBottom: '2rem',
               display: 'flex',
               alignItems: 'center',
-              gap: '1.5rem',
+              gap: episodeGap,
             }}>
               <div style={{
                 width: 56, height: 56, borderRadius: '50%',
@@ -106,7 +133,7 @@ export function PodcastBlog() {
               }}>
                 <span style={{ color: '#fff', fontSize: '1.2rem' }}>▶</span>
               </div>
-              <div>
+              <div style={{ minWidth: 0 }}> {/* minWidth:0 lets text shrink/wrap inside flex */}
                 <p style={{
                   fontSize: '0.7rem', fontWeight: 700,
                   letterSpacing: '2px', textTransform: 'uppercase',
@@ -117,38 +144,50 @@ export function PodcastBlog() {
                 <p style={{
                   fontSize: '1.05rem', fontWeight: 700,
                   color: '#fff', lineHeight: 1.3,
+                  wordBreak: 'break-word',
                 }}>
                   The Truth Behind Mental Strength
                 </p>
               </div>
             </div>
 
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <a href="https://www.youtube.com/@karishmakhubchandani" className="btn-dark" style={{
-                display: 'inline-flex', alignItems: 'center', gap: '0.75rem',
-                backgroundColor: 'var(--color-primary)', color: '#fff',
-                padding: '1rem 1.75rem', borderRadius: 'var(--radius-pill)',
-                textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem',
-              }} target="_blank" rel="noopener noreferrer">
+            {/* CTA buttons — stack vertically on mobile */}
+            <div style={{
+              display: 'flex',
+              flexDirection: isMobile ? 'column' : 'row',
+              gap: '1rem',
+              flexWrap: 'wrap',
+            }}>
+              <a
+                href="https://www.youtube.com/@karishmakhubchandani"
+                className="btn-dark"
+                style={{
+                  display: 'inline-flex', alignItems: 'center',
+                  justifyContent: 'center', gap: '0.75rem',
+                  backgroundColor: 'var(--color-primary)', color: '#fff',
+                  padding: '1rem 1.75rem', borderRadius: 'var(--radius-pill)',
+                  textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem',
+                }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span>▶</span> Watch The Podcast
               </a>
+
               {showGuestForm && <GuestForm onClose={() => setShowGuestForm(false)} />}
+
               <button
                 type="button"
                 className="btn-outline"
                 style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.75rem',
+                  display: 'inline-flex', alignItems: 'center',
+                  justifyContent: 'center', gap: '0.75rem',
                   border: '2px solid var(--color-primary)',
                   color: 'var(--color-primary)',
                   padding: '1rem 1.75rem',
                   borderRadius: 'var(--radius-pill)',
-                  textDecoration: 'none',
-                  fontWeight: 700,
-                  fontSize: '0.95rem',
-                  backgroundColor: 'transparent',
-                  cursor: 'pointer',
+                  fontWeight: 700, fontSize: '0.95rem',
+                  backgroundColor: 'transparent', cursor: 'pointer',
                 }}
                 onClick={() => setShowGuestForm(true)}
               >
@@ -163,10 +202,11 @@ export function PodcastBlog() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             style={{
-              flex: 1, minWidth: '300px',
+              flex: 1,
+              minWidth: 'min(300px, 100%)',
               backgroundColor: 'transparent',
               borderRadius: 'var(--radius-lg)',
-              padding: '2.5rem',
+              padding: cardPadding,
               border: '1px solid rgba(0,0,0,0.05)',
               boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
             }}
@@ -175,19 +215,28 @@ export function PodcastBlog() {
               color: 'var(--color-accent-emerald)', letterSpacing: '2px',
               textTransform: 'uppercase', fontWeight: 600, fontSize: '0.8rem',
             }}>
-              Read & Reflect
+              Read &amp; Reflect
             </span>
+
             <h2 style={{
-              fontSize: '3.5rem', margin: '1rem 0 2rem',
+              fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', margin: '1rem 0 2rem',
               fontFamily: 'var(--font-karla)',
               color: 'var(--color-primary)', lineHeight: 1.1,
             }}>
-              Blogs & Updates
+              Blogs &amp; Updates
             </h2>
+
+            {/* Blog carousel — always scrollable horizontally */}
             <div
               ref={carouselRef}
               className="hide-scrollbar"
-              style={{ overflowX: 'auto', display: 'flex', gap: '1rem', paddingBottom: '1rem', scrollBehavior: 'smooth' }}
+              style={{
+                overflowX: 'auto',
+                display: 'flex',
+                gap: '1rem',
+                paddingBottom: '1rem',
+                scrollBehavior: 'smooth',
+              }}
             >
               {posts.map((post, i) => (
                 <motion.div
@@ -199,12 +248,13 @@ export function PodcastBlog() {
                   style={{
                     backgroundColor: 'var(--color-bg)',
                     borderRadius: 'var(--radius-lg)',
-                    padding: '1.75rem',
+                    padding: isMobile ? '1.25rem' : '1.75rem',
                     border: '1px solid rgba(0,0,0,0.05)',
                     borderLeft: '4px solid var(--color-accent-emerald)',
                     cursor: 'pointer',
                     transition: 'box-shadow 0.2s, transform 0.2s',
-                    minWidth: '260px',
+                    /* On mobile show one full card; on larger screens show partial next card */
+                    minWidth: isMobile ? 'calc(100% - 1rem)' : '260px',
                     flex: '0 0 auto',
                   }}
                   whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}
@@ -213,12 +263,13 @@ export function PodcastBlog() {
                     <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--color-accent-emerald)', letterSpacing: '1px' }}>{post.date}</span>
                     <span style={{ fontSize: '0.7rem', fontWeight: 700, padding: '0.25rem 0.75rem', borderRadius: 9999, backgroundColor: 'rgba(59,155,109,0.1)', color: 'var(--color-accent-emerald)' }}>{post.tag}</span>
                   </div>
-                  <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--color-primary)', marginBottom: '0.5rem', lineHeight: 1.3 }}>{post.title}</h3>
+                  <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--color-primary)', marginBottom: '0.5rem', lineHeight: 1.3 }}>{post.title}</h3>
                   <p style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>{post.desc}</p>
                   <div style={{ marginTop: '1rem', fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-accent-emerald)' }}>Read more →</div>
                 </motion.div>
               ))}
             </div>
+
             <Newsletter />
           </motion.div>
 

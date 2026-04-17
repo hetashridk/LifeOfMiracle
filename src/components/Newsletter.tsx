@@ -35,7 +35,7 @@ export default function Newsletter() {
       textAlign: 'center',
     }}>
       <h2 style={{
-        fontSize: '2rem', // ✅ reduced
+        fontSize: 'clamp(1.4rem, 3.5vw, 2rem)',
         fontFamily: 'var(--font-karla)',
         color: 'var(--color-primary)',
         marginBottom: '1rem',
@@ -51,7 +51,16 @@ export default function Newsletter() {
         Subscribe to our newsletter for the latest blogs, podcasts, and events.
       </p>
 
-      <form onSubmit={handleSubmit} style={{ display: 'inline-flex', gap: '0.5rem', alignItems: 'center' }}>
+      <form onSubmit={handleSubmit} style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: '0.5rem',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        maxWidth: '480px',
+        margin: '0 auto',
+      }}>
         <input
           type="email"
           placeholder="Your email"
@@ -61,7 +70,9 @@ export default function Newsletter() {
             padding: '0.75rem 1rem',
             borderRadius: 'var(--radius-md)',
             border: '1px solid rgba(0,0,0,0.1)',
-            minWidth: '250px',
+            flex: '1 1 180px',   /* grows/shrinks, wraps below button if too narrow */
+            minWidth: '0',
+            width: '100%',
           }}
         />
         <button
