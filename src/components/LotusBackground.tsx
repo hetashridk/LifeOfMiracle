@@ -40,7 +40,7 @@ export default function LotusBackground() {
         style={{
           position: 'absolute',
           top: '15%',
-          left: '-10%',
+          left: '-7%',
           width: '35vw',
           height: '60vh',
           minWidth: 'min(300px, 40vw)',
