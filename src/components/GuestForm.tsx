@@ -22,7 +22,6 @@ export default function GuestForm({ onClose }: GuestFormProps) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    industry: '',
     reason: '',
     phone: '',
     company: '',
@@ -143,93 +142,92 @@ export default function GuestForm({ onClose }: GuestFormProps) {
               Be The Guest
             </h2>
             <form onSubmit={handleSubmit}>
-          {[
-            { name: 'name', label: 'Name', type: 'text' },
-            { name: 'email', label: 'Email', type: 'email' },
-            { name: 'industry', label: 'Industry', type: 'text' },
-            { name: 'reason', label: 'Why do you want to be in the podcast ?', type: 'textarea' },
-            { name: 'phone', label: 'Phone Number', type: 'tel' },
-            { name: 'company', label: 'Company Name', type: 'text' },
-            { name: 'weburl', label: 'Website URL', type: 'url' },
-          ].map((field) => (
-            <div key={field.name} style={{ marginBottom: '0.75rem' }}>
-              <label
-                htmlFor={field.name}
-                style={{ display: 'block', marginBottom: '0.25rem', color: 'var(--color-text-primary)' }}
-              >
-                {field.label}
-              </label>
-              {field.type === 'textarea' ? (
-                <textarea
-                  id={field.name}
-                  name={field.name}
-                  rows={4}
-                  required
-                  value={(formData as any)[field.name]}
-                  onChange={handleChange}
+              {[
+                { name: 'name', label: 'Name', type: 'text' },
+                { name: 'email', label: 'Email', type: 'email' },
+                { name: 'phone', label: 'Phone Number', type: 'tel' },
+                { name: 'company', label: 'Company Name', type: 'text' },
+                { name: 'weburl', label: 'Website URL', type: 'url' },
+                { name: 'reason', label: 'Why do you want to be in the podcast ?', type: 'textarea' },
+              ].map((field) => (
+                <div key={field.name} style={{ marginBottom: '0.75rem' }}>
+                  <label
+                    htmlFor={field.name}
+                    style={{ display: 'block', marginBottom: '0.25rem', color: 'var(--color-text-primary)' }}
+                  >
+                    {field.label}
+                  </label>
+                  {field.type === 'textarea' ? (
+                    <textarea
+                      id={field.name}
+                      name={field.name}
+                      rows={4}
+                      required
+                      value={(formData as any)[field.name]}
+                      onChange={handleChange}
+                      style={{
+                        width: '100%',
+                        padding: '0.5rem',
+                        borderRadius: 'var(--radius-md)',
+                        border: '1px solid rgba(0,0,0,0.1)',
+                      }}
+                    />
+                  ) : (
+                    <input
+                      id={field.name}
+                      name={field.name}
+                      type={field.type as any}
+                      required
+                      value={(formData as any)[field.name]}
+                      onChange={handleChange}
+                      style={{
+                        width: '100%',
+                        padding: '0.5rem',
+                        borderRadius: 'var(--radius-md)',
+                        border: '1px solid rgba(0,0,0,0.1)',
+                      }}
+                    />
+                  )}
+                  {errors[field.name] && (
+                    <p style={{ color: 'var(--color-accent-coral)', fontSize: '0.85rem', marginTop: '0.25rem' }}>
+                      {errors[field.name]}
+                    </p>
+                  )}
+                </div>
+              ))}
+              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem' }}>
+                <button
+                  type="button"
+                  onClick={onClose}
+                  disabled={submitting}
                   style={{
-                    width: '100%',
-                    padding: '0.5rem',
-                    borderRadius: 'var(--radius-md)',
-                    border: '1px solid rgba(0,0,0,0.1)',
+                    background: 'transparent',
+                    border: '2px solid var(--color-primary)',
+                    color: 'var(--color-primary)',
+                    padding: '0.5rem 1rem',
+                    borderRadius: 'var(--radius-pill)',
+                    cursor: 'pointer',
                   }}
-                />
-              ) : (
-                <input
-                  id={field.name}
-                  name={field.name}
-                  type={field.type as any}
-                  required
-                  value={(formData as any)[field.name]}
-                  onChange={handleChange}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={submitting}
                   style={{
-                    width: '100%',
-                    padding: '0.5rem',
-                    borderRadius: 'var(--radius-md)',
-                    border: '1px solid rgba(0,0,0,0.1)',
+                    backgroundColor: 'var(--color-primary)',
+                    border: 'none',
+                    color: '#fff',
+                    padding: '0.5rem 1rem',
+                    borderRadius: 'var(--radius-pill)',
+                    cursor: 'pointer',
                   }}
-                />
-              )}
-              {errors[field.name] && (
-                <p style={{ color: 'var(--color-accent-coral)', fontSize: '0.85rem', marginTop: '0.25rem' }}>
-                  {errors[field.name]}
-                </p>
-              )}
-            </div>
-          ))}
-          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem' }}>
-            <button
-              type="button"
-              onClick={onClose}
-              disabled={submitting}
-              style={{
-                background: 'transparent',
-                border: '2px solid var(--color-primary)',
-                color: 'var(--color-primary)',
-                padding: '0.5rem 1rem',
-                borderRadius: 'var(--radius-pill)',
-                cursor: 'pointer',
-              }}
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              disabled={submitting}
-              style={{
-                backgroundColor: 'var(--color-primary)',
-                border: 'none',
-                color: '#fff',
-                padding: '0.5rem 1rem',
-                borderRadius: 'var(--radius-pill)',
-                cursor: 'pointer',
-              }}
-            >
-              {submitting ? 'Submitting…' : 'Submit'}
-            </button>
-          </div>
-        </form>
-        </>
+                >
+                  {submitting ? 'Submitting…' : 'Submit'}
+                </button>
+              </div>
+            </form>
+          </>
         )}
       </div>
     </div>
