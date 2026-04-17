@@ -25,6 +25,7 @@
 
 html {
   font-size: 106.25%; /* 17px base — scales all rem values site-wide */
+  overflow-x: hidden; /* prevent horizontal scroll on ALL browsers incl. iOS Safari */
 }
 
 * {
@@ -68,6 +69,15 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 4rem !important;
     padding-bottom: 4rem !important;
   }
+
+  /* Stack two-column flex layouts at tablet (same class used in MentalFitness etc.) */
+  .flex-responsive {
+    flex-direction: column !important;
+    gap: 2.5rem !important;
+  }
+
+  /* Scale down large hard-coded headings that overflow on tablet */
+  h2 { font-size: clamp(1.8rem, 4vw, 3rem) !important; }
 }
 
 @media (max-width: 768px) {

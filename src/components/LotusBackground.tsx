@@ -43,7 +43,7 @@ export default function LotusBackground() {
           left: '-10%',
           width: '35vw',
           height: '60vh',
-          minWidth: '300px',
+          minWidth: 'min(300px, 40vw)',
           backgroundImage: 'url("/lotus_right.png")',
           backgroundSize: 'contain',
           backgroundPosition: 'left center',
@@ -74,14 +74,14 @@ export default function LotusBackground() {
           right: '-5%',
           width: '35vw',
           height: '60vh',
-          minWidth: '300px',
+          minWidth: 'min(300px, 40vw)',
           backgroundImage: 'url("/lotus.png")',
           backgroundSize: 'contain',
           backgroundPosition: 'right center',
           backgroundRepeat: 'no-repeat',
           opacity: 0.18,
           mixBlendMode: 'multiply',
-          transform: 'scaleX(-1)', // Mirror the image for the right side
+          transform: 'scaleX(-1)',
           filter: 'contrast(1.1) brightness(1.05)',
         }}
       />

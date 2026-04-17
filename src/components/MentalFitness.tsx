@@ -78,7 +78,7 @@ export function MentalFitness() {
 
             <h2
               style={{
-                fontSize: "3.5rem",
+                fontSize: 'clamp(1.8rem, 4vw, 3.5rem)',
                 fontFamily: "var(--font-karla)",
                 color: "var(--color-primary)",
                 lineHeight: 1.1,
