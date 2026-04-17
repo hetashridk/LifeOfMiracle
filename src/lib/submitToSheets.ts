@@ -36,7 +36,6 @@ type GuestPayload = {
   type: 'guest';
   name: string;
   email: string;
-  industry: string;
   reason: string;
   phone: string;
   company: string;
