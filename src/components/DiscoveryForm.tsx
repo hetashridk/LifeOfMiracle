@@ -164,7 +164,7 @@ export default function DiscoveryForm({ onClose }: DiscoveryFormProps) {
                   required
                   value={formData.service}
                   onChange={handleChange}
-                  style={{ width: '100%', padding: '0.5rem', borderRadius: 'var(--radius-md)', border: '1px solid rgba(0,0,0,0.1)', backgroundColor: '#fff' }}
+                  style={{ width: '100%', padding: '0.5rem', borderRadius: 'var(--radius-md)', border: '1px solid rgba(0,0,0,0.1)' }}
                 >
                   <option value="" disabled>Select a service</option>
                   <option value="1:1 Coaching">1:1 Coaching</option>

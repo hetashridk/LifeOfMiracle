@@ -18,14 +18,6 @@ const TOPICS = [
   'Developing confidence and inner stability',
 ];
 
-const ORGS = [
-  { name: 'Celebal Technologies',   type: 'Organisation' },
-  { name: 'Ikover Coworking Space', type: 'Organisation' },
-  { name: 'Workspace Co.',          type: 'Organisation' },
-  { name: 'CK Pithawala College',   type: 'Institution'  },
-  { name: 'Auro University Surat',  type: 'Institution'  },
-  { name: 'SCET College',           type: 'Institution'  },
-];
 
 export default function WorkshopPage() {
   const heroRef = useRef<HTMLElement>(null);
@@ -143,36 +135,6 @@ export default function WorkshopPage() {
         </div>
       </section>
 
-      {/* ════════ PAST WORK ════════ */}
-      <section style={{ padding: '7rem 0' }}>
-        <div style={{ ...W }}>
-          <motion.p
-            initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            style={{ fontSize: '0.6rem', fontWeight: 900, letterSpacing: '5px', textTransform: 'uppercase', color: '#f27552', marginBottom: '1.5rem' }}
-          >
-            Past Workshops
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.08 }}
-            style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', fontWeight: 900, lineHeight: 1.1, letterSpacing: '-0.03em', color: '#165b74', marginBottom: '3rem' }}
-          >
-            Organisations &amp; institutions she has worked with
-          </motion.h2>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))', gap: '1rem' }}>
-            {ORGS.map((org, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
-                style={{ padding: '1.4rem 1.6rem', background: '#fff', borderRadius: 12, border: '1px solid rgba(22,91,116,0.08)', boxShadow: '0 2px 10px rgba(22,91,116,0.04)' }}
-              >
-                <p style={{ fontSize: '0.55rem', fontWeight: 900, letterSpacing: '3px', textTransform: 'uppercase', color: org.type === 'Organisation' ? '#f27552' : '#3b9b6d', marginBottom: '0.5rem' }}>{org.type}</p>
-                <p style={{ fontSize: '0.95rem', fontWeight: 700, color: '#165b74', lineHeight: 1.4, margin: 0 }}>{org.name}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <Testimonials />
       <Footer />

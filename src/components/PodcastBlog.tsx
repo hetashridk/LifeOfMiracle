@@ -1,22 +1,25 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import GuestForm from './GuestForm';
 import Newsletter from './Newsletter';
 import { motion } from 'framer-motion';
 
 const posts = [
   {
-    title: 'Building Clarity in Chaos',
+    title: 'The Day That Gives You Back to Yourself',
+    slug: 'the-day-that-gives-you-back-to-yourself',
     date: 'Oct 12',
     tag: 'Mindset',
-    desc: 'How to find focus and direction when everything around you feels uncertain.',
+    desc: 'Have you ever woken up on a Sunday… and immediately felt guilty? It\'s time to reclaim your rest.',
   },
   {
-    title: 'The Missing Layer: Mental Fitness',
+    title: 'What Happens When Life Doesn’t Go as Planned?',
+    slug: 'what-happens-when-life-doesnt-go-as-planned',
     date: 'Sep 28',
-    tag: 'Mental Fitness',
-    desc: 'Why most people skip the one layer that makes everything else actually work.',
+    tag: 'Stories',
+    desc: 'Freddy Daruwala\'s journey isn\'t just about movies—it\'s about what happens when life doesn’t go as expected.',
   },
 ];
 
@@ -42,23 +45,45 @@ export function PodcastBlog() {
   const isSmall = isMobile || isTablet; // mobile + tablet
 
   // Responsive tokens
-  const sectionPadding  = isMobile ? '3rem 1.25rem' : 'var(--spacing-section) 5%';
-  const cardPadding     = isMobile ? '1.25rem'       : '2.5rem';
-  const episodePadding  = isMobile ? '1.25rem'       : '2rem';
-  const episodeGap      = isMobile ? '1rem'          : '1.5rem';
+  const sectionPadding = isMobile ? '3rem 1.25rem' : 'var(--spacing-section) 5%';
+  const cardPadding = isMobile ? '1.25rem' : '2rem';
+  const episodePadding = isMobile ? '1.25rem' : '2rem';
+  const episodeGap = isMobile ? '1rem' : '1.5rem';
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (carouselRef.current) {
+    let isPaused = false;
+    const scroll = () => {
+      if (carouselRef.current && !isPaused) {
         const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
-        if (scrollLeft + clientWidth >= scrollWidth - 1) {
+        const firstChild = carouselRef.current.firstElementChild as HTMLElement;
+        const scrollAmount = firstChild ? firstChild.offsetWidth + 16 : 300; // 16 is gap (1rem)
+
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
           carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
         } else {
-          carouselRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+          carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         }
       }
-    }, 4000);
-    return () => clearInterval(interval);
+    };
+
+    const interval = setInterval(scroll, 4000);
+
+    const onMouseEnter = () => { isPaused = true; };
+    const onMouseLeave = () => { isPaused = false; };
+
+    const carousel = carouselRef.current;
+    if (carousel) {
+      carousel.addEventListener('mouseenter', onMouseEnter);
+      carousel.addEventListener('mouseleave', onMouseLeave);
+    }
+
+    return () => {
+      clearInterval(interval);
+      if (carousel) {
+        carousel.removeEventListener('mouseenter', onMouseEnter);
+        carousel.removeEventListener('mouseleave', onMouseLeave);
+      }
+    };
   }, []);
 
   return (
@@ -236,37 +261,38 @@ export function PodcastBlog() {
                 gap: '1rem',
                 paddingBottom: '1rem',
                 scrollBehavior: 'smooth',
+                scrollSnapType: 'x mandatory',
               }}
             >
               {posts.map((post, i) => (
-                <motion.div
-                  key={post.title}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  style={{
-                    backgroundColor: 'var(--color-bg)',
-                    borderRadius: 'var(--radius-lg)',
-                    padding: isMobile ? '1.25rem' : '1.75rem',
-                    border: '1px solid rgba(0,0,0,0.05)',
-                    borderLeft: '4px solid var(--color-accent-emerald)',
-                    cursor: 'pointer',
-                    transition: 'box-shadow 0.2s, transform 0.2s',
-                    /* On mobile show one full card; on larger screens show partial next card */
-                    minWidth: isMobile ? 'calc(100% - 1rem)' : '260px',
-                    flex: '0 0 auto',
-                  }}
-                  whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}
-                >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
-                    <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--color-accent-emerald)', letterSpacing: '1px' }}>{post.date}</span>
-                    <span style={{ fontSize: '0.7rem', fontWeight: 700, padding: '0.25rem 0.75rem', borderRadius: 9999, backgroundColor: 'rgba(59,155,109,0.1)', color: 'var(--color-accent-emerald)' }}>{post.tag}</span>
-                  </div>
-                  <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--color-primary)', marginBottom: '0.5rem', lineHeight: 1.3 }}>{post.title}</h3>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>{post.desc}</p>
-                  <div style={{ marginTop: '1rem', fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-accent-emerald)' }}>Read more →</div>
-                </motion.div>
+                <Link key={post.slug} href={`/blog/${post.slug}`} style={{ textDecoration: 'none', flex: '0 0 auto', minWidth: isMobile ? 'calc(100% - 1rem)' : '260px' }}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    style={{
+                      backgroundColor: 'var(--color-bg)',
+                      borderRadius: 'var(--radius-lg)',
+                      padding: isMobile ? '1.25rem' : '1.75rem',
+                      border: '1px solid rgba(0,0,0,0.05)',
+                      borderLeft: '4px solid var(--color-accent-emerald)',
+                      cursor: 'pointer',
+                      transition: 'box-shadow 0.2s, transform 0.2s',
+                      width: '100%',
+                      scrollSnapAlign: 'start',
+                    }}
+                    whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}
+                  >
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
+                      <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--color-accent-emerald)', letterSpacing: '1px' }}>{post.date}</span>
+                      <span style={{ fontSize: '0.7rem', fontWeight: 700, padding: '0.25rem 0.75rem', borderRadius: 9999, backgroundColor: 'rgba(59,155,109,0.1)', color: 'var(--color-accent-emerald)' }}>{post.tag}</span>
+                    </div>
+                    <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--color-primary)', marginBottom: '0.5rem', lineHeight: 1.3 }}>{post.title}</h3>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>{post.desc}</p>
+                    <div style={{ marginTop: '1rem', fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-accent-emerald)' }}>Read more →</div>
+                  </motion.div>
+                </Link>
               ))}
             </div>
 
