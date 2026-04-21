@@ -35,9 +35,10 @@ export function Footer() {
           <div style={{ flex: '1', minWidth: '150px' }}>
             <h4 style={{ fontSize: '1.1rem', marginBottom: '1.5rem', color: 'var(--color-accent-mustard)', fontFamily: 'var(--font-karla)' }}>Connect</h4>
             <ul style={{ listStyle: 'none', padding: 0, opacity: 0.9, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-              <li><a href="#" className="footer-link" style={{ color: '#fff', textDecoration: 'none' }}>LinkedIn</a></li>
-              <li><a href="#" className="footer-link" style={{ color: '#fff', textDecoration: 'none' }}>Instagram</a></li>
-              <li><a href="#" className="footer-link" style={{ color: '#fff', textDecoration: 'none' }}>Spotify</a></li>
+              <li><a href="https://www.linkedin.com/in/karishmakhubchandani/" className="footer-link" style={{ color: '#fff', textDecoration: 'none' }} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+              <li><a href="https://www.instagram.com/life_of_a_miracle/" className="footer-link" style={{ color: '#fff', textDecoration: 'none' }} target="_blank" rel="noopener noreferrer">Instagram</a></li>
+              <li><a href="https://www.instagram.com/whatitreallytakes/" className="footer-link" style={{ color: '#fff', textDecoration: 'none' }} target="_blank" rel="noopener noreferrer">WIRT Instagram</a></li>
+              <li><a href="https://www.youtube.com/@karishmakhubchandani" className="footer-link" style={{ color: '#fff', textDecoration: 'none' }} target="_blank" rel="noopener noreferrer">YouTube</a></li>
             </ul>
           </div>
 
@@ -55,8 +56,8 @@ export function Footer() {
         }}>
           <div>© {new Date().getFullYear()} Life of a Miracle. All rights reserved.</div>
           <div style={{ display: 'flex', gap: '1.5rem' }}>
-            <span style={{ cursor: 'pointer' }}>Privacy Policy</span>
-            <span style={{ cursor: 'pointer' }}>Terms of Service</span>
+            {/* <span style={{ cursor: 'pointer' }}>Privacy Policy</span> */}
+            {/* <span style={{ cursor: 'pointer' }}>Terms of Service</span> */}
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
@@ -38,10 +38,20 @@ const MagneticLink = ({ children, href }: { children: React.ReactNode, href: str
 
 export default function BlogLanding() {
   const posts = [...BLOG_POSTS].reverse();
-  const featuredPost = posts[0];
+  const featuredPosts = posts.slice(0, 4);
+  const [activeIdx, setActiveIdx] = React.useState(0);
   const [visibleCount, setVisibleCount] = React.useState(6);
   const { scrollYProgress } = useScroll();
   const bgTextY = useTransform(scrollYProgress, [0, 1], [0, -200]);
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIdx((prev) => (prev + 1) % featuredPosts.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [featuredPosts.length]);
+
+  const featuredPost = featuredPosts[activeIdx];
 
   return (
     <main style={{ backgroundColor: 'transparent', color: 'var(--color-primary)', overflowX: 'hidden' }}>
@@ -106,18 +116,66 @@ export default function BlogLanding() {
             viewport={{ once: true }}
             className="featured-container"
           >
-            <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', aspectRatio: '16/10' }}>
-              <img src={featuredPost.image} alt={featuredPost.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <div style={{ position: 'relative', borderRadius: 'var(--radius-md)', overflow: 'hidden', aspectRatio: '16/10' }}>
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={featuredPost.slug}
+                  src={featuredPost.image}
+                  alt={featuredPost.title}
+                  initial={{ opacity: 0, scale: 1.1 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 1 }}
+                  transition={{ duration: 1.2, ease: "easeOut" }}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0 }}
+                />
+              </AnimatePresence>
+              
+              {/* Carousel Dots */}
+              <div style={{
+                position: 'absolute',
+                bottom: '2rem',
+                left: '2rem',
+                display: 'flex',
+                gap: '0.75rem',
+                zIndex: 2
+              }}>
+                {featuredPosts.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveIdx(idx)}
+                    style={{
+                      width: activeIdx === idx ? '30px' : '10px',
+                      height: '10px',
+                      borderRadius: 'var(--radius-pill)',
+                      backgroundColor: activeIdx === idx ? 'var(--color-accent-coral)' : 'rgba(255,255,255,0.5)',
+                      transition: 'all 0.4s ease',
+                      border: 'none',
+                      cursor: 'pointer'
+                    }}
+                    aria-label={`Go to slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
             </div>
-            <div>
-              <span style={{ color: 'var(--color-accent-emerald)', fontWeight: 800, letterSpacing: '3px', textTransform: 'uppercase', fontSize: '0.7rem', display: 'block', marginBottom: '1rem' }}>Latest Story</span>
-              <h2 style={{ fontSize: '2.5rem', fontWeight: 700, lineHeight: 1.2, marginBottom: '1.5rem' }}>{featuredPost.title}</h2>
-              <p style={{ fontSize: '1.05rem', color: 'var(--color-text-secondary)', lineHeight: 1.6, marginBottom: '2rem' }}>{featuredPost.excerpt}</p>
-              <MagneticLink href={`/blog/${featuredPost.slug}`}>
-                <button className="btn-dark" style={{ padding: '0.8rem 2rem', borderRadius: 'var(--radius-pill)', backgroundColor: 'var(--color-primary)', color: '#fff', fontWeight: 600 }}>
-                  Read More
-                </button>
-              </MagneticLink>
+            <div style={{ minHeight: '300px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={featuredPost.slug}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <span style={{ color: 'var(--color-accent-emerald)', fontWeight: 800, letterSpacing: '3px', textTransform: 'uppercase', fontSize: '0.7rem', display: 'block', marginBottom: '1rem' }}>Latest Story</span>
+                  <h2 style={{ fontSize: '2.5rem', fontWeight: 700, lineHeight: 1.2, marginBottom: '1.5rem', minHeight: '3em' }}>{featuredPost.title}</h2>
+                  <p style={{ fontSize: '1.05rem', color: 'var(--color-text-secondary)', lineHeight: 1.6, marginBottom: '2rem', minHeight: '3.2em' }}>{featuredPost.excerpt}</p>
+                  <MagneticLink href={`/blog/${featuredPost.slug}`}>
+                    <button className="btn-dark" style={{ padding: '0.8rem 2rem', borderRadius: 'var(--radius-pill)', backgroundColor: 'var(--color-primary)', color: '#fff', fontWeight: 600 }}>
+                      Read More
+                    </button>
+                  </MagneticLink>
+                </motion.div>
+              </AnimatePresence>
             </div>
           </motion.div>
         </div>

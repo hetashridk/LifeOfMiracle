@@ -114,7 +114,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             style={{
               width: '100%',
-              aspectRatio: '21/9',
+              aspectRatio: '16/9',
               borderRadius: 'var(--radius-lg)',
               overflow: 'hidden',
               boxShadow: '0 30px 60px rgba(0,0,0,0.12)'
@@ -263,30 +263,99 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
       </section>
 
       {/* ── DISCOVER MORE (CAROUSEL) ── */}
-      <section style={{ padding: '6rem 5%', position: 'relative', zIndex: 1 }}>
-        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-          <h3 style={{ fontSize: '1.5rem', fontWeight: 900, marginBottom: '3rem', textAlign: 'center' }}>Discover more stories</h3>
+      <section style={{ padding: '6rem 0', position: 'relative', zIndex: 1, backgroundColor: '#fff' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5%' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3rem' }}>
+            <div>
+              <span style={{ color: themeColor, fontWeight: 800, letterSpacing: '4px', textTransform: 'uppercase', fontSize: '0.75rem', display: 'block', marginBottom: '1rem' }}>Journal</span>
+              <h3 style={{ fontSize: '2.5rem', fontWeight: 900, fontFamily: 'var(--font-karla)', color: 'var(--color-primary)' }}>Discover more stories</h3>
+            </div>
 
-          <div style={{
-            display: 'flex',
-            gap: '2rem',
-            overflowX: 'auto',
-            paddingBottom: '2rem',
-            scrollSnapType: 'x mandatory',
-            msOverflowStyle: 'none',
-            scrollbarWidth: 'none'
-          }} className="no-scrollbar">
-            {otherPosts.map((sub) => (
-              <Link key={sub.slug} href={`/blog/${sub.slug}`} style={{ textDecoration: 'none', color: 'inherit', flex: '0 0 auto', width: 'min(400px, 85vw)', scrollSnapAlign: 'center' }}>
-                <motion.div whileHover={{ y: -10 }} transition={{ duration: 0.3 }}>
-                  <div style={{ aspectRatio: '16/10', borderRadius: 'var(--radius-lg)', overflow: 'hidden', marginBottom: '1.5rem', boxShadow: '0 15px 30px rgba(0,0,0,0.08)' }}>
-                    <img src={sub.image} alt={sub.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            {/* Carousel Controls */}
+            <div style={{ display: 'flex', gap: '1rem' }}>
+              <button
+                onClick={() => {
+                  const el = document.getElementById('blog-carousel');
+                  if (el) el.scrollBy({ left: -400, behavior: 'smooth' });
+                }}
+                className="carousel-nav"
+                style={{
+                  width: '50px', height: '50px', borderRadius: '50%', border: '1px solid rgba(0,0,0,0.1)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', color: 'var(--color-primary)'
+                }}
+              >
+                ←
+              </button>
+              <button
+                onClick={() => {
+                  const el = document.getElementById('blog-carousel');
+                  if (el) el.scrollBy({ left: 400, behavior: 'smooth' });
+                }}
+                className="carousel-nav"
+                style={{
+                  width: '50px', height: '50px', borderRadius: '50%', border: '1px solid rgba(0,0,0,0.1)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', color: 'var(--color-primary)'
+                }}
+              >
+                →
+              </button>
+            </div>
+          </div>
+
+          <div
+            id="blog-carousel"
+            style={{
+              display: 'flex',
+              gap: '2.5rem',
+              overflowX: 'auto',
+              padding: '1rem 0 4rem',
+              scrollSnapType: 'x mandatory',
+              msOverflowStyle: 'none',
+              scrollbarWidth: 'none',
+              scrollBehavior: 'smooth'
+            }} className="no-scrollbar"
+          >
+          {otherPosts.map((sub) => (
+            <Link 
+              key={sub.slug} 
+              href={`/blog/${sub.slug}`} 
+              style={{ textDecoration: 'none', color: 'inherit', flex: '0 0 auto', width: 'min(400px, 80vw)', scrollSnapAlign: 'start' }}
+            >
+              <motion.div whileHover={{ y: -10 }} transition={{ duration: 0.3 }}>
+                <div style={{ 
+                  aspectRatio: '16/10', 
+                  borderRadius: 'var(--radius-lg)', 
+                  overflow: 'hidden', 
+                  marginBottom: '1.5rem', 
+                  boxShadow: '0 20px 40px rgba(0,0,0,0.08)',
+                  position: 'relative'
+                }}>
+                  <img src={sub.image} alt={sub.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <div style={{
+                    position: 'absolute',
+                    top: '1rem',
+                    left: '1rem',
+                    padding: '0.4rem 0.8rem',
+                    backgroundColor: 'rgba(255,255,255,0.9)',
+                    backdropFilter: 'blur(5px)',
+                    borderRadius: 'var(--radius-sm)',
+                    fontSize: '0.6rem',
+                    fontWeight: 900,
+                    textTransform: 'uppercase',
+                    letterSpacing: '1px',
+                    color: 'var(--color-primary)'
+                  }}>
+                    {sub.tag}
                   </div>
-                  <span style={{ color: themeColor, fontWeight: 800, letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.7rem' }}>{sub.tag}</span>
-                  <h4 style={{ fontSize: '1.4rem', fontFamily: 'var(--font-karla)', fontWeight: 800, marginTop: '0.75rem', lineHeight: 1.2 }}>{sub.title}</h4>
-                </motion.div>
-              </Link>
-            ))}
+                </div>
+                <h4 style={{ fontSize: '1.5rem', fontFamily: 'var(--font-karla)', fontWeight: 800, marginTop: '0.75rem', lineHeight: 1.2, color: 'var(--color-primary)' }}>{sub.title}</h4>
+                <p style={{ marginTop: '0.5rem', fontSize: '0.95rem', color: 'var(--color-text-secondary)', opacity: 0.8, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{sub.excerpt}</p>
+                <div style={{ marginTop: '1rem', fontWeight: 800, fontSize: '0.8rem', color: themeColor, textTransform: 'uppercase', letterSpacing: '2px' }}>read story →</div>
+              </motion.div>
+            </Link>
+          ))}
+          {/* Spacer for the end to ensure the last card can be start-aligned with the margin */}
+          <div style={{ flex: '0 0 5%', width: '5%' }} />
           </div>
         </div>
       </section>
@@ -340,42 +409,49 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
             </p>
 
             {/* Podcast featured card inside */}
-            <div style={{
-              backgroundColor: 'var(--color-primary)',
-              borderRadius: 'var(--radius-lg)',
-              padding: '1.5rem',
-              marginBottom: '2rem',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '1.25rem',
-            }}>
+            <a
+              href="https://youtu.be/OPMbmWcRAJ8?si=xxzyMk9Sm1b5lAN_"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'none', display: 'block', marginBottom: '2rem' }}
+            >
               <div style={{
-                width: 56, height: 56, borderRadius: '50%',
-                backgroundColor: 'var(--color-accent-coral)',
-                display: 'flex', alignItems: 'center',
-                justifyContent: 'center', flexShrink: 0,
+                backgroundColor: 'var(--color-primary)',
+                borderRadius: 'var(--radius-lg)',
+                padding: '1.5rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '1.25rem',
+                cursor: 'pointer',
               }}>
-                <span style={{ color: '#fff', fontSize: '1.2rem' }}>▶</span>
-              </div>
-              <div>
-                <span style={{
-                  color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem',
-                  textTransform: 'uppercase', letterSpacing: '1px',
+                <div style={{
+                  width: 56, height: 56, borderRadius: '50%',
+                  backgroundColor: 'var(--color-accent-coral)',
+                  display: 'flex', alignItems: 'center',
+                  justifyContent: 'center', flexShrink: 0,
                 }}>
-                  Latest Episode
-                </span>
-                <p style={{
-                  color: '#fff', fontSize: '1rem', fontWeight: 600,
-                  margin: '0.25rem 0',
-                }}>
-                  Building a mind that works For you
-                </p>
+                  <span style={{ color: '#fff', fontSize: '1.2rem' }}>▶</span>
+                </div>
+                <div>
+                  <span style={{
+                    color: 'rgba(255,255,255,0.6)', fontSize: '0.75rem',
+                    textTransform: 'uppercase', letterSpacing: '1px',
+                  }}>
+                    Latest Episode
+                  </span>
+                  <p style={{
+                    color: '#fff', fontSize: '1rem', fontWeight: 600,
+                    margin: '0.25rem 0',
+                  }}>
+                    3 Years Without Work. This Is What It Taught Me
+                  </p>
+                </div>
               </div>
-            </div>
+            </a>
 
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
               <Link
-                href="https://youtube.com"
+                href="https://www.youtube.com/channel/UCRdjzUBlxbCzgK4xBqmBKRw"
                 target="_blank"
                 style={{
                   display: 'inline-flex', alignItems: 'center',
@@ -477,6 +553,13 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
 
       <style jsx>{`
         .no-scrollbar::-webkit-scrollbar { display: none; }
+        .carousel-nav { transition: all 0.3s ease; cursor: pointer; }
+        .carousel-nav:hover { 
+          background: var(--color-primary) !important; 
+          color: #fff !important; 
+          transform: scale(1.1);
+          border-color: var(--color-primary) !important;
+        }
         @media (max-width: 768px) {
           .author-card { flex-direction: column; text-align: center; }
         }

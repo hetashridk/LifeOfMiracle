@@ -87,15 +87,11 @@ export function PodcastBlog() {
   }, []);
 
   return (
-    <section id="podcast" style={{
-      padding: sectionPadding,
-      backgroundColor: '#fff',
-    }}>
+    <section id="podcast" style={{ padding: sectionPadding, backgroundColor: '#fff' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-        {/* flex-responsive collapses to column at ≤1024px via globals.css */}
         <div className="flex-responsive" style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap' }}>
 
-          {/* ── Podcast Card ── */}
+          {/* Podcast Card */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -141,42 +137,49 @@ export function PodcastBlog() {
             </p>
 
             {/* Podcast featured card */}
-            <div style={{
-              backgroundColor: 'var(--color-primary)',
-              borderRadius: 'var(--radius-lg)',
-              padding: episodePadding,
-              marginBottom: '2rem',
-              display: 'flex',
-              alignItems: 'center',
-              gap: episodeGap,
-            }}>
+            <a
+              href="https://youtu.be/OPMbmWcRAJ8?si=xxzyMk9Sm1b5lAN_"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'none', display: 'block', marginBottom: '2rem' }}
+            >
               <div style={{
-                width: 56, height: 56, borderRadius: '50%',
-                backgroundColor: 'var(--color-accent-coral)',
-                display: 'flex', alignItems: 'center',
-                justifyContent: 'center', flexShrink: 0,
+                backgroundColor: 'var(--color-primary)',
+                borderRadius: 'var(--radius-lg)',
+                padding: episodePadding,
+                display: 'flex',
+                alignItems: 'center',
+                gap: episodeGap,
+                cursor: 'pointer',
               }}>
-                <span style={{ color: '#fff', fontSize: '1.2rem' }}>▶</span>
-              </div>
-              <div style={{ minWidth: 0 }}> {/* minWidth:0 lets text shrink/wrap inside flex */}
-                <p style={{
-                  fontSize: '0.7rem', fontWeight: 700,
-                  letterSpacing: '2px', textTransform: 'uppercase',
-                  color: 'rgba(255,255,255,0.5)', marginBottom: '0.3rem',
+                <div style={{
+                  width: 56, height: 56, borderRadius: '50%',
+                  backgroundColor: 'var(--color-accent-coral)',
+                  display: 'flex', alignItems: 'center',
+                  justifyContent: 'center', flexShrink: 0,
                 }}>
-                  Latest Episode
-                </p>
-                <p style={{
-                  fontSize: '1.05rem', fontWeight: 700,
-                  color: '#fff', lineHeight: 1.3,
-                  wordBreak: 'break-word',
-                }}>
-                  The Truth Behind Mental Strength
-                </p>
+                  <span style={{ color: '#fff', fontSize: '1.2rem' }}>&#9654;</span>
+                </div>
+                <div style={{ minWidth: 0 }}>
+                  <p style={{
+                    fontSize: '0.7rem', fontWeight: 700,
+                    letterSpacing: '2px', textTransform: 'uppercase',
+                    color: 'rgba(255,255,255,0.5)', marginBottom: '0.3rem',
+                  }}>
+                    Latest Episode
+                  </p>
+                  <p style={{
+                    fontSize: '1.05rem', fontWeight: 700,
+                    color: '#fff', lineHeight: 1.3,
+                    wordBreak: 'break-word',
+                  }}>
+                    3 Years Without Work. This Is What It Taught Me
+                  </p>
+                </div>
               </div>
-            </div>
+            </a>
 
-            {/* CTA buttons — stack vertically on mobile */}
+            {/* CTA buttons */}
             <div style={{
               display: 'flex',
               flexDirection: isMobile ? 'column' : 'row',
@@ -184,7 +187,7 @@ export function PodcastBlog() {
               flexWrap: 'wrap',
             }}>
               <a
-                href="https://www.youtube.com/@karishmakhubchandani"
+                href="https://www.youtube.com/channel/UCRdjzUBlxbCzgK4xBqmBKRw"
                 className="btn-dark"
                 style={{
                   display: 'inline-flex', alignItems: 'center',
@@ -196,7 +199,7 @@ export function PodcastBlog() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span>▶</span> Watch The Podcast
+                <span>&#9654;</span> Watch The Podcast
               </a>
 
               {showGuestForm && <GuestForm onClose={() => setShowGuestForm(false)} />}
@@ -229,6 +232,8 @@ export function PodcastBlog() {
             style={{
               flex: 1,
               minWidth: 'min(300px, 100%)',
+              maxWidth: '100%',
+              overflow: 'hidden',
               backgroundColor: 'transparent',
               borderRadius: 'var(--radius-lg)',
               padding: cardPadding,
@@ -262,10 +267,12 @@ export function PodcastBlog() {
                 paddingBottom: '1rem',
                 scrollBehavior: 'smooth',
                 scrollSnapType: 'x mandatory',
+                width: '100%',
+                minWidth: 0,
               }}
             >
               {posts.map((post, i) => (
-                <Link key={post.slug} href={`/blog/${post.slug}`} style={{ textDecoration: 'none', flex: '0 0 auto', minWidth: isMobile ? 'calc(100% - 1rem)' : '260px' }}>
+                <Link key={post.slug} href={`/blog/${post.slug}`} style={{ textDecoration: 'none', flex: '0 0 100%', minWidth: 0, scrollSnapAlign: 'start' }}>
                   <motion.div
                     initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -280,7 +287,6 @@ export function PodcastBlog() {
                       cursor: 'pointer',
                       transition: 'box-shadow 0.2s, transform 0.2s',
                       width: '100%',
-                      scrollSnapAlign: 'start',
                     }}
                     whileHover={{ y: -4, boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}
                   >
