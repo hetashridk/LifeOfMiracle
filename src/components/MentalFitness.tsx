@@ -6,29 +6,29 @@ const contrasts = [
   {
     from: "Reacting",
     to: "Responding",
-    color: "#f27552",
-    bg: "rgba(242,117,82,0.08)",
+    color: "#ea7554",
+    bg: "rgba(234,117,84,0.08)",
   },
   {
     from: "Overthinking",
     to: "Clarity",
-    color: "#3b9b6d",
-    bg: "rgba(59,155,109,0.08)",
+    color: "#f4ba59",
+    bg: "rgba(244,186,89,0.08)",
   },
   {
     from: "Pressure",
     to: "Presence",
-    color: "#ca71a6",
-    bg: "rgba(202,113,166,0.08)",
+    color: "#ea7554",
+    bg: "rgba(234,117,84,0.06)",
   },
 ];
 
 const notThis = ["Not therapy.", "Not motivation."];
 
 const stats = [
-  { num: "4", label: "1:1 done",                color: "#f27552" },
-  { num: "3", label: "Corporate workshops done", color: "#fcbc51" },
-  { num: "3", label: "College workshops done",   color: "#f9a8d4" },
+  { num: "4", label: "1:1 done",                color: "#ea7554" },
+  { num: "3", label: "Corporate workshops done", color: "#f4ba59" },
+  { num: "3", label: "College workshops done",   color: "#ea7554" },
 ];
 
 export function MentalFitness() {
@@ -62,7 +62,7 @@ export function MentalFitness() {
             <span
               style={{
                 display: "inline-block",
-                backgroundColor: "var(--color-primary)",
+                backgroundColor: "#ea7554",
                 color: "#fff",
                 fontSize: "0.75rem",
                 fontWeight: 700,
@@ -234,7 +234,7 @@ export function MentalFitness() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               style={{
-                backgroundColor: "var(--color-primary)",
+                backgroundColor: "#0d5468",
                 borderRadius: "var(--radius-md)",
                 padding: "2rem",
                 display: "flex",

@@ -88,7 +88,7 @@ export default function DiscoveryForm({ onClose }: DiscoveryFormProps) {
           <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
             <div
               style={{
-                width: 60, height: 60, borderRadius: '50%', background: '#3b9b6d',
+                width: 60, height: 60, borderRadius: '50%', background: '#ea7554',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem'
               }}
             >
@@ -105,7 +105,7 @@ export default function DiscoveryForm({ onClose }: DiscoveryFormProps) {
             <button
               onClick={onClose}
               style={{
-                backgroundColor: 'var(--color-primary)', color: '#fff', border: 'none',
+                backgroundColor: '#ea7554', color: '#fff', border: 'none',
                 padding: '0.75rem 2rem', borderRadius: 'var(--radius-pill)', cursor: 'pointer',
                 fontWeight: 600
               }}
@@ -193,8 +193,8 @@ export default function DiscoveryForm({ onClose }: DiscoveryFormProps) {
                   disabled={submitting}
                   style={{
                     background: 'transparent',
-                    border: '2px solid var(--color-primary)',
-                    color: 'var(--color-primary)',
+                    border: '2px solid #1a1a1a',
+                    color: '#1a1a1a',
                     padding: '0.5rem 1rem',
                     borderRadius: 'var(--radius-pill)',
                     cursor: 'pointer',
@@ -204,7 +204,7 @@ export default function DiscoveryForm({ onClose }: DiscoveryFormProps) {
                   type="submit"
                   disabled={submitting}
                   style={{
-                    backgroundColor: 'var(--color-primary)',
+                    backgroundColor: '#ea7554',
                     border: 'none',
                     color: '#fff',
                     padding: '0.5rem 1rem',

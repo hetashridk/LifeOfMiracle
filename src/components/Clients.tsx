@@ -58,11 +58,11 @@ export function Clients() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                style={{ 
-                  padding: '1.5rem', 
-                  background: '#fcfcfc', 
-                  borderRadius: 'var(--radius-md)', 
-                  border: '1px solid rgba(22,91,116,0.06)',
+                style={{
+                  padding: '1.5rem',
+                  background: '#fff',
+                  borderRadius: 'var(--radius-md)',
+                  border: '1px solid rgba(0,0,0,0.06)',
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '0.5rem',
@@ -76,7 +76,7 @@ export function Clients() {
                   fontWeight: 900, 
                   letterSpacing: '2px', 
                   textTransform: 'uppercase', 
-                  color: org.type === 'Organisation' ? '#f27552' : '#3b9b6d' 
+                  color: org.type === 'Organisation' ? '#ea7554' : '#f4ba59'
                 }}>
                   {org.type}
                 </span>

@@ -51,14 +51,14 @@ export default function KeynoteForm() {
     width: '100%',
     padding: '0.9rem 1.1rem',
     background: '#fff',
-    border: `1.5px solid ${focused === name ? '#165b74' : 'rgba(22,91,116,0.15)'}`,
+    border: `1.5px solid ${focused === name ? '#1a1a1a' : 'rgba(0,0,0,0.15)'}`,
     borderRadius: 14,
     outline: 'none',
     fontSize: '1rem',
-    color: '#165b74',
+    color: '#1a1a1a',
     fontFamily: 'inherit',
     transition: 'border-color 0.2s, box-shadow 0.2s',
-    boxShadow: focused === name ? '0 0 0 4px rgba(22,91,116,0.07)' : 'none',
+    boxShadow: focused === name ? '0 0 0 4px rgba(0,0,0,0.07)' : 'none',
     boxSizing: 'border-box',
   });
 
@@ -68,7 +68,7 @@ export default function KeynoteForm() {
     fontWeight: 900,
     letterSpacing: '2.5px',
     textTransform: 'uppercase',
-    color: 'rgba(22,91,116,0.5)',
+    color: 'rgba(0,0,0,0.5)',
     marginBottom: '0.5rem',
   };
 
@@ -78,20 +78,20 @@ export default function KeynoteForm() {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ type: 'spring', stiffness: 180, damping: 18 }}
-        style={{ padding: '5rem 3rem', textAlign: 'center', background: '#fff', borderRadius: 40, border: '1px solid rgba(22,91,116,0.1)', boxShadow: '0 24px 60px rgba(22,91,116,0.08)' }}
+        style={{ padding: '5rem 3rem', textAlign: 'center', background: '#fff', borderRadius: 40, border: '1px solid rgba(0,0,0,0.1)', boxShadow: '0 24px 60px rgba(0,0,0,0.08)' }}
       >
         <motion.div
           initial={{ scale: 0, rotate: -15 }}
           animate={{ scale: 1, rotate: 0 }}
           transition={{ type: 'spring', stiffness: 220, damping: 14, delay: 0.1 }}
-          style={{ width: 80, height: 80, borderRadius: '50%', background: '#3b9b6d', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.75rem' }}
+          style={{ width: 80, height: 80, borderRadius: '50%', background: '#ea7554', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.75rem' }}
         >
           <svg width="40" height="40" fill="none" stroke="#fff" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
           </svg>
         </motion.div>
-        <h3 style={{ fontSize: '1.8rem', fontWeight: 900, color: '#165b74', marginBottom: '0.75rem' }}>Enquiry Sent</h3>
-        <p style={{ color: '#a67358', lineHeight: 1.7, maxWidth: 320, margin: '0 auto' }}>
+        <h3 style={{ fontSize: '1.8rem', fontWeight: 900, color: '#1a1a1a', marginBottom: '0.75rem' }}>Enquiry Sent</h3>
+        <p style={{ color: '#444444', lineHeight: 1.7, maxWidth: 320, margin: '0 auto' }}>
           Your enquiry has been received. We'll be in touch shortly.
         </p>
       </motion.div>
@@ -104,11 +104,11 @@ export default function KeynoteForm() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.55 }}
-      style={{ background: '#fff', padding: '2.5rem', borderRadius: 40, boxShadow: '0 24px 60px rgba(22,91,116,0.09)', border: '1px solid rgba(22,91,116,0.1)' }}
+      style={{ background: '#fff', padding: '2.5rem', borderRadius: 40, boxShadow: '0 24px 60px rgba(0,0,0,0.09)', border: '1px solid rgba(0,0,0,0.1)' }}
     >
-      <div style={{ marginBottom: '2rem', paddingBottom: '1.75rem', borderBottom: '1px solid rgba(22,91,116,0.08)' }}>
-        <h3 style={{ fontSize: '1.5rem', fontWeight: 900, color: '#165b74' }}>Book a Keynote</h3>
-        <p style={{ color: '#a67358', fontSize: '0.9rem', marginTop: '0.4rem' }}>Tell us about your event and we'll be in touch.</p>
+      <div style={{ marginBottom: '2rem', paddingBottom: '1.75rem', borderBottom: '1px solid rgba(0,0,0,0.08)' }}>
+        <h3 style={{ fontSize: '1.5rem', fontWeight: 900, color: '#1a1a1a' }}>Book a Keynote</h3>
+        <p style={{ color: '#444444', fontSize: '0.9rem', marginTop: '0.4rem' }}>Tell us about your event and we'll be in touch.</p>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
@@ -153,13 +153,13 @@ export default function KeynoteForm() {
         disabled={loading}
         whileHover={{ scale: 1.015 }}
         whileTap={{ scale: 0.975 }}
-        style={{ width: '100%', padding: '1.1rem', background: '#f27552', color: '#fff', fontWeight: 900, fontSize: '1.05rem', borderRadius: 18, border: 'none', cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.7 : 1, boxShadow: '0 12px 32px rgba(242,117,82,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', fontFamily: 'inherit', transition: 'background 0.2s' }}
+        style={{ width: '100%', padding: '1.1rem', background: '#ea7554', color: '#fff', fontWeight: 900, fontSize: '1.05rem', borderRadius: 18, border: 'none', cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.7 : 1, boxShadow: '0 12px 32px rgba(234,117,84,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', fontFamily: 'inherit', transition: 'background 0.2s' }}
       >
         {loading ? 'Submitting…' : 'Send Enquiry'}
         {!loading && <span>→</span>}
       </motion.button>
 
-      <p style={{ textAlign: 'center', fontSize: '0.75rem', color: 'rgba(166,115,88,0.5)', marginTop: '1.25rem' }}>
+      <p style={{ textAlign: 'center', fontSize: '0.75rem', color: 'rgba(0,0,0,0.4)', marginTop: '1.25rem' }}>
         By submitting, you agree to our privacy policy. Your info stays private — always.
       </p>
     </motion.form>

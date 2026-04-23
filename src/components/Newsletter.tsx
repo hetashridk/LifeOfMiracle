@@ -79,7 +79,7 @@ export default function Newsletter() {
           type="submit"
           disabled={status === 'submitting'}
           style={{
-            backgroundColor: 'var(--color-primary)',
+            backgroundColor: '#ea7554',
             color: '#fff',
             border: 'none',
             padding: '0.75rem 1.5rem',

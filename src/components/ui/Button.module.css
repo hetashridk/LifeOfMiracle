@@ -14,13 +14,13 @@
 }
 
 .primary {
-  background-color: var(--color-primary);
+  background-color: #ea7554;
   color: #fff;
 }
 .primary:hover {
-  background-color: #0e3f52;
+  background-color: #ea7554;
   transform: translateY(-3px);
-  box-shadow: 0 14px 30px rgba(22, 91, 116, 0.3);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
 }
 
 .secondary {
@@ -32,17 +32,17 @@
   background-color: var(--color-primary);
   color: #fff;
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(22, 91, 116, 0.2);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
 }
 
 .accent {
-  background-color: var(--color-accent-mustard);
-  color: var(--color-primary);
+  background-color: var(--color-accent-coral);
+  color: #fff;
 }
 .accent:hover {
-  background-color: #e8a830;
+  background-color: #ea7554;
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(252, 188, 81, 0.4);
+  box-shadow: 0 12px 28px rgba(234, 117, 84, 0.4);
 }
 
 .lg {

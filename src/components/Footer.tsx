@@ -3,7 +3,7 @@ import React from 'react';
 export function Footer() {
   return (
     <footer style={{
-      backgroundColor: 'var(--color-primary)',
+      backgroundColor: '#0d5468',
       color: '#fff',
       padding: '5rem 5% 2rem',
     }}>
@@ -64,3 +64,8 @@ export function Footer() {
     </footer>
   );
 }
+
+
+// blue -p mandatory
+// yellow
+// orange

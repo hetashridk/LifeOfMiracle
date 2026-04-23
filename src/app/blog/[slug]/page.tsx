@@ -30,7 +30,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
 
   const isSundayReset = post.slug === 'the-day-that-gives-you-back-to-yourself';
   const themeColor = isSundayReset ? 'var(--color-accent-coral)' : 'var(--color-accent-emerald)';
-  const secondaryColor = isSundayReset ? '#fdf8f4' : '#f4fdf9';
+  const secondaryColor = isSundayReset ? '#ffffff' : '#ffffff';
 
   const otherPosts = BLOG_POSTS.filter(p => p.slug !== post.slug);
 
@@ -416,7 +416,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
               style={{ textDecoration: 'none', display: 'block', marginBottom: '2rem' }}
             >
               <div style={{
-                backgroundColor: 'var(--color-primary)',
+                backgroundColor: '#0d5468',
                 borderRadius: 'var(--radius-lg)',
                 padding: '1.5rem',
                 display: 'flex',
@@ -456,7 +456,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                 style={{
                   display: 'inline-flex', alignItems: 'center',
                   justifyContent: 'center', gap: '0.75rem',
-                  backgroundColor: 'var(--color-primary)', color: '#fff',
+                  backgroundColor: '#ea7554', color: '#fff',
                   padding: '1rem 1.75rem', borderRadius: 'var(--radius-pill)',
                   textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem',
                 }}
@@ -468,8 +468,8 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                 style={{
                   display: 'inline-flex', alignItems: 'center',
                   justifyContent: 'center', gap: '0.75rem',
-                  border: '2px solid var(--color-primary)',
-                  color: 'var(--color-primary)',
+                  border: '2px solid #1a1a1a',
+                  color: '#1a1a1a',
                   padding: '1rem 1.75rem',
                   borderRadius: 'var(--radius-pill)',
                   fontWeight: 700, fontSize: '0.95rem',
@@ -489,7 +489,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
             viewport={{ once: true }}
             style={{
               padding: '3rem',
-              backgroundColor: '#165b74',
+              backgroundColor: '#0d5468',
               borderRadius: 'var(--radius-lg)',
               color: '#fff',
               display: 'flex',
@@ -555,10 +555,10 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .carousel-nav { transition: all 0.3s ease; cursor: pointer; }
         .carousel-nav:hover { 
-          background: var(--color-primary) !important; 
-          color: #fff !important; 
+          background: #ea7554 !important;
+          color: #fff !important;
           transform: scale(1.1);
-          border-color: var(--color-primary) !important;
+          border-color: #ea7554 !important;
         }
         @media (max-width: 768px) {
           .author-card { flex-direction: column; text-align: center; }

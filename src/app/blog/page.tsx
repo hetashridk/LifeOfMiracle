@@ -170,7 +170,7 @@ export default function BlogLanding() {
                   <h2 style={{ fontSize: '2.5rem', fontWeight: 700, lineHeight: 1.2, marginBottom: '1.5rem', minHeight: '3em' }}>{featuredPost.title}</h2>
                   <p style={{ fontSize: '1.05rem', color: 'var(--color-text-secondary)', lineHeight: 1.6, marginBottom: '2rem', minHeight: '3.2em' }}>{featuredPost.excerpt}</p>
                   <MagneticLink href={`/blog/${featuredPost.slug}`}>
-                    <button className="btn-dark" style={{ padding: '0.8rem 2rem', borderRadius: 'var(--radius-pill)', backgroundColor: 'var(--color-primary)', color: '#fff', fontWeight: 600 }}>
+                    <button className="btn-dark" style={{ padding: '0.8rem 2rem', borderRadius: 'var(--radius-pill)', backgroundColor: '#ea7554', color: '#fff', fontWeight: 600 }}>
                       Read More
                     </button>
                   </MagneticLink>
@@ -269,8 +269,8 @@ export default function BlogLanding() {
                   padding: '1.2rem 3rem',
                   borderRadius: 'var(--radius-pill)',
                   backgroundColor: 'transparent',
-                  border: '2px solid var(--color-primary)',
-                  color: 'var(--color-primary)',
+                  border: '2px solid #1a1a1a',
+                  color: '#1a1a1a',
                   fontWeight: 700,
                   fontSize: '0.9rem',
                   textTransform: 'uppercase',
@@ -308,13 +308,13 @@ export default function BlogLanding() {
         <div style={{
           maxWidth: '1200px',
           margin: '0 auto',
-          background: 'var(--color-primary)',
+          background: '#0d5468',
           borderRadius: 'var(--radius-lg)',
           padding: '5rem 8%',
           color: '#fff',
           position: 'relative',
           overflow: 'hidden',
-          boxShadow: '0 40px 80px rgba(22, 91, 116, 0.15)'
+          boxShadow: '0 40px 80px rgba(45, 35, 35, 0.15)'
         }}>
           <div style={{ position: 'absolute', top: '-10%', right: '-10%', opacity: 0.1, pointerEvents: 'none', filter: 'brightness(0) invert(1)' }}>
             <img src="/lotus_right.png" style={{ width: '500px' }} alt="" />
@@ -373,7 +373,7 @@ export default function BlogLanding() {
         }
 
         .carousel-nav:hover {
-          background: var(--color-primary) !important;
+          background: #ea7554 !important;
           color: #fff !important;
           transform: scale(1.05);
           cursor: pointer;

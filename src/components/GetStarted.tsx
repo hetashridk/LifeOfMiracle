@@ -78,7 +78,7 @@ export function GetStarted() {
           className="responsive-padding"
           style={{
             // backgroundColor: 'var(--color-primary)',
-            backgroundColor: '#165b74',
+            backgroundColor: '#0d5468',
             borderRadius: 'var(--radius-lg)',
             padding: '5rem 4rem',
             textAlign: 'center',
@@ -96,8 +96,8 @@ export function GetStarted() {
               display: 'inline-block',
               padding: '1.2rem 3rem',
               borderRadius: 'var(--radius-pill)',
-              backgroundColor: 'var(--color-accent-mustard)',
-              color: 'var(--color-primary)',
+              backgroundColor: 'var(--color-accent-coral)',
+              color: '#fff',
               textDecoration: 'none',
               fontWeight: 700,
               fontSize: '1.2rem',

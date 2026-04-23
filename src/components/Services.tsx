@@ -44,7 +44,7 @@ const services = [
     subtitle: 'For organizations and events that want real conversations.',
     desc: 'Talks that go beyond inspiration and create actual mindset shifts in performance, leadership, and well-being.',
     cta: 'Book A Keynote',
-    color: 'var(--color-accent-emerald)',
+    color: 'var(--color-accent-mustard)',
     icon: '◧',
     href: '/keynote'
   },
@@ -53,7 +53,7 @@ const services = [
     subtitle: 'Interactive experiences designed for teams and communities.',
     desc: 'Focused on stress, clarity, emotional resilience, and mental performance.',
     cta: 'Enquire About Workshops',
-    color: 'var(--color-accent-mustard)',
+    color: '#0d5468',
     icon: '✧',
     href: '/workshop'
   }
@@ -107,7 +107,7 @@ export function Services() {
             style={{
               borderRadius: 'var(--radius-lg)',
               overflow: 'hidden',
-              backgroundColor: '#f5f5f5',
+              backgroundColor: '#f0f0f0',
               position: 'relative',
               minHeight: '300px',
             }}

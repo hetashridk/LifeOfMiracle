@@ -144,7 +144,7 @@ export function PodcastBlog() {
               style={{ textDecoration: 'none', display: 'block', marginBottom: '2rem' }}
             >
               <div style={{
-                backgroundColor: 'var(--color-primary)',
+                backgroundColor: '#0d5468',
                 borderRadius: 'var(--radius-lg)',
                 padding: episodePadding,
                 display: 'flex',
@@ -192,7 +192,7 @@ export function PodcastBlog() {
                 style={{
                   display: 'inline-flex', alignItems: 'center',
                   justifyContent: 'center', gap: '0.75rem',
-                  backgroundColor: 'var(--color-primary)', color: '#fff',
+                  backgroundColor: '#ea7554', color: '#fff',
                   padding: '1rem 1.75rem', borderRadius: 'var(--radius-pill)',
                   textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem',
                 }}
@@ -210,8 +210,8 @@ export function PodcastBlog() {
                 style={{
                   display: 'inline-flex', alignItems: 'center',
                   justifyContent: 'center', gap: '0.75rem',
-                  border: '2px solid var(--color-primary)',
-                  color: 'var(--color-primary)',
+                  border: '2px solid #1a1a1a',
+                  color: '#1a1a1a',
                   padding: '1rem 1.75rem',
                   borderRadius: 'var(--radius-pill)',
                   fontWeight: 700, fontSize: '0.95rem',
@@ -292,7 +292,7 @@ export function PodcastBlog() {
                   >
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
                       <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--color-accent-emerald)', letterSpacing: '1px' }}>{post.date}</span>
-                      <span style={{ fontSize: '0.7rem', fontWeight: 700, padding: '0.25rem 0.75rem', borderRadius: 9999, backgroundColor: 'rgba(59,155,109,0.1)', color: 'var(--color-accent-emerald)' }}>{post.tag}</span>
+                      <span style={{ fontSize: '0.7rem', fontWeight: 700, padding: '0.25rem 0.75rem', borderRadius: 9999, backgroundColor: 'rgba(244,186,89,0.15)', color: 'var(--color-accent-emerald)' }}>{post.tag}</span>
                     </div>
                     <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--color-primary)', marginBottom: '0.5rem', lineHeight: 1.3 }}>{post.title}</h3>
                     <p style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>{post.desc}</p>

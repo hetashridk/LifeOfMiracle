@@ -159,8 +159,8 @@ export function Hero() {
               display: 'inline-block',
               padding: '1rem 2.5rem',
               borderRadius: 'var(--radius-pill)',
-              border: '1.5px solid var(--color-primary)',
-              color: 'var(--color-primary)',
+              border: '1.5px solid #1a1a1a',
+              color: '#1a1a1a',
               textDecoration: 'none',
               fontWeight: 600,
               fontSize: '0.95rem',
@@ -168,12 +168,12 @@ export function Hero() {
               cursor: 'pointer',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--color-primary)';
+              e.currentTarget.style.backgroundColor = '#ea7554';
               e.currentTarget.style.color = '#fff';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.color = 'var(--color-primary)';
+              e.currentTarget.style.color = '#1a1a1a';
             }}
             onClick={(e) => {
               e.preventDefault();

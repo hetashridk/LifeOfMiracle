@@ -2,15 +2,15 @@
 
 :root {
   /* Colors */
-  --color-bg: #F9F6F2;
+  --color-bg: #ffffff;
   --color-surface: #ffffff;
-  --color-primary: #165b74;
-  --color-accent-coral: #f27552;
-  --color-accent-mustard: #fcbc51;
-  --color-accent-magenta: #ca71a6;
-  --color-accent-emerald: #3b9b6d;
-  --color-text-primary: #165b74;
-  --color-text-secondary: #a67358;
+  --color-primary: #1a1a1a;
+  --color-accent-coral: #ea7554;
+  --color-accent-mustard: #f4ba59;
+  --color-accent-magenta: #ea7554;
+  --color-accent-emerald: #f4ba59;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #444444;
 
   /* Border Radii */
   --radius-lg: 40px;
@@ -184,28 +184,28 @@ button {
 a, button { transition: all 0.25s ease; }
 
 .btn-dark:hover {
-  background-color: #0e3f52 !important;
+  background-color: #ea7554 !important;
   transform: translateY(-3px);
-  box-shadow: 0 14px 32px rgba(22, 91, 116, 0.32) !important;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.32) !important;
 }
 
 .btn-coral:hover {
-  background-color: #e06040 !important;
+  background-color: #ea7554 !important;
   transform: translateY(-3px);
-  box-shadow: 0 14px 32px rgba(242, 117, 82, 0.38) !important;
+  box-shadow: 0 14px 32px rgba(234, 117, 84, 0.38) !important;
 }
 
 .btn-mustard:hover {
-  background-color: #e8a830 !important;
+  background-color: #f4ba59 !important;
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(252, 188, 81, 0.38) !important;
+  box-shadow: 0 12px 28px rgba(244, 186, 89, 0.38) !important;
 }
 
 .btn-outline:hover {
-  background-color: #165b74 !important;
+  background-color: #ea7554 !important;
   color: #fff !important;
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(22, 91, 116, 0.2) !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2) !important;
 }
 
 .btn-service:hover {
@@ -215,6 +215,6 @@ a, button { transition: all 0.25s ease; }
 }
 
 .footer-link:hover {
-  color: var(--color-accent-mustard) !important;
+  color: var(--color-accent-coral) !important;
   padding-left: 6px !important;
 }
