@@ -26,7 +26,7 @@ const TESTIMONIALS = [
     quote: "One of the best sessions we've hosted. Karishma's presence commanded attention and her content created real reflection. We've had requests to bring her back already.",
     name: 'Ankit Verma',
     title: 'Founder, Ikover Coworking Space',
-    color: '#f4ba59',
+    color: '#ea7554',
   },
 ];
 

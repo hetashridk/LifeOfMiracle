@@ -18,7 +18,7 @@
   color: #fff;
 }
 .primary:hover {
-  background-color: #ea7554;
+  background-color: #e6b45a;
   transform: translateY(-3px);
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
 }
@@ -29,10 +29,10 @@
   border: 1.5px solid var(--color-primary);
 }
 .secondary:hover {
-  background-color: var(--color-primary);
+  background-color: #e6b45a;
   color: #fff;
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 28px rgba(230, 180, 90, 0.38);
 }
 
 .accent {
@@ -40,9 +40,9 @@
   color: #fff;
 }
 .accent:hover {
-  background-color: #ea7554;
+  background-color: #e6b45a;
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(234, 117, 84, 0.4);
+  box-shadow: 0 12px 28px rgba(230, 180, 90, 0.4);
 }
 
 .lg {

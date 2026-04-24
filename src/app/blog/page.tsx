@@ -69,7 +69,7 @@ export default function BlogLanding() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span style={{
+            {/* <span style={{
               color: 'var(--color-accent-coral)',
               fontSize: '0.8rem',
               letterSpacing: '6px',
@@ -79,7 +79,7 @@ export default function BlogLanding() {
               display: 'block'
             }}>
               The Collection
-            </span>
+            </span> */}
             <h1 style={{
               fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
               fontWeight: 700,
@@ -170,7 +170,7 @@ export default function BlogLanding() {
                   <h2 style={{ fontSize: '2.5rem', fontWeight: 700, lineHeight: 1.2, marginBottom: '1.5rem', minHeight: '3em' }}>{featuredPost.title}</h2>
                   <p style={{ fontSize: '1.05rem', color: 'var(--color-text-secondary)', lineHeight: 1.6, marginBottom: '2rem', minHeight: '3.2em' }}>{featuredPost.excerpt}</p>
                   <MagneticLink href={`/blog/${featuredPost.slug}`}>
-                    <button className="btn-dark" style={{ padding: '0.8rem 2rem', borderRadius: 'var(--radius-pill)', backgroundColor: '#ea7554', color: '#fff', fontWeight: 600 }}>
+                    <button className="btn-dark" style={{ padding: '0.8rem 2rem', borderRadius: 'var(--radius-pill)', backgroundColor: '#ea7554', color: '#fff', fontWeight: 600, transition: 'all 0.25s ease' }}>
                       Read More
                     </button>
                   </MagneticLink>
@@ -186,7 +186,7 @@ export default function BlogLanding() {
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ marginBottom: '4rem' }}>
             <h3 style={{ fontSize: '2rem', fontWeight: 700, textAlign: 'left' }}>
-              All <span style={{ opacity: 0.3 }}>Stories</span>
+              All Stories
             </h3>
           </div>
 
@@ -330,15 +330,17 @@ export default function BlogLanding() {
                 <input
                   type="email"
                   placeholder="Your best email address"
+                  className="newsletter-input"
                   style={{
                     width: '100%',
                     padding: '1.2rem 1.8rem',
                     borderRadius: 'var(--radius-pill)',
-                    border: '1px solid rgba(255,255,255,0.2)',
-                    background: 'rgba(255,255,255,0.05)',
+                    border: '1.5px solid rgba(255,255,255,0.5)',
+                    background: 'rgba(255,255,255,0.15)',
                     color: '#fff',
                     fontSize: '1rem',
-                    backdropFilter: 'blur(10px)'
+                    backdropFilter: 'blur(10px)',
+                    outline: 'none',
                   }}
                 />
                 <button className="btn-mustard" style={{
@@ -373,10 +375,14 @@ export default function BlogLanding() {
         }
 
         .carousel-nav:hover {
-          background: #ea7554 !important;
+          background: #e6b45a !important;
           color: #fff !important;
           transform: scale(1.05);
           cursor: pointer;
+        }
+
+        .newsletter-input::placeholder {
+          color: rgba(255, 255, 255, 0.65);
         }
 
         @media (max-width: 1024px) {

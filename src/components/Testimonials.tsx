@@ -16,13 +16,13 @@ const TESTIMONIALS = [
     quote: "She speaks in a way that stays with you. It wasn't a generic motivational talk — it was honest, grounded, and genuinely useful. Exactly what our students needed to hear.",
     name: 'Dr. Priya Shah',
     title: 'Dean of Students, Auro University Surat',
-    color: '#f4ba59',
+    color: '#ea7554',
   },
   {
     quote: "One of the best sessions we've hosted. Karishma's presence commanded attention and her content created real reflection. We've had requests to bring her back already.",
     name: 'Ankit Verma',
     title: 'Founder, Ikover Coworking Space',
-    color: '#f4ba59',
+    color: '#ea7554',
   },
 ];
 

@@ -151,9 +151,10 @@ export default function WorkshopForm() {
       <motion.button
         type="submit"
         disabled={loading}
+        className="btn-submit"
         whileHover={{ scale: 1.015 }}
         whileTap={{ scale: 0.975 }}
-        style={{ width: '100%', padding: '1.1rem', background: '#ea7554', color: '#fff', fontWeight: 900, fontSize: '1.05rem', borderRadius: 18, border: 'none', cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.7 : 1, boxShadow: '0 12px 32px rgba(234,117,84,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', fontFamily: 'inherit', transition: 'background 0.2s' }}
+        style={{ width: '100%', padding: '1.2rem 3rem', background: '#ea7554', color: '#fff', fontWeight: 700, fontSize: '1.2rem', letterSpacing: '0.5px', borderRadius: 'var(--radius-pill)', border: 'none', cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.7 : 1, boxShadow: '0 10px 30px rgba(0,0,0,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', fontFamily: 'inherit', transition: 'background 0.2s' }}
       >
         {loading ? 'Submitting…' : 'Send Enquiry'}
         {!loading && <span>→</span>}

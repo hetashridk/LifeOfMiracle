@@ -50,7 +50,7 @@ export function Reviews() {
       }}
     >
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+        <div style={{ textAlign: 'left', marginBottom: '4rem' }}>
           <h2
             style={{
               fontSize: '3.5rem',

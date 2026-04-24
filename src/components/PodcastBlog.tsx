@@ -188,13 +188,15 @@ export function PodcastBlog() {
             }}>
               <a
                 href="https://www.youtube.com/channel/UCRdjzUBlxbCzgK4xBqmBKRw"
-                className="btn-dark"
+                className="btn-mustard"
                 style={{
                   display: 'inline-flex', alignItems: 'center',
                   justifyContent: 'center', gap: '0.75rem',
-                  backgroundColor: '#ea7554', color: '#fff',
-                  padding: '1rem 1.75rem', borderRadius: 'var(--radius-pill)',
-                  textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem',
+                  backgroundColor: 'var(--color-accent-coral)', color: '#fff',
+                  padding: '1.2rem 3rem', borderRadius: 'var(--radius-pill)',
+                  textDecoration: 'none', fontWeight: 600,
+                  fontSize: '0.95rem',
+                  letterSpacing: '0.5px', boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
                 }}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -214,7 +216,8 @@ export function PodcastBlog() {
                   color: '#1a1a1a',
                   padding: '1rem 1.75rem',
                   borderRadius: 'var(--radius-pill)',
-                  fontWeight: 700, fontSize: '0.95rem',
+                  fontWeight: 600,
+                  fontSize: '0.95rem',
                   backgroundColor: 'transparent', cursor: 'pointer',
                 }}
                 onClick={() => setShowGuestForm(true)}

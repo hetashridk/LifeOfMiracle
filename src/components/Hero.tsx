@@ -155,25 +155,19 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
             href="#about"
+            className="btn-mustard"
             style={{
               display: 'inline-block',
-              padding: '1rem 2.5rem',
+              padding: '1.2rem 3rem',
               borderRadius: 'var(--radius-pill)',
-              border: '1.5px solid #1a1a1a',
-              color: '#1a1a1a',
+              backgroundColor: 'var(--color-accent-coral)',
+              color: '#fff',
               textDecoration: 'none',
               fontWeight: 600,
               fontSize: '0.95rem',
-              transition: 'all 0.3s ease',
+              letterSpacing: '0.5px',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
               cursor: 'pointer',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#ea7554';
-              e.currentTarget.style.color = '#fff';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.color = '#1a1a1a';
             }}
             onClick={(e) => {
               e.preventDefault();

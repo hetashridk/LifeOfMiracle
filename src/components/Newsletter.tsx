@@ -78,13 +78,19 @@ export default function Newsletter() {
         <button
           type="submit"
           disabled={status === 'submitting'}
+          className="btn-subscribe"
           style={{
-            backgroundColor: '#ea7554',
+            backgroundColor: 'var(--color-accent-coral)',
             color: '#fff',
             border: 'none',
-            padding: '0.75rem 1.5rem',
+            padding: '1.2rem 3rem',
             borderRadius: 'var(--radius-pill)',
             cursor: 'pointer',
+            fontWeight: 600,
+            fontSize: '0.95rem',
+            letterSpacing: '0.5px',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+            transition: 'all 0.25s ease',
           }}
         >
           {status === 'submitting' ? 'Submitting…' : 'Subscribe'}

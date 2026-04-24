@@ -127,10 +127,12 @@ export default function GuestForm({ onClose }: GuestFormProps) {
             </p>
             <button
               onClick={onClose}
+              className="btn-mustard"
               style={{
-                backgroundColor: '#ea7554', color: '#fff', border: 'none',
-                padding: '0.75rem 2rem', borderRadius: 'var(--radius-pill)', cursor: 'pointer',
-                fontWeight: 600
+                backgroundColor: 'var(--color-accent-coral)', color: '#fff', border: 'none',
+                padding: '1.2rem 3rem', borderRadius: 'var(--radius-pill)', cursor: 'pointer',
+                fontWeight: 700, fontSize: '1.2rem', letterSpacing: '0.5px',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
               }}
             >
               Close
@@ -200,6 +202,7 @@ export default function GuestForm({ onClose }: GuestFormProps) {
                   type="button"
                   onClick={onClose}
                   disabled={submitting}
+                  className="btn-cancel"
                   style={{
                     background: 'transparent',
                     border: '2px solid #1a1a1a',
@@ -207,6 +210,7 @@ export default function GuestForm({ onClose }: GuestFormProps) {
                     padding: '0.5rem 1rem',
                     borderRadius: 'var(--radius-pill)',
                     cursor: 'pointer',
+                    transition: 'all 0.25s ease',
                   }}
                 >
                   Cancel
@@ -214,13 +218,18 @@ export default function GuestForm({ onClose }: GuestFormProps) {
                 <button
                   type="submit"
                   disabled={submitting}
+                  className="btn-mustard"
                   style={{
-                    backgroundColor: '#ea7554',
+                    backgroundColor: 'var(--color-accent-coral)',
                     border: 'none',
                     color: '#fff',
-                    padding: '0.5rem 1rem',
+                    padding: '1.2rem 3rem',
                     borderRadius: 'var(--radius-pill)',
                     cursor: 'pointer',
+                    fontWeight: 700,
+                    fontSize: '1.2rem',
+                    letterSpacing: '0.5px',
+                    boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
                   }}
                 >
                   {submitting ? 'Submitting…' : 'Submit'}

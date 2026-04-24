@@ -6,9 +6,9 @@
   --color-surface: #ffffff;
   --color-primary: #1a1a1a;
   --color-accent-coral: #ea7554;
-  --color-accent-mustard: #f4ba59;
+  --color-accent-mustard: #ea7554;
   --color-accent-magenta: #ea7554;
-  --color-accent-emerald: #f4ba59;
+  --color-accent-emerald: #ea7554;
   --color-text-primary: #1a1a1a;
   --color-text-secondary: #444444;
 
@@ -184,34 +184,62 @@ button {
 a, button { transition: all 0.25s ease; }
 
 .btn-dark:hover {
-  background-color: #ea7554 !important;
+  background-color: #e6b45a !important;
   transform: translateY(-3px);
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.32) !important;
 }
 
 .btn-coral:hover {
-  background-color: #ea7554 !important;
+  background-color: #e6b45a !important;
   transform: translateY(-3px);
-  box-shadow: 0 14px 32px rgba(234, 117, 84, 0.38) !important;
+  box-shadow: 0 14px 32px rgba(230, 180, 90, 0.38) !important;
 }
 
 .btn-mustard:hover {
-  background-color: #f4ba59 !important;
+  background-color: #e6b45a !important;
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(244, 186, 89, 0.38) !important;
+  box-shadow: 0 12px 28px rgba(230, 180, 90, 0.38) !important;
 }
 
 .btn-outline:hover {
-  background-color: #ea7554 !important;
+  background-color: #e6b45a !important;
   color: #fff !important;
   transform: translateY(-3px);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2) !important;
 }
 
 .btn-service:hover {
+  background-color: #e6b45a !important;
   transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14) !important;
-  filter: brightness(0.92);
+  box-shadow: 0 16px 36px rgba(230, 180, 90, 0.38) !important;
+}
+
+.btn-submit:hover {
+  background-color: #e6b45a !important;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(230, 180, 90, 0.38) !important;
+}
+
+.btn-cancel:hover {
+  background-color: #e6b45a !important;
+  border-color: #e6b45a !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(230, 180, 90, 0.38) !important;
+}
+
+.btn-load-more:hover {
+  background-color: #e6b45a !important;
+  border-color: #e6b45a !important;
+  color: #fff !important;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(230, 180, 90, 0.38) !important;
+}
+
+.btn-subscribe:hover {
+  background-color: #e6b45a !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(230, 180, 90, 0.38) !important;
 }
 
 .footer-link:hover {

@@ -35,7 +35,7 @@ const services = [
     subtitle: 'For individuals ready to do deep inner work.',
     desc: 'Build emotional clarity, break patterns, and develop a stronger relationship with your mind.',
     cta: 'Apply For Coaching',
-    color: 'var(--color-primary)',
+    color: '#ea7554',
     icon: '△',
     href: '/coaching'
   },
@@ -44,7 +44,7 @@ const services = [
     subtitle: 'For organizations and events that want real conversations.',
     desc: 'Talks that go beyond inspiration and create actual mindset shifts in performance, leadership, and well-being.',
     cta: 'Book A Keynote',
-    color: 'var(--color-accent-mustard)',
+    color: '#ea7554',
     icon: '◧',
     href: '/keynote'
   },
@@ -53,7 +53,7 @@ const services = [
     subtitle: 'Interactive experiences designed for teams and communities.',
     desc: 'Focused on stress, clarity, emotional resilience, and mental performance.',
     cta: 'Enquire About Workshops',
-    color: '#0d5468',
+    color: '#ea7554',
     icon: '✧',
     href: '/workshop'
   }
@@ -194,29 +194,20 @@ export function Services() {
 
                   <a
                     href={svc.href}
+                    className="btn-service"
                     style={{
                       flexShrink: 0,
                       display: 'inline-block',
                       padding: '0.6rem 1.25rem',
                       borderRadius: 'var(--radius-pill)',
                       backgroundColor: svc.color,
-                      color: svc.color === 'var(--color-accent-mustard)' ? 'var(--color-primary)' : '#fff',
+                      color: '#fff',
                       textDecoration: 'none',
                       fontWeight: 700,
                       fontSize: '0.85rem',
                       letterSpacing: '0.3px',
                       transition: 'all 0.25s ease',
                       whiteSpace: 'nowrap',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-2px)';
-                      e.currentTarget.style.boxShadow = '0 6px 14px rgba(0,0,0,0.14)';
-                      e.currentTarget.style.filter = 'brightness(0.92)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.boxShadow = 'none';
-                      e.currentTarget.style.filter = 'none';
                     }}
                   >
                     {svc.cta}

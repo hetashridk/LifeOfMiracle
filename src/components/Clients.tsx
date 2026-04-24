@@ -76,7 +76,7 @@ export function Clients() {
                   fontWeight: 900, 
                   letterSpacing: '2px', 
                   textTransform: 'uppercase', 
-                  color: org.type === 'Organisation' ? '#ea7554' : '#f4ba59'
+                  color: org.type === 'Organisation' ? '#ea7554' : '#ea7554'
                 }}>
                   {org.type}
                 </span>

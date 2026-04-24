@@ -516,16 +516,20 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                   outline: 'none' 
                 }}
               />
-              <button style={{ 
-                backgroundColor: 'var(--color-accent-coral)', 
-                color: '#fff', 
-                border: 'none', 
-                padding: '1.1rem 2.5rem', 
-                borderRadius: 'var(--radius-pill)', 
-                fontWeight: 800,
-                cursor: 'pointer',
-                fontSize: '1rem'
-              }}>Subscribe Now</button>
+              <button
+                className="btn-subscribe"
+                style={{
+                  backgroundColor: 'var(--color-accent-coral)',
+                  color: '#fff',
+                  border: 'none',
+                  padding: '1.1rem 2.5rem',
+                  borderRadius: 'var(--radius-pill)',
+                  fontWeight: 800,
+                  cursor: 'pointer',
+                  fontSize: '1rem',
+                  transition: 'all 0.25s ease',
+                }}
+              >Subscribe Now</button>
             </div>
           </motion.div>
 

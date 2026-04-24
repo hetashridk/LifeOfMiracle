@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
@@ -8,6 +8,21 @@ import WorkshopForm from '@/components/WorkshopForm';
 import { Testimonials } from '@/components/Testimonials';
 
 const W = { maxWidth: '1200px', margin: '0 auto', padding: '0 2.5rem', width: '100%' };
+
+const GALLERY: { src: string; caption?: string }[] = [
+  { src: '/workshop/1.jpg' },
+  { src: '/workshop/2.jpg' },
+  { src: '/workshop/3.JPG' },
+  { src: '/workshop/4.JPG' },
+  { src: '/workshop/5.png' },
+  { src: '/workshop/6.png' },
+  { src: '/workshop/7.png' },
+  { src: '/workshop/8.JPG' },
+  { src: '/workshop/9.JPG' },
+  { src: '/workshop/10.JPG' },
+  { src: '/workshop/11.JPG' },
+  { src: '/workshop/12.JPG' },
+];
 
 const TOPICS = [
   'Managing stress, pressure, and overthinking',
@@ -23,6 +38,7 @@ export default function WorkshopPage() {
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
+  const [lightbox, setLightbox] = useState<number | null>(null);
 
   return (
     <main style={{ backgroundColor: 'transparent', minHeight: '100vh', color: '#1a1a1a', overflowX: 'hidden' }}>
@@ -135,6 +151,134 @@ export default function WorkshopPage() {
         </div>
       </section>
 
+
+      {/* ════════ WORKSHOP GALLERY ════════ */}
+      <section style={{ padding: '7rem 0', background: '#fff' }}>
+        <div style={{ ...W }}>
+
+          {/* Heading */}
+          <motion.p
+            initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            style={{ fontSize: '0.6rem', fontWeight: 900, letterSpacing: '5px', textTransform: 'uppercase', color: '#ea7554', marginBottom: '1rem' }}
+          >
+            In The Room
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.08 }}
+            style={{ fontSize: 'clamp(1.6rem, 3vw, 2.8rem)', fontWeight: 900, color: '#1a1a1a', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: '3.5rem' }}
+          >
+            Workshops in action
+          </motion.h2>
+
+          {/* Grid */}
+          {GALLERY.length === 0 ? (
+            /* Empty state — shown until images are added */
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.25rem' }}>
+              {[...Array(6)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
+                  style={{
+                    aspectRatio: i % 3 === 0 ? '4/3' : '1/1',
+                    borderRadius: 16,
+                    background: 'rgba(0,0,0,0.04)',
+                    border: '1.5px dashed rgba(0,0,0,0.12)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '0.5rem',
+                    color: 'rgba(0,0,0,0.25)',
+                  }}
+                >
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="3" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <path d="M21 15l-5-5L5 21" />
+                  </svg>
+                  <span style={{ fontSize: '0.72rem', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase' }}>Photo {i + 1}</span>
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            /* Masonry-style grid — populates once images are added */
+            <div style={{ columns: '3 280px', columnGap: '1.25rem' }}>
+              {GALLERY.map((img, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}
+                  onClick={() => setLightbox(i)}
+                  style={{
+                    breakInside: 'avoid',
+                    marginBottom: '1.25rem',
+                    borderRadius: 16,
+                    overflow: 'hidden',
+                    cursor: 'zoom-in',
+                    position: 'relative',
+                  }}
+                >
+                  <img
+                    src={img.src}
+                    alt={img.caption ?? `Workshop photo ${i + 1}`}
+                    style={{ width: '100%', display: 'block', transition: 'transform 0.4s ease' }}
+                    onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.03)')}
+                    onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
+                  />
+                  {img.caption && (
+                    <div style={{
+                      position: 'absolute', bottom: 0, left: 0, right: 0,
+                      padding: '0.6rem 1rem',
+                      background: 'linear-gradient(transparent, rgba(0,0,0,0.55))',
+                      color: '#fff', fontSize: '0.78rem', fontWeight: 600,
+                    }}>
+                      {img.caption}
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Lightbox */}
+      {lightbox !== null && (
+        <div
+          onClick={() => setLightbox(null)}
+          style={{
+            position: 'fixed', inset: 0, zIndex: 9999,
+            background: 'rgba(0,0,0,0.88)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            padding: '2rem', cursor: 'zoom-out',
+          }}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.25 }}
+            style={{ position: 'relative', maxWidth: '90vw', maxHeight: '90vh' }}
+            onClick={e => e.stopPropagation()}
+          >
+            <img
+              src={GALLERY[lightbox].src}
+              alt={GALLERY[lightbox].caption}
+              style={{ maxWidth: '90vw', maxHeight: '85vh', borderRadius: 12, display: 'block', objectFit: 'contain' }}
+            />
+            {GALLERY[lightbox].caption && (
+              <p style={{ textAlign: 'center', color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem', marginTop: '0.75rem' }}>
+                {GALLERY[lightbox].caption}
+              </p>
+            )}
+            {/* Prev / Next */}
+            {lightbox > 0 && (
+              <button onClick={() => setLightbox(lightbox - 1)} style={{ position: 'absolute', left: '-3.5rem', top: '50%', transform: 'translateY(-50%)', background: 'rgba(255,255,255,0.12)', border: 'none', color: '#fff', borderRadius: '50%', width: 44, height: 44, fontSize: '1.2rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 0.2s' }}>‹</button>
+            )}
+            {lightbox < GALLERY.length - 1 && (
+              <button onClick={() => setLightbox(lightbox + 1)} style={{ position: 'absolute', right: '-3.5rem', top: '50%', transform: 'translateY(-50%)', background: 'rgba(255,255,255,0.12)', border: 'none', color: '#fff', borderRadius: '50%', width: 44, height: 44, fontSize: '1.2rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 0.2s' }}>›</button>
+            )}
+            {/* Close */}
+            <button onClick={() => setLightbox(null)} style={{ position: 'absolute', top: '-1rem', right: '-1rem', background: '#fff', border: 'none', borderRadius: '50%', width: 32, height: 32, fontSize: '1rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1a1a1a' }}>✕</button>
+          </motion.div>
+        </div>
+      )}
 
       <Testimonials />
       <Footer />

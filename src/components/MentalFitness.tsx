@@ -12,8 +12,8 @@ const contrasts = [
   {
     from: "Overthinking",
     to: "Clarity",
-    color: "#f4ba59",
-    bg: "rgba(244,186,89,0.08)",
+    color: "#ea7554",
+    bg: "rgba(234,117,84,0.08)",
   },
   {
     from: "Pressure",
@@ -26,9 +26,10 @@ const contrasts = [
 const notThis = ["Not therapy.", "Not motivation."];
 
 const stats = [
-  { num: "4", label: "1:1 done",                color: "#ea7554" },
-  { num: "3", label: "Corporate workshops done", color: "#f4ba59" },
+  { num: "5", label: "1:1 done",                color: "#ea7554" },
+  { num: "3", label: "Corporate workshops done", color: "#ea7554" },
   { num: "3", label: "College workshops done",   color: "#ea7554" },
+  { num: "2", label: "Mental Fitness Workshops",   color: "#ea7554" },
 ];
 
 export function MentalFitness() {
@@ -59,7 +60,7 @@ export function MentalFitness() {
             transition={{ duration: 0.7 }}
             style={{ flex: 1 }}
           >
-            <span
+            {/* <span
               style={{
                 display: "inline-block",
                 backgroundColor: "#ea7554",
@@ -74,7 +75,7 @@ export function MentalFitness() {
               }}
             >
               Mental Fitness
-            </span>
+            </span> */}
 
             <h2
               style={{
@@ -131,8 +132,8 @@ export function MentalFitness() {
                     // padding: "0.5rem 1.25rem",
                     // border: '1.5px solid rgba(0,0,0,0.15)',
                     // borderRadius: 'var(--radius-pill)',
-                    fontSize: "1.15rem",
-                    fontWeight: 700,
+                    fontSize: "1rem",
+                    // fontWeight: 700,
                     color: "var(--color-primary)",
                     fontFamily: "var(--font-karla)",
                     textDecoration: "line-through",
