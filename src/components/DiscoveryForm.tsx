@@ -215,8 +215,8 @@ export default function DiscoveryForm({ onClose }: DiscoveryFormProps) {
                     padding: '1.2rem 3rem',
                     borderRadius: 'var(--radius-pill)',
                     cursor: 'pointer',
-                    fontWeight: 700,
-                    fontSize: '1.2rem',
+                    fontWeight: 600,
+                    fontSize: '0.95rem',
                     letterSpacing: '0.5px',
                     boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
                   }}

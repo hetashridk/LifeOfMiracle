@@ -19,7 +19,6 @@
 }
 .primary:hover {
   background-color: #e6b45a;
-  transform: translateY(-3px);
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -31,7 +30,6 @@
 .secondary:hover {
   background-color: #e6b45a;
   color: #fff;
-  transform: translateY(-3px);
   box-shadow: 0 12px 28px rgba(230, 180, 90, 0.38);
 }
 
@@ -41,7 +39,6 @@
 }
 .accent:hover {
   background-color: #e6b45a;
-  transform: translateY(-3px);
   box-shadow: 0 12px 28px rgba(230, 180, 90, 0.4);
 }
 

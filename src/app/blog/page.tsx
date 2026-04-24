@@ -7,34 +7,9 @@ import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { BLOG_POSTS } from '@/lib/blogData';
 
-const MagneticLink = ({ children, href }: { children: React.ReactNode, href: string }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = React.useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const { clientX, clientY } = e;
-    const { left, top, width, height } = ref.current?.getBoundingClientRect() || { left: 0, top: 0, width: 0, height: 0 };
-    const x = (clientX - (left + width / 2)) * 0.35;
-    const y = (clientY - (top + height / 2)) * 0.35;
-    setPosition({ x, y });
-  };
-
-  const handleMouseLeave = () => {
-    setPosition({ x: 0, y: 0 });
-  };
-
-  return (
-    <motion.div
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      animate={{ x: position.x, y: position.y }}
-      transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
-    >
-      <Link href={href}>{children}</Link>
-    </motion.div>
-  );
-};
+const MagneticLink = ({ children, href }: { children: React.ReactNode, href: string }) => (
+  <Link href={href}>{children}</Link>
+);
 
 export default function BlogLanding() {
   const posts = [...BLOG_POSTS].reverse();
